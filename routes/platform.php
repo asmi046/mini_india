@@ -18,6 +18,8 @@ use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
+use App\Orchid\Screens\Brand\BrandScreen;
+
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -28,6 +30,8 @@ use Tabuna\Breadcrumbs\Trail;
 | contains the need "dashboard" middleware group. Now create something great!
 |
 */
+
+Route::screen('/brand',BrandScreen::class)->name('platform.brand');
 
 // Main
 Route::screen('/main', PlatformScreen::class)
