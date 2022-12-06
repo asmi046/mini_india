@@ -18,9 +18,9 @@ class BrandSeeder extends Seeder
     public function run()
     {
 
-        $himalaya = Storage::disk('public')->put("himalaya.jpg", file_get_contents(public_path('img\faker_img\himalaya.jpg')), 'public');
-        $dabur = Storage::disk('public')->put("dabur.jpg", file_get_contents(public_path('img\faker_img\dabur.jpg')), 'public');
-        $maharishi = Storage::disk('public')->put("maharishi.jpg", file_get_contents(public_path('img\faker_img\maharishi.jpg')), 'public');
+        $himalaya = Storage::disk('public')->put("himalaya.jpg", file_get_contents(public_path('img/faker_img/himalaya.jpg')), 'public');
+        $dabur = Storage::disk('public')->put("dabur.jpg", file_get_contents(public_path('img/faker_img/dabur.jpg')), 'public');
+        $maharishi = Storage::disk('public')->put("maharishi.jpg", file_get_contents(public_path('img/faker_img/maharishi.jpg')), 'public');
 
         DB::table("brands")->insert(
             [

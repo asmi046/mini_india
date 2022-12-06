@@ -4,7 +4,7 @@
         "dev": "vite",
         "build": "vite build",
 
-        "clone_rep": "ssh asmi04s9_all@asmi04s9.beget.tech \"git clone https://github.com/asmi046/mini-india mi.asmi-studio.ru/public_html\"",
+        "clone_rep": "ssh asmi04s9_all@asmi04s9.beget.tech \"git clone https://github.com/asmi046/mini_india mi.asmi-studio.ru/public_html\"",
         "composer_remove": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 composer.phar dumpauto\"",
         "composer_install": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 composer.phar install\"",
         "composer_update": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 composer.phar update\"",
@@ -15,7 +15,7 @@
         "migrate_rep": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 artisan migrate\"",
         "rollback_rep": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 artisan migrate:rollback\"",
         "seed_rep": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 artisan DB:seed\"",
-        "seed_rep_one": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 artisan DB:seed CatalogMenuSeeder\"",
+        "seed_rep_one": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 artisan DB:seed BrandSeeder\"",
         "db_update": "npm run rollback_rep && npm run migrate_rep && npm run seed_rep",
         "optimized_rep": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 composer.phar update --optimize-autoloader --no-dev\"",
         "dump_autoload": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 composer.phar dump-autoload\"",
