@@ -1,0 +1,235 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Regular.eot');
+    src: local('Lato Regular'), local('Lato-Regular'),
+        url('fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-Regular.woff') format('woff'),
+        url('fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Semibold.eot');
+    src: local('Lato Semibold'), local('Lato-Semibold'),
+        url('fonts/Lato-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-Semibold.woff') format('woff'),
+        url('fonts/Lato-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Bold.eot');
+    src: local('Lato Bold'), local('Lato-Bold'),
+        url('fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-Bold.woff') format('woff'),
+        url('fonts/Lato-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+  font-family: "Lato";
+  font-weight: normal;
+}
+
+body {
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: "PT Sans Caption";
+  font-size: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: inherit;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  boder: 0;
+}
+
+table td {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  width:100%;
+  height: 90px;
+  border-bottom: 1px solid #2A6B2C;
+
+}
+
+._container {
+    width:1440px;
+    margin: 0 auto;
+}
+
+header ._container {
+    display: flex;
+}
+
+.city_selector {
+    margin-left: 0;
+    display: flex;
+    max-height: 90px;
+}
+
+.logo {
+    width:150px;
+    height: 90px;
+    margin: 5px auto 0 auto;
+    background-color: white;
+    padding:  0 10px 0 10px;
+}
+
+.shop_button {
+    margin-right: 0;
+}
+
+/*-----Элемент выбора города-----*/
+
+.city_select_lnk{
+    font-size: 18px;
+    color:#161615;
+    margin: auto auto auto 0;
+    position: relative;
+}
+
+.city_select_lnk::before{
+    content:"";
+    position: absolute;
+    width: 14px;
+    height: 20px;
+    left:-20px;
+    background-image: url(../img/icons/map-pin.svg);
+    background-size: cover;
+}
+
+/*-----Элемент выбора города end-----*/
+
+.shop_button {
+    display: flex;
+    max-height: 90px;
+}
+
+.shop_button .shop_buttons_:last-child{
+    margin-right: 0;
+}
+
+.shop_buttons_ {
+    margin: auto 10px;
+}
+
+.shop_buttons_::before {
+    content: "";
+    background-size: cover;
+}
+
+.shop_buttons_.shop_button_cabinet {
+    background-image: url("../img/icons/piple.svg");
+    width: 25px;
+    height: 25px;
+}
+
+.shop_buttons_.shop_button_favorites {
+    background-image: url("../img/icons/like.svg");
+    width: 32px;
+    height: 26px;
+}
+
+.shop_buttons_.shop_button_cart {
+    background-image: url("../img/icons/cart.svg");
+    width: 27px;
+    height: 30px;
+}
