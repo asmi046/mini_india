@@ -65,7 +65,7 @@ class ExampleScreen extends Screen
 
             ],
             'metrics' => [
-                'sales'    => ['value' => number_format(6851), 'diff' => 10.08],
+                'brands'    => ['value' => number_format(6851), 'diff' => 10.08],
                 'visitors' => ['value' => number_format(24668), 'diff' => -30.76],
                 'orders'   => ['value' => number_format(10000), 'diff' => 0],
                 'total'    => number_format(65661),
