@@ -31,7 +31,8 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Бренды')
             ->icon("copyright")
             ->route("platform.brand")
-            ->title('Информация о товаре')
+            ->title('Информация о товаре'),
+
             // Menu::make('Example screen')
             //     ->icon('monitor')
             //     ->route('platform.example')

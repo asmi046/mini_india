@@ -8,6 +8,10 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 
+use Orchid\Screen\Fields\Group;
+
+use App\Models\Brand;
+
 class PlatformScreen extends Screen
 {
     /**
@@ -17,7 +21,13 @@ class PlatformScreen extends Screen
      */
     public function query(): iterable
     {
-        return [];
+        return [
+            'metrics' => [
+                'brands'    => ['value' => Brand::all()->count()],
+                'tovars' => ['value' => number_format(24668), 'diff' => -30.76],
+                'categorys'   => ['value' => number_format(10000), 'diff' => 0],
+            ]
+        ];
     }
 
     /**
@@ -27,7 +37,7 @@ class PlatformScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Get Started';
+        return 'Администрирование - Mini-India';
     }
 
     /**
@@ -37,7 +47,7 @@ class PlatformScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Welcome to your Orchid application.';
+        return 'Добро пожаловать в административную панель - Mini-India.';
     }
 
     /**
@@ -48,17 +58,9 @@ class PlatformScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make('Website')
-                ->href('http://orchid.software')
-                ->icon('globe-alt'),
-
-            Link::make('Documentation')
-                ->href('https://orchid.software/en/docs')
-                ->icon('docs'),
-
-            Link::make('GitHub')
-                ->href('https://github.com/orchidsoftware/platform')
-                ->icon('social-github'),
+            Link::make('Перейти на сайт')
+                ->href(route('platform.brand'))
+                ->icon('globe')
         ];
     }
 
@@ -70,7 +72,25 @@ class PlatformScreen extends Screen
     public function layout(): iterable
     {
         return [
-            Layout::view('platform::partials.welcome'),
+            Layout::metrics([
+                'Брендов'    => 'metrics.brands',
+                'Товаров' => 'metrics.tovars',
+                'Категорий' => 'metrics.categorys',
+            ]),
+
+            Layout::columns([
+                Layout::rows([
+                    Link::make('Редактировать бренды')
+                    ->href(route('home'))
+                    ->icon('copyright')
+                ])->title('Редактирование'),
+
+                Layout::rows([
+                    Link::make('Редактировать бренды')
+                    ->href(route('home'))
+                    ->icon('copyright')
+                ])->title('Основные настройки'),
+            ])
         ];
     }
 }

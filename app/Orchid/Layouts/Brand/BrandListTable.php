@@ -5,6 +5,7 @@ namespace App\Orchid\Layouts\Brand;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
 
+use Orchid\Support\Color;
 use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\ModalToggle;
@@ -50,12 +51,12 @@ class BrandListTable extends Table
                     ->modalTitle('Редактировать бренд '.$brand->title)
                     ->asyncParameters([
                         'brand' => $brand->id
-                    ]),
+                    ])->type(Color::PRIMARY())->icon('note'),
 
                     Button::make('Удалить')->method('deleteBrand')->parameters([
                         'id' => $brand->id,
                         'avatar' => $brand->img,
-                    ])
+                    ])->type(Color::DANGER())->icon('trash')
                 ]);
             })
         ];
