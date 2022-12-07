@@ -11,6 +11,10 @@ use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Group;
 
 use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
+
+use Orchid\Screen\Fields\Input;
 
 class PlatformScreen extends Screen
 {
@@ -24,8 +28,8 @@ class PlatformScreen extends Screen
         return [
             'metrics' => [
                 'brands'    => ['value' => Brand::all()->count()],
-                'tovars' => ['value' => number_format(24668), 'diff' => -30.76],
-                'categorys'   => ['value' => number_format(10000), 'diff' => 0],
+                'tovars' => ['value' => Product::all()->count()],
+                'categorys'   => ['value' => Category::all()->count()],
             ]
         ];
     }
@@ -59,7 +63,7 @@ class PlatformScreen extends Screen
     {
         return [
             Link::make('Перейти на сайт')
-                ->href(route('platform.brand'))
+                ->href(route('home'))
                 ->icon('globe')
         ];
     }
@@ -81,14 +85,31 @@ class PlatformScreen extends Screen
             Layout::columns([
                 Layout::rows([
                     Link::make('Редактировать бренды')
-                    ->href(route('home'))
-                    ->icon('copyright')
+                    ->href(route('platform.brand'))
+                    ->icon('copyright'),
+                    Link::make('Редактировать категории')
+                    ->href(route('platform.categories'))
+                    ->icon('book-open')
                 ])->title('Редактирование'),
 
                 Layout::rows([
-                    Link::make('Редактировать бренды')
-                    ->href(route('home'))
-                    ->icon('copyright')
+                    Input::make('phone')
+                    ->title('Телефон')
+                    ->value('8 800 000 00 00')
+                    ->help('Введите телефон для отображения на сайте')
+                    ->horizontal(),
+
+                    Input::make('email')
+                    ->title('E-mail')
+                    ->value('example@mini-india.ru')
+                    ->help('Введите e-mail для отображения на сайте')
+                    ->horizontal(),
+
+                    Input::make('email_send')
+                    ->title('E-mail для отправки')
+                    ->value('example@mini-india.ru')
+                    ->help('Введите e-mail для отправки уведомлений')
+                    ->horizontal(),
                 ])->title('Основные настройки'),
             ])
         ];

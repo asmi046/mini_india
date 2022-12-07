@@ -33,6 +33,19 @@ class PlatformProvider extends OrchidServiceProvider
             ->route("platform.brand")
             ->title('Информация о товаре'),
 
+            Menu::make('Категории')
+            ->icon("book-open")
+            ->route("platform.categories"),
+
+            Menu::make('Товары')
+            ->icon("dropbox")
+            ->route("platform.products"),
+
+            Menu::make('Баннеры на главной')
+            ->icon("picture")
+            ->route("platform.mainbanner")
+            ->title('Оформление сайта'),
+
             // Menu::make('Example screen')
             //     ->icon('monitor')
             //     ->route('platform.example')

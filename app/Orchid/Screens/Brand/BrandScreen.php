@@ -20,6 +20,7 @@ use Orchid\Support\Facades\Toast;
 
 use Orchid\Attachment\Models\Attachment;
 
+use Illuminate\Support\Facades\Storage;
 
 class BrandScreen extends Screen
 {

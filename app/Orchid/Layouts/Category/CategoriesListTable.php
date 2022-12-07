@@ -1,20 +1,17 @@
 <?php
 
-namespace App\Orchid\Layouts\Brand;
+namespace App\Orchid\Layouts\Category;
 
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
-
-use Orchid\Support\Color;
 use Orchid\Screen\Fields\Group;
-use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Support\Color;
+use Orchid\Screen\Actions\Button;
 
-use App\Models\Brand;
+use App\Models\Category;
 
-
-
-class BrandListTable extends Table
+class CategoriesListTable extends Table
 {
     /**
      * Data source.
@@ -24,7 +21,7 @@ class BrandListTable extends Table
      *
      * @var string
      */
-    protected $target = 'brands';
+    protected $target = 'categories';
 
     /**
      * Get the table cells to be displayed.
@@ -43,19 +40,19 @@ class BrandListTable extends Table
             ),
             TD::make('title', 'Название'),
             TD::make('description', 'Описание'),
-            TD::make('action', 'Действие')->render(function(Brand $brand) {
+            TD::make('action', 'Действие')->render(function(Category $category) {
                 return  Group::make([
                     ModalToggle::make('Редактировать')
-                    ->modal('editBrandModal')
-                    ->method('editBrand')
-                    ->modalTitle('Редактировать бренд '.$brand->title)
+                    ->modal('editCategoryModal')
+                    ->method('editCategory')
+                    ->modalTitle('Редактировать категорию '.$category->title)
                     ->asyncParameters([
-                        'brand' => $brand->id
+                        'category' => $category->id
                     ])->type(Color::PRIMARY())->icon('note'),
 
-                    Button::make('Удалить')->method('deleteBrand')->parameters([
-                        'id' => $brand->id,
-                        'img' => $brand->img,
+                    Button::make('Удалить')->method('deleteCategory')->parameters([
+                        'id' => $category->id,
+                        'img' => $category->img,
                     ])->type(Color::DANGER())->icon('trash')
                 ]);
             })

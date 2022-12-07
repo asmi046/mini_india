@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
 use App\Orchid\Screens\Brand\BrandScreen;
+use App\Orchid\Screens\Categories\CategoriesListScreen;
+use App\Orchid\Screens\Product\ProductsScreen;
+use App\Orchid\Screens\SiteVisual\MainBannersScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +34,10 @@ use App\Orchid\Screens\Brand\BrandScreen;
 |
 */
 
-Route::screen('/brand',BrandScreen::class)->name('platform.brand');
+Route::screen('/brand', BrandScreen::class)->name('platform.brand');
+Route::screen('/categories', CategoriesListScreen::class)->name('platform.categories');
+Route::screen('/products', ProductsScreen::class)->name('platform.products');
+Route::screen('/mainbanner', MainBannersScreen::class)->name('platform.mainbanner');
 
 // Main
 Route::screen('/main', PlatformScreen::class)
