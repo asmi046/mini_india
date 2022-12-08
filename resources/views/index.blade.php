@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Mini India - индийские товары от производителя</title>
         <meta name="description" content="Новый сайт">
@@ -37,9 +37,110 @@
             </div>
         </header>
 
-        <section>
+        <section class="hed_menu_section">
             <div class="_container">
+                <a href="#" class="catalog_button"><span>Каталог</span></a>
 
+                <form class="serch_form" action="">
+                    <input type="text" class = "search_input" placeholder="Поиск">
+                    <button type="submit" class="search_btn"></button>
+                </form>
+
+                <div class="phone_head_blk">
+                    <a href="tel:88004563344" class="phone">8 800 456 33 44</a>
+                    <span>Бесплатный звонок по РФ</span>
+                </div>
+
+                <div class="dostavka_head_blk">
+                    <a href="#" class="delivery">Доставка</a>
+                    <a href="#" class="obmen">Обмен возврат</a>
+                </div>
+
+                <div class="messendger_head_blk">
+                    <a href="#" class="whatsapp"></a>
+                    <a href="#" class="telegram"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="main_banner">
+            <div class="slider">
+                <img src="{{asset('img/banner.jpg')}}" alt="">
+
+                <div class="banner_controll">
+                    <div class="banner_c"></div>
+                    <div class="banner_c"></div>
+                    <div class="banner_c"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="top_categories">
+            <div class="_container">
+                <div class="top_category">
+
+                    <div class="cat_img">
+                        <div class="border">
+                            <div class="img_wrap">
+                                <img src="{{asset('img/banner.jpg')}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="text">Здоровье</span>
+                </div>
+
+                <div class="top_category">
+
+                    <div class="cat_img">
+                        <div class="border">
+                            <div class="img_wrap">
+                                <img src="{{asset('img/banner.jpg')}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="text">Ароматерапия</span>
+                </div>
+
+                <div class="top_category">
+
+                    <div class="cat_img">
+                        <div class="border">
+                            <div class="img_wrap">
+                                <img src="{{asset('img/banner.jpg')}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="text">Парфюмерия</span>
+                </div>
+
+                <div class="top_category">
+
+                    <div class="cat_img">
+                        <div class="border">
+                            <div class="img_wrap">
+                                <img src="{{asset('img/banner.jpg')}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="text">Продукты</span>
+                </div>
+
+                <div class="top_category">
+
+                    <div class="cat_img">
+                        <div class="border">
+                            <div class="img_wrap">
+                                <img src="{{asset('img/banner.jpg')}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="text">Красота</span>
+                </div>
             </div>
         </section>
     </body>
