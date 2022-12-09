@@ -139,7 +139,7 @@ h2.main {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 table {
@@ -507,16 +507,22 @@ header ._container {
 .tovars_wrap {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .tovar_wrap{
     border-radius: 9px;
     overflow: hidden;
     max-width: 340px;
+    width:100%;
     display: flex;
     flex-direction: column;
     position:relative;
-    margin: 0 1;
+    margin-bottom: 30px;
+}
+
+.tovar_wrap:hover {
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 
 .tovar_wrap .like{
@@ -544,6 +550,34 @@ header ._container {
     height: 370px;
     position: relative;
 }
+
+.tovat_photo_wrap img{
+    width:100%;
+    z-index: 2;
+    position: absolute;
+}
+
+.tovat_photo_wrap .labels {
+    z-index: 3;
+    bottom: 0;
+    position: absolute;
+}
+
+.label_all {
+    color:white;
+    margin-right: 5px;
+    padding: 4px 13px;
+    display: inline-block;
+}
+
+.label_hit {
+    background-color: #2A7D5A;
+}
+
+.label_procent {
+    background-color: #F18614;
+}
+
 
 .tovar_wrap h3{
     font-size: 18px;
@@ -582,6 +616,7 @@ header ._container {
 .tovar_button_wrap {
     margin-top: auto;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .cart_btn:hover::before {
@@ -606,16 +641,47 @@ header ._container {
     padding: 8px 25px 8px 50px;
 }
 
-.label_hit {
-    color:white;
-    background-color: #2A7D5A;
-    position: absolute;
-    z-index: 1000;
-    padding: 3px 10px;
-    top:347px
-}
+
 
 /*-----Карточька товара end-----*/
+
+
+/*-----Преимущества на главной-----*/
+
+.advantages {
+    width: 100%;
+    display: flex;
+}
+
+.advantages .advantages_blk:first-child{
+    margin-right: 20px;
+    border-radius: 9px 0 0 9px;
+    background-image: url(../img/uzor-mini.svg);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+.advantages .advantages_blk:last-child{
+    margin-left: 20px;
+    border-radius:  0 9px 9px 0;
+    background-image: url(../img/uzor-big.svg);
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.advantages_blk {
+    background-color: #2A7D5A;
+    color:white;
+    padding: 50px;
+}
+
+.advantages_blk h3{
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/*-----Преимущества на главной end-----*/
 
 /*-----Описание окмпонентов формы-----*/
 input {
