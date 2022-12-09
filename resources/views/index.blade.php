@@ -63,84 +63,43 @@
             </div>
         </section>
 
-        <section class="main_banner">
-            <div class="slider">
-                <img src="{{asset('img/banner.jpg')}}" alt="">
+        <x-main-banner></x-main-banner>
+        <x-main-category></x-main-category>
 
-                <div class="banner_controll">
-                    <div class="banner_c"></div>
-                    <div class="banner_c"></div>
-                    <div class="banner_c"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="top_categories">
+        <section class="main_sales">
             <div class="_container">
-                <div class="top_category">
+                <h2 class="main">Распродажа</h2>
 
-                    <div class="cat_img">
-                        <div class="border">
-                            <div class="img_wrap">
-                                <img src="{{asset('img/banner.jpg')}}" alt="">
+                <div class="tovars_wrap">
+
+                    @for ($i = 0; $i < 4; $i++)
+
+
+                        <div class="tovar_wrap">
+                            <div class="like"></div>
+                            <div class="label_hit">hit</div>
+                            <div class="tovat_photo_wrap">
+                                <img src="{{asset('img/tovar1.jpg')}}" alt="">
+
+                            </div>
+
+                            <h3 class="tovar_wrap_padding">Наименование данного товара</h3>
+                            <div class="prices tovar_wrap_padding">
+                                <span class="old_price">2500</span> 1500 <span class="rub_symbol">₽</span>
+                            </div>
+                            <div class="tovar_button_wrap tovar_wrap_padding">
+                                <a href="#" class="btn cart_btn">Купить</a>
                             </div>
                         </div>
-                    </div>
 
-                    <span class="text">Здоровье</span>
+                    @endfor
+
+
                 </div>
 
-                <div class="top_category">
 
-                    <div class="cat_img">
-                        <div class="border">
-                            <div class="img_wrap">
-                                <img src="{{asset('img/banner.jpg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
 
-                    <span class="text">Ароматерапия</span>
-                </div>
 
-                <div class="top_category">
-
-                    <div class="cat_img">
-                        <div class="border">
-                            <div class="img_wrap">
-                                <img src="{{asset('img/banner.jpg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <span class="text">Парфюмерия</span>
-                </div>
-
-                <div class="top_category">
-
-                    <div class="cat_img">
-                        <div class="border">
-                            <div class="img_wrap">
-                                <img src="{{asset('img/banner.jpg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <span class="text">Продукты</span>
-                </div>
-
-                <div class="top_category">
-
-                    <div class="cat_img">
-                        <div class="border">
-                            <div class="img_wrap">
-                                <img src="{{asset('img/banner.jpg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <span class="text">Красота</span>
-                </div>
             </div>
         </section>
     </body>

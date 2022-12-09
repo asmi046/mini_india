@@ -2,33 +2,33 @@
 
 @font-face {
     font-family: 'Lato';
-    src: url('fonts/Lato-Regular.eot');
+    src: url('../../fonts/Lato-Regular.eot');
     src: local('Lato Regular'), local('Lato-Regular'),
-        url('fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Lato-Regular.woff') format('woff'),
-        url('fonts/Lato-Regular.ttf') format('truetype');
+        url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Lato-Regular.woff') format('woff'),
+        url('../fonts/Lato-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('fonts/Lato-Semibold.eot');
+    src: url('../fonts/Lato-Semibold.eot');
     src: local('Lato Semibold'), local('Lato-Semibold'),
-        url('fonts/Lato-Semibold.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Lato-Semibold.woff') format('woff'),
-        url('fonts/Lato-Semibold.ttf') format('truetype');
+        url('../fonts/Lato-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Lato-Semibold.woff') format('woff'),
+        url('../fonts/Lato-Semibold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('fonts/Lato-Bold.eot');
+    src: url('../fonts/Lato-Bold.eot');
     src: local('Lato Bold'), local('Lato-Bold'),
-        url('fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Lato-Bold.woff') format('woff'),
-        url('fonts/Lato-Bold.ttf') format('truetype');
+        url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Lato-Bold.woff') format('woff'),
+        url('../fonts/Lato-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
@@ -134,6 +134,14 @@ h6 {
   font-size: inherit;
 }
 
+h2.main {
+    font-size: 36px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -144,6 +152,24 @@ table td {
   margin: 0;
 }
 
+/*--------------------------------*/
+
+.btn {
+    border: 1px solid #2A7D5A;
+    border-radius: 9px;
+    padding: 10px 25px;
+    color:#2A7D5A;
+    display: inline-flex;
+    transition: background .5s ease!important;
+}
+
+.btn:hover {
+    background-color: #2A7D5A;
+    color: white;
+}
+
+
+
 header {
   width:100%;
   height: 90px;
@@ -151,11 +177,17 @@ header {
 
 }
 
+section {
+    padding: 30px 0;
+}
+
 ._container {
     width: 100%;
     max-width:1440px;
     margin: 0 auto;
 }
+
+
 
 header ._container {
     display: flex;
@@ -383,6 +415,7 @@ header ._container {
 .main_banner {
     width:100%;
     max-height: 515px;
+    padding: 0;
 }
 
 .main_banner .slider{
@@ -421,7 +454,6 @@ header ._container {
 .top_categories ._container{
     display: flex;
     justify-content: center;
-    padding: 30px 0;
 }
 
 
@@ -429,6 +461,10 @@ header ._container {
     display: flex;
     flex-direction: column;
     margin:  0 30px;
+}
+
+.top_category:hover .border{
+    border: 2px solid #2A7D5A;
 }
 
 .top_category span{
@@ -466,6 +502,121 @@ header ._container {
 
 /*-----Блок с категориями на главной end-----*/
 
+/*-----Карточька товара---------*/
+
+.tovars_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tovar_wrap{
+    border-radius: 9px;
+    overflow: hidden;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+    margin: 0 1;
+}
+
+.tovar_wrap .like{
+    position: absolute;
+    width:25px;
+    height:25px;
+    margin: 5px;
+    background-image: url(../img/icons/like_orange.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+
+.tovar_wrap.active,
+.tovar_wrap .like:hover{
+    background-image: url(../img/icons/like_orange_fill.svg);
+}
+
+.tovat_photo_wrap {
+    height: 370px;
+    position: relative;
+}
+
+.tovar_wrap h3{
+    font-size: 18px;
+    padding: 0 10px;
+    margin: 20px 0 10px 0;
+}
+
+.tovar_info_wrap {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.prices .old_price{
+    text-decoration: line-through;
+    font-size: 16px;
+    color:#161615;
+    font-weight: normal;
+}
+
+.prices{
+    color:#2A7D5A;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.rub_symbol {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tovar_wrap .tovar_wrap_padding {
+    padding: 0 20% 0 20px;
+}
+
+.tovar_button_wrap {
+    margin-top: auto;
+    position: relative;
+}
+
+.cart_btn:hover::before {
+    content: "";
+    background-image: url(../img/icons/cart_white.svg);
+}
+
+.cart_btn::before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    background-image: url(../img/icons/cart.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 20px;
+    top:7px;
+}
+
+.cart_btn {
+    position: relative;
+    padding: 8px 25px 8px 50px;
+}
+
+.label_hit {
+    color:white;
+    background-color: #2A7D5A;
+    position: absolute;
+    z-index: 1000;
+    padding: 3px 10px;
+    top:347px
+}
+
+/*-----Карточька товара end-----*/
+
 /*-----Описание окмпонентов формы-----*/
 input {
     border-radius: 9px;
@@ -477,6 +628,7 @@ input {
 ::placeholder {
     color: #BABABA;
     font-size: 16px;
+
 }
 
 /*-----Описание окмпонентов формы end-----*/
