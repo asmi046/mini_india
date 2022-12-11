@@ -14,6 +14,8 @@
         <link rel="icon" type="image/png" href="{{asset('/img/favicons/icon16.png')}}" sizes="16x16">
         <link rel="icon" type="image/png" href="{{asset('/img/favicons/fav.png')}}" sizes="any">
 
+        <link rel="stylesheet" href="{{asset('js/lib/swiper/swiper-bundle.min.css')}}"/>
+
         @vite([ 'resources/css/app.css',
                 'resources/js/app.js',
                 'public/css/main.css'
@@ -46,20 +48,14 @@
                     <button type="submit" class="search_btn"></button>
                 </form>
 
-                <div class="phone_head_blk">
-                    <a href="tel:88004563344" class="phone">8 800 456 33 44</a>
-                    <span>Бесплатный звонок по РФ</span>
-                </div>
+                <x-phone></x-phone>
 
                 <div class="dostavka_head_blk">
                     <a href="#" class="delivery">Доставка</a>
                     <a href="#" class="obmen">Обмен возврат</a>
                 </div>
 
-                <div class="messendger_head_blk">
-                    <a href="#" class="whatsapp"></a>
-                    <a href="#" class="telegram"></a>
-                </div>
+                <x-messanger></x-messanger>
             </div>
         </section>
 
@@ -92,5 +88,28 @@
             </div>
         </section>
 
+        <x-brand-slider></x-brand-slider>
+        <x-big-cat></x-big-cat>
+
+        <footer>
+            <div class="footer_top">
+                <a href="" class="logo">
+                    <img src="{{asset('img/logo.svg')}}" alt="">
+                </a>
+            </div>
+
+            <div class="footer_bottom">
+                <div class="_container">
+                    <x-phone></x-phone>
+                    <x-messanger></x-messanger>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{{asset('js/lib/swiper/swiper-bundle.min.js')}}"></script>
+
+        @vite([
+            'public/js/sliders.js',
+        ])
     </body>
 </html>

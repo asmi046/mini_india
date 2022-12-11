@@ -434,17 +434,19 @@ header ._container {
     justify-content: center;
 }
 
-.banner_controll .banner_c {
+.banner_controll .swiper-pagination-bullet {
     width:12px;
     height: 12px;
     border: 1px solid lightgray;
     border-radius: 10px;
     background-color: white;
     margin: 0 5px;
+    opacity: 1;
 }
 
-.banner_controll .banner_c:hover {
-    background-color: #2A7D5A;
+.swiper-pagination-bullet-active,
+.banner_controll .swiper-pagination-bullet-active:hover {
+    background-color: #2A7D5A!important;
 }
 
 /*-----Блок с баннером end-----*/
@@ -682,6 +684,178 @@ header ._container {
 }
 
 /*-----Преимущества на главной end-----*/
+
+/*-----Слайдер с брендами-----*/
+
+.swiper_obj {
+    position: relative;
+}
+
+.main_brand_slider{
+    width:90%;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.main_brand_slider .swiper-slide {
+    height: 100px;
+}
+
+.main_brand_slider {
+    position: relative;
+}
+
+.swiper_obj .btn_all
+{
+    position: absolute;
+    top:calc(50% - 20px);
+    z-index: 10;
+    cursor: pointer;
+}
+
+
+.swiper_obj .btn_all::before {
+    content:'';
+    width:41px;
+    height:41px;
+    position: absolute;
+}
+
+.swiper_obj .btn_left {
+
+}
+
+.swiper_obj .btn_left::before {
+    content:'';
+    background-image: url(../img/icons/slider_arrw.svg);
+}
+
+.swiper_obj .btn_right {
+    right: -0px;
+    z-index: 10;
+}
+
+.swiper_obj .btn_right::before {
+    content:'';
+    transform: rotate(-180deg);
+    right:0;
+    background-image: url(../img/icons/slider_arrw.svg);
+}
+
+/*-----Слайдер с брендами end-----*/
+
+/*-----Большие категории-----*/
+
+.big_cat_wrap{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.big_cat_wrap .big_cat_element {
+    width:32%;
+    height: 205px;
+    background-color: #2A7D5A;
+    position: relative;
+    color:white;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.big_cat_wrap .big_cat_element h2{
+    font-size: 26px;
+    width: 50%;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.big_cat_wrap .big_cat_element:first-child {
+    border-radius: 9px 0 0 9px;
+}
+
+.big_cat_wrap .big_cat_element:last-child {
+    border-radius: 0 9px 9px 0;
+}
+
+.big_cat_photo {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    right: 0;
+    top:0;
+}
+
+.big_cat_photo .big_cat_masc{
+    position: absolute;
+    height: 100%;
+    width:50%;
+    background-image: url(../img/big_cat_mask.svg);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 100;
+}
+
+.big_cat_photo_1 {
+    background-image: url(../img/big_cat_photo_1.jpg);
+}
+
+.big_cat_photo_2 {
+    background-image: url(../img/big_cat_photo_2.jpg);
+}
+
+.big_cat_photo_3 {
+    background-image: url(../img/big_cat_photo_3.jpg);
+}
+
+/*-----Большие категории end-----*/
+
+
+/*-----Подвал-----*/
+
+footer {
+    width:100%;
+}
+
+footer .footer_top{
+    width:100%;
+    position: relative;
+    border-bottom: 1px solid #2A6B2C;
+    height: 77px;
+}
+
+footer .logo {
+    position: absolute;
+
+    width: 150px;
+    height: 90px;
+    margin: 5px auto 0 auto;
+    background-color: white;
+    padding: 0 10px 0 10px;
+    left: calc(50% - 75px);
+    top:11px;
+}
+
+.footer_bottom {
+    width:100%;
+}
+
+.footer_bottom .phone_head_blk{
+    margin: auto 0;
+}
+
+.footer_bottom ._container{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+}
+
+/*-----Подвал end-----*/
 
 /*-----Описание окмпонентов формы-----*/
 input {
