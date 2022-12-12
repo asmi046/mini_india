@@ -18,7 +18,8 @@
 
         @vite([ 'resources/css/app.css',
                 'resources/js/app.js',
-                'public/css/main.css'
+                'public/css/main.css',
+                'public/css/mobile_bottom_menu.css'
         ])
     </head>
     <body class="site_body">
@@ -92,6 +93,8 @@
 
         <x-brand-slider></x-brand-slider>
         <x-big-cat></x-big-cat>
+
+        <x-mobile-bottom-menu></x-mobile-bottom-menu>
 
         <footer>
             <div class="footer_top">
