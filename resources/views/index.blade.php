@@ -28,7 +28,9 @@
                     <a href="#" class="city_select_lnk">Москва</a>
                 </div>
                 <a href="" class="logo">
-                    <img src="{{asset('img/logo.svg')}}" alt="">
+                    <img class="big_logo" src="{{asset('img/logo.svg')}}" alt="">
+                    <img class="hor_logo" src="{{asset('img/logo_horizont.svg')}}" alt="">
+                    <img class="mini_logo" src="{{asset('img/logo_mini.svg')}}" alt="">
                 </a>
 
                 <div class="shop_button">

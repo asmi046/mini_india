@@ -86,6 +86,7 @@ button,
 textarea {
   font-family: "PT Sans Caption";
   font-size: inherit;
+  outline:none;
 }
 
 input::-ms-clear {
@@ -205,6 +206,12 @@ header ._container {
     margin: 5px auto 0 auto;
     background-color: white;
     padding:  0 10px 0 10px;
+}
+
+.logo .hor_logo,
+.logo .mini_logo
+{
+    display: none;
 }
 
 .shop_button {
@@ -363,6 +370,7 @@ header ._container {
     width: 22px;
     height: 25px;
     background-image: url(../img/icons/box.svg);
+    background-size: cover;
     position: absolute;
     left:-30px;
     top:-2px;
@@ -373,6 +381,7 @@ header ._container {
     width: 25px;
     height: 25px;
     background-image: url(../img/icons/obmen.svg);
+    background-size:cover;
     position: absolute;
     left:-35px;
     top:-2px;
@@ -397,6 +406,7 @@ header ._container {
     height: 18px;
     background-image: url(../img/icons/whatsapp.svg);
     position: absolute;
+
 }
 
 .messendger_head_blk .telegram::before {
@@ -405,6 +415,19 @@ header ._container {
     height: 18px;
     background-image: url(../img/icons/telegram.svg);
     position: absolute;
+}
+
+.messendger_head_blk .phone {
+    display: none;
+}
+
+.messendger_head_blk .phone::before {
+    content: '';
+    width: 19px;
+    height: 19px;
+    background-image: url(../img/icons/phone.svg);
+    position: absolute;
+    background-size: cover;
 }
 
 /*-----Блок с кнопкой каталога end-----*/
@@ -473,6 +496,7 @@ header ._container {
     width:100%;
     text-align: center;
     display: block;
+    color:#161615;
 }
 
 .cat_img {
@@ -516,7 +540,7 @@ header ._container {
     border-radius: 9px;
     overflow: hidden;
     max-width: 340px;
-    width:100%;
+    width:24%;
     display: flex;
     flex-direction: column;
     position:relative;
@@ -880,4 +904,214 @@ input {
         width:96%;
         margin: 0 2%;
     }
+}
+
+
+@media (max-width: 1024px){
+    .dostavka_head_blk{
+        flex-direction: column;
+    }
+
+    .dostavka_head_blk .delivery::before {
+        width: 20px;
+        height: 22px;
+    }
+
+    .dostavka_head_blk .obmen::before {
+        width:22px;
+        height:22px;
+        left: -31px;
+    }
+
+    .advantages_blk {
+        padding: 35px 50px;
+    }
+
+    .hed_menu_section .phone_head_blk {
+        display: none;
+    }
+
+    .messendger_head_blk .phone {
+        display: block;
+    }
+
+    .dostavka_head_blk a {
+        margin: auto 0 auto 40px;
+    }
+
+    .tovar_wrap {
+        width:49%;
+    }
+
+    .advantages {
+        flex-direction: column;
+    }
+
+    .advantages_blk {
+        margin:  5px 0 5px 0!important;
+        border-radius: 9px!important;
+    }
+
+    .big_cat_wrap {
+        flex-wrap: wrap;
+    }
+
+    .big_cat_wrap .big_cat_element {
+        width:49%;
+        border-radius: 9px!important;
+        margin-bottom: 10px;
+    }
+
+    .top_categories ._container {
+        overflow: auto;
+        justify-content: start;
+    }
+
+    .top_categories ._container::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media (max-width: 768px){
+    .dostavka_head_blk {
+        display: none;
+    }
+}
+
+@media (max-width: 680px){
+
+    header {
+        height: auto;
+        padding: 5px 0;
+    }
+
+    .logo {
+        margin: 0 auto 0 auto;
+        height: auto;
+    }
+
+    .logo .hor_logo
+    {
+        display: block;
+        width:100%;
+        object-fit: contain;
+    }
+
+    .logo .big_logo,
+    .logo .mini_logo {
+        display: none;
+    }
+
+    .shop_buttons_ {
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .shop_buttons_.shop_button_cabinet {
+        width: 20px;
+    }
+
+    .shop_buttons_.shop_button_favorites {
+        width: 22px;
+    }
+
+    .shop_buttons_.shop_button_cart {
+        width: 20px;
+    }
+
+
+
+    .serch_form {
+        margin-left: 20px;
+    }
+
+    section {
+        padding: 15px 0;
+    }
+    h2.main {
+        margin-bottom: 30px;
+    }
+
+    .tovat_photo_wrap {
+        height: 270px;
+    }
+
+    .big_cat_wrap {
+        flex-direction: column;
+    }
+
+    .big_cat_wrap .big_cat_element {
+        width:100%;
+        margin-bottom: 20px;
+
+    }
+
+    .footer_bottom ._container {
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .footer_bottom .messendger_head_blk {
+        margin: 0 auto 20px auto;
+    }
+
+    .footer_bottom .phone_head_blk {
+        margin: 50px auto 30px auto;
+    }
+
+}
+
+@media (max-width: 480px){
+    .catalog_button {
+        display: none;
+    }
+
+    .serch_form {
+        margin-left: 0;
+        width:100%
+    }
+
+    .hed_menu_section {
+        padding: 10px 0;
+    }
+
+    .top_category span {
+        font-size: 12px;
+    }
+
+    .top_category {
+        margin: 0 10px;
+    }
+
+    h2.main {
+        font-size: 26px;
+    }
+
+    .tovat_photo_wrap {
+        height: 210px;
+    }
+
+    .hed_menu_section .messendger_head_blk {
+        display: none;
+    }
+}
+
+@media (max-width: 375px){
+    .logo {
+        width: 100px;
+        padding: 0;
+    }
+    /* .logo .mini_logo
+    {
+        display: block;
+        width:100%;
+        object-fit: contain;
+    }
+
+    .logo .big_logo,
+    .logo .hor_logo {
+        display: none;
+    } */
 }
