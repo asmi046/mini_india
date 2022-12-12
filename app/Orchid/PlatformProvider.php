@@ -46,6 +46,8 @@ class PlatformProvider extends OrchidServiceProvider
             ->route("platform.mainbanner")
             ->title('Оформление сайта'),
 
+            // -----------------------------------------
+
             // Menu::make('Example screen')
             //     ->icon('monitor')
             //     ->route('platform.example')

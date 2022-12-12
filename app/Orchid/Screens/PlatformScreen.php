@@ -13,8 +13,18 @@ use Orchid\Screen\Fields\Group;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Option;
+
+use Orchid\Screen\Field;
 
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Actions\Button;
+use Orchid\Support\Facades\Toast;
+
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+
+use Illuminate\Http\Request;
 
 class PlatformScreen extends Screen
 {
@@ -30,6 +40,13 @@ class PlatformScreen extends Screen
                 'brands'    => ['value' => Brand::all()->count()],
                 'tovars' => ['value' => Product::all()->count()],
                 'categorys'   => ['value' => Category::all()->count()],
+            ],
+
+            // 'options' => Option::all()
+            'options' => [
+                'phone' => Option::where('name','phone')->first(),
+                'email' => Option::where('name','email')->first(),
+                'email_send' => Option::where('name','email_send')->first()
             ]
         ];
     }
@@ -93,25 +110,36 @@ class PlatformScreen extends Screen
                 ])->title('Редактирование'),
 
                 Layout::rows([
-                    Input::make('phone')
+                    Input::make('opt.phone')
                     ->title('Телефон')
-                    ->value('8 800 000 00 00')
+                    ->value(Arr::get($this->query(),'options.phone.value'))
                     ->help('Введите телефон для отображения на сайте')
                     ->horizontal(),
 
-                    Input::make('email')
+                    Input::make('opt.email')
                     ->title('E-mail')
-                    ->value('example@mini-india.ru')
+                    ->value(Arr::get($this->query(),'options.email.value'))
                     ->help('Введите e-mail для отображения на сайте')
                     ->horizontal(),
 
-                    Input::make('email_send')
+                    Input::make('opt.email_send')
                     ->title('E-mail для отправки')
-                    ->value('example@mini-india.ru')
+                    ->value(Arr::get($this->query(),'options.email_send.value'))
                     ->help('Введите e-mail для отправки уведомлений')
                     ->horizontal(),
+
+                    Button::make('Сохранить')
+                        ->method('save_options')
+
                 ])->title('Основные настройки'),
             ])
         ];
+    }
+
+    public function save_options(Request $request) {
+        Option::where('name', 'phone')->update(['value' => $request->input('opt.phone')]);
+        Option::where('name', 'email')->update(['value' => $request->input('opt.email')]);
+        Option::where('name', 'email_send')->update(['value' => $request->input('opt.email')]);
+        Toast::info("Основные настройки сохранены");
     }
 }
