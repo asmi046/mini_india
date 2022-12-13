@@ -1011,6 +1011,37 @@ footer .logo {
 
 /*-----Фильтр end-----*/
 
+/*-----Страница товара-----*/
+
+.tovar_page_photo_section ._container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tovar_galery{
+    flex: 1;
+    width:49%;
+    margin-right: 2%;
+    border-radius: 9px;
+    border: 1px solid #BABABA;
+    overflow: hidden;
+}
+
+.tovar_info_side{
+    width:49%;
+}
+
+.tovar_slider .btn_right {
+    right: 10px;
+}
+
+.tovar_slider .btn_left {
+    left: 10px;
+}
+
+/*-----Страница товара end-----*/
+
 /*-----Описание окмпонентов формы-----*/
 select,
 input {
@@ -1058,8 +1089,6 @@ input {
 }
 
 /*-----Описание окмпонентов формы end-----*/
-
-
 
 @media (max-width: 1440px){
     ._container {

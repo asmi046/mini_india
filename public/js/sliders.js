@@ -18,13 +18,22 @@ var swiper = new Swiper(".main_brand_slider", {
         768: {
           slidesPerView: 5,
         }
-
     }
   });
 
-var swiper = new Swiper(".main_banner_slider", {
+var brandSlider = new Swiper(".main_banner_slider", {
+
   pagination: {
     el: ".banner_controll",
     clickable: true,
   },
+});
+
+var tovarSlider = new Swiper(".tovar_slider", {
+    slidesPerView: 1,
+    loop: true,
+    navigation: {
+        nextEl: ".tovar_slider .btn_right",
+        prevEl: ".tovar_slider .btn_left",
+    },
 });
