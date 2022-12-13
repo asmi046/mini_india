@@ -106,6 +106,7 @@ button::-moz-focus-inner {
 a,
 a:visited {
   text-decoration: none;
+  color: #161615;
 }
 
 a:hover {
@@ -135,12 +136,17 @@ h6 {
   font-size: inherit;
 }
 
+.page_h2,
 h2.main {
     font-size: 36px;
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+}
+
+.page_h2 {
+    text-align: left;
 }
 
 table {
@@ -162,6 +168,9 @@ table td {
     color:#2A7D5A;
     display: inline-flex;
     transition: background .5s ease!important;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn:hover {
@@ -169,17 +178,24 @@ table td {
     color: white;
 }
 
+.btn_fill {
+    background-color: #2A7D5A;
+    color: white;
+}
 
+.btn_fill:hover {
+    background-color: white;
+    color: #2A7D5A;
+}
 
 header {
   width:100%;
   height: 90px;
   border-bottom: 1px solid #2A6B2C;
-
 }
 
 section {
-    padding: 30px 0;
+    padding: 15px 0;
 }
 
 ._container {
@@ -187,8 +203,6 @@ section {
     max-width:1440px;
     margin: 0 auto;
 }
-
-
 
 header ._container {
     display: flex;
@@ -881,18 +895,166 @@ footer .logo {
 
 /*-----Подвал end-----*/
 
+/*-----Сайдбар-----*/
+
+.category_body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    width:100%;
+    max-width: 300px;
+    padding-right: 30px;
+}
+
+.category_tovars {
+    flex:1;
+}
+
+.class_tovar_sorter {
+    margin-bottom: 20px;
+}
+
+.class_tovar_sorter select {
+    min-height: 36px;;
+}
+
+.class_tovar_sorter select:first-child {
+    margin-right: 10px;
+}
+
+/*-----Сайдбар end-----*/
+
+/*-----Фильтр-----*/
+
+.tovar_filter {
+    width:100%;
+}
+
+.acc_blk {
+    display: flex;
+    flex-direction: column;
+}
+
+.acc_blk .acc_head{
+    width:100%;
+    cursor:pointer;
+}
+
+.acc_blk .acc_head span{
+    font-size: 22px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.acc_blk .acc_head span::before{
+    content: "";
+    width:13px;
+    height: 6px;
+    position: absolute;
+    background-image: url("../img/icons/arrow_m.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    right:-20px;
+    top:calc(50% - 3px)
+}
+
+.acc_blk .acc_body{
+    width:100%;
+    min-height: 40px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.price_selector_wrapper {
+    width:100%;
+    display: flex;
+}
+
+.price_selector_wrapper label{
+    display: flex;
+    flex-direction: column;
+
+}
+.price_selector_wrapper span{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.price_selector_wrapper label input{
+    width:115px;
+    min-height: 36px;
+    border: 1px solid #D2D1D1;
+}
+
+.price_selector_wrapper label.price_start input{
+    border-radius: 9px 0 0 6px;
+}
+
+.price_selector_wrapper label.price_end input{
+    border-radius: 0 6px 6px 0;
+    border-left: none;
+}
+
+.filter_control_blk {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter_control_blk .btn:first-child{
+    margin-bottom: 10px;
+}
+
+/*-----Фильтр end-----*/
+
 /*-----Описание окмпонентов формы-----*/
+select,
 input {
     border-radius: 9px;
     min-height: 46px;
     padding: 0 20px;
-    border: 1px solid #2A7D5A;;
+    border: 1px solid #2A7D5A;
+    outline: none;
 }
 
 ::placeholder {
     color: #BABABA;
     font-size: 16px;
+}
 
+
+.ch_label {
+    width:100%;
+    margin: 5px 0;
+}
+
+.ch_label input{
+    display: none;
+}
+
+.ch_label span{
+    position: relative;
+    padding-left: 30px;
+}
+
+.ch_label span::before{
+    content:"";
+    width:16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 1px solid #D2D1D1;
+    position: absolute;
+    color:white;
+    left:0;
+}
+
+.ch_label input:checked ~ span::before{
+    content:'\2714';
+    background-color: #2A7D5A;
 }
 
 /*-----Описание окмпонентов формы end-----*/
@@ -1029,9 +1191,11 @@ input {
     section {
         padding: 15px 0;
     }
+
     h2.main {
         margin-bottom: 30px;
     }
+
 
     .tovat_photo_wrap {
         height: 270px;
