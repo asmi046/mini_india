@@ -15,8 +15,8 @@
                 </div>
 
             </div>
-            <div class="btn_all btn_left"></div>
-            <div class="btn_all btn_right"></div>
+            <div id="brand_btn_left" class="btn_all btn_left"></div>
+            <div id="brand_btn_right" class="btn_all btn_right"></div>
         </div>
 
     </div>

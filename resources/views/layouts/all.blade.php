@@ -18,8 +18,12 @@
 
         @vite([ 'resources/css/app.css',
                 'resources/js/app.js',
+
+                'public/css/mobile_bottom_menu.css',
+                'public/css/tovar_page_content.css',
+                'public/css/tovar_card.css',
+                'public/css/tovar_filter.css',
                 'public/css/main.css',
-                'public/css/mobile_bottom_menu.css'
         ])
     </head>
     <body class="site_body">
@@ -42,7 +46,7 @@
             </div>
         </header>
 
-        <section class="hed_menu_section">
+        <section class="hed_menu_section @yield('border')">
             <div class="_container">
                 <a href="#" class="catalog_button"><span>Каталог</span></a>
 

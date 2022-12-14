@@ -6,8 +6,9 @@ var swiper = new Swiper(".main_brand_slider", {
     loopFillGroupWithBlank: true,
 
     navigation: {
-      nextEl: ".btn_right",
-      prevEl: ".btn_left",
+      nextEl: "#brand_btn_right",
+      prevEl: "#brand_btn_left",
+
     },
 
     breakpoints: {
