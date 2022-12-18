@@ -18,12 +18,20 @@ return new class extends Migration
             $table->timestamps();
             $table->string('sku');
             $table->string('title');
+            $table->string('slug');
+            $table->string('img');
             $table->text('description');
             $table->double('price', 10, 2);
             $table->double('old_price', 10, 2);
 
-            $table->string('seo_title');
-            $table->text('seo_description');
+            $table->boolean("hit");
+            $table->boolean("new");
+
+            $table->string('category');
+            $table->string('brand');
+
+            $table->string('seo_title')->default("");
+            $table->text('seo_description')->default("");
         });
     }
 

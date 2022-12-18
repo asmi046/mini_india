@@ -10,6 +10,7 @@ class ProductImage extends Model
     use HasFactory;
 
     public $fillable = [
+        'product_id',
         'link',
         'alt',
         'title'
