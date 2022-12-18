@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string("title");
             $table->string("slug");
             $table->text("description");
+            $table->float('price', 10, 2);
+            $table->float('old_price', 10, 2);
             $table->string("img");
         });
     }
