@@ -18,6 +18,6 @@ use App\Http\Controllers\TovarController;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
-Route::get('/category', [CategoriesController::class, 'index'])->name('category');
+Route::get('/category/{slug}', [CategoriesController::class, 'index'])->name('category');
 Route::get('/tovar', [TovarController::class, 'index'])->name('tovar');
 

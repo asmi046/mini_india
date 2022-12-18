@@ -668,9 +668,6 @@ header ._container {
     position: absolute;
 }
 
-.swiper_obj .btn_left {
-
-}
 
 .swiper_obj .btn_left::before {
     content:'';

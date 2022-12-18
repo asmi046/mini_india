@@ -6,16 +6,16 @@
 @section('content')
 
         <x-main-banner></x-main-banner>
-        <x-main-category></x-main-category>
+        <x-main-category :categories="$categories"></x-main-category>
 
         <section class="main_sales">
             <div class="_container">
                 <h2 class="main">Новинки</h2>
 
                 <div class="tovars_wrap">
-                    @for ($i = 0; $i < 4; $i++)
-                        <x-tovar-card></x-tovar-card>
-                    @endfor
+                    @foreach ($news as $tovar_element)
+                        <x-tovar-card :tovar="$tovar_element"></x-tovar-card>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -24,12 +24,12 @@
 
         <section class="main_new_tovar">
             <div class="_container">
-                <h2 class="main">Новинки</h2>
+                <h2 class="main">Распродажа</h2>
 
                 <div class="tovars_wrap">
-                    @for ($i = 0; $i < 8; $i++)
-                        <x-tovar-card></x-tovar-card>
-                    @endfor
+                    @foreach ($sales as $tovar_element)
+                        <x-tovar-card :tovar="$tovar_element"></x-tovar-card>
+                    @endforeach
                 </div>
             </div>
         </section>
