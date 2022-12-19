@@ -9,6 +9,7 @@ use App\Http\Controllers\TextPagesController;
 use App\Http\Controllers\BascetController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\CabinetController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,12 @@ Route::get('/tovar/{slug}', [TovarController::class, 'index'])->name('tovar');
 
 Route::get('/obmen-vozvrat', [TextPagesController::class, 'obmen'])->name('obmen-vozvrat');
 Route::get('/delivery', [TextPagesController::class, 'delivery'])->name('delivery');
+Route::get('/policy', [TextPagesController::class, 'policy'])->name('policy');
 
 Route::get('/bascet', [BascetController::class, 'index'])->name('bascet');
 
 Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites');
 
 Route::get('/cabinet', [CabinetController::class, 'index'])->name('cabinet');
+Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search_pds');
 

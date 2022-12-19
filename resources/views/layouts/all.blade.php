@@ -24,6 +24,7 @@
                 'public/css/tovar_card.css',
                 'public/css/tovar_filter.css',
                 'public/css/popup.css',
+                'public/css/mainsearch.css',
                 'public/css/main.css',
 
         ])
@@ -53,8 +54,12 @@
                 <a href="#" class="catalog_button"><span>Каталог</span></a>
 
                 <form class="serch_form" action="">
-                    <input type="text" class = "search_input" placeholder="Поиск">
+                    <input type="text" class = "search_input search__input" placeholder="Поиск">
+                    <div class="sub-load"></div>
+                    <div class="sub-sclose"></div>
                     <button type="submit" class="search_btn"></button>
+
+                    <div class="preSearchWrap"><div class="preSearchWrap_panel"></div></div>
                 </form>
 
                 <x-phone></x-phone>
@@ -77,6 +82,7 @@
 
         @vite([
             'public/js/sliders.js',
+            'public/js/mainsearch.js',
         ])
     </body>
 </html>

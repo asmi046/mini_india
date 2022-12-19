@@ -13,4 +13,8 @@ class TextPagesController extends Controller
     public function delivery() {
         return view('delivery');
     }
+
+    public function policy() {
+        return view('policy');
+    }
 }

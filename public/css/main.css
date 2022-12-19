@@ -372,6 +372,8 @@ header ._container {
     border-radius: 9px;
     border: 1px solid #2A7D5A;;
     display: flex;
+    position:relative;
+    width:30%;
 }
 
 .search_input {
