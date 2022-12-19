@@ -41,9 +41,9 @@
                 </a>
 
                 <div class="shop_button">
-                    <a href="#" class="shop_buttons_ shop_button_cabinet"></a>
-                    <a href="#" class="shop_buttons_ shop_button_favorites"></a>
-                    <a href="#" class="shop_buttons_ shop_button_cart"></a>
+                    <a href="{{route('cabinet')}}" class="shop_buttons_ shop_button_cabinet"></a>
+                    <a href="{{route('favorites')}}" class="shop_buttons_ shop_button_favorites"></a>
+                    <a href="{{route('bascet')}}" class="shop_buttons_ shop_button_cart"></a>
                 </div>
             </div>
         </header>
@@ -60,8 +60,8 @@
                 <x-phone></x-phone>
 
                 <div class="dostavka_head_blk">
-                    <a href="#" class="delivery">Доставка</a>
-                    <a href="#" class="obmen">Обмен возврат</a>
+                    <a href="{{route('delivery')}}" class="delivery">Доставка</a>
+                    <a href="{{route('obmen-vozvrat')}}" class="obmen">Обмен возврат</a>
                 </div>
 
                 <x-messanger></x-messanger>
