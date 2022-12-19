@@ -2,13 +2,22 @@
 
 <div class="brand_articl_blk">
     <span class="brand">Бренд: GANGA</span>
-    <span class="sku">Артикул: KOMP0150</span>
+    <span class="sku">Артикул: {{$product['sku']}}</span>
 </div>
 
 <div class="sales_control">
     <div class="labels">
-        <div class="label_all label_hit">hit</div>
-        <div class="label_all label_procent">%</div>
+        @if ($product['hit'])
+            <div class="label_all label_hit">hit</div>
+        @endif
+
+        @if ($product['new'])
+            <div class="label_all label_new">new</div>
+        @endif
+
+        @if (!empty($product['old_price']))
+            <div class="label_all label_procent">%</div>
+        @endif
     </div>
 
     <div class="control">
@@ -18,8 +27,10 @@
 </div>
 
 <div class="price_in_page">
-    <div class="old_price">1500 <span class="rub_symbol">₽</span></div>
-    <div class="price">1200 <span class="rub_symbol">₽</span></div>
+    @if (!empty($product['old_price']))
+        <div class="old_price">{{$product['old_price']}} <span class="rub_symbol">₽</span></div>
+    @endif
+    <div class="price">{{$product['price']}} <span class="rub_symbol">₽</span></div>
 </div>
 
 <div class="btn_in_page_wrap">

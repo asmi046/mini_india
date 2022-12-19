@@ -1,4 +1,4 @@
 <div class="phone_head_blk">
-    <a href="tel:88004563344" class="phone">8 800 456 33 44</a>
+    <a href="tel:{{$options['phone']}}" class="phone">{{$options['phone']}}</a>
     <span>Бесплатный звонок по РФ</span>
 </div>

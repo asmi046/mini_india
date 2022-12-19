@@ -11,6 +11,8 @@
     border: 1px solid #BABABA;
     border-radius: 9px;
     overflow: hidden;
+    padding: 20px;
+    max-height: 676px;
 }
 
 .tovar_galery{

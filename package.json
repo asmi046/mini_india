@@ -3,7 +3,6 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-
         "clone_rep": "ssh asmi04s9_all@asmi04s9.beget.tech \"git clone https://github.com/asmi046/mini_india mi.asmi-studio.ru/public_html\"",
         "composer_remove": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 composer.phar dumpauto\"",
         "composer_install": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 composer.phar install\"",
@@ -33,6 +32,12 @@
         "laravel-vite-plugin": "^0.7.0",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
-        "vite": "^3.0.0"
+        "vite": "^4.0.2"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue": "^4.0.0",
+        "v-slim-mask": "^1.0.24",
+        "vue": "^3.2.45",
+        "vue-axios": "^3.5.2"
     }
 }

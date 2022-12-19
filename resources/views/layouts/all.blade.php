@@ -23,14 +23,16 @@
                 'public/css/tovar_page_content.css',
                 'public/css/tovar_card.css',
                 'public/css/tovar_filter.css',
+                'public/css/popup.css',
                 'public/css/main.css',
+
         ])
     </head>
-    <body class="site_body">
+    <body class="site_body" id="global_app">
         <header class="header">
             <div class="_container">
                 <div class="city_selector">
-                    <a href="#" class="city_select_lnk">Москва</a>
+                    <city-select page-mode="head"></city-select>
                 </div>
                 <a href="" class="logo">
                     <img class="big_logo" src="{{asset('img/logo.svg')}}" alt="">

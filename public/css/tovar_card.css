@@ -15,6 +15,7 @@
     flex-direction: column;
     position:relative;
     margin-bottom: 30px;
+    border: 1px solid #ebebeb;
 }
 
 .tovar_wrap:hover {
@@ -66,6 +67,10 @@
     display: inline-block;
 }
 
+.label_new {
+    background-color: #e13510;
+}
+
 .label_hit {
     background-color: #2A7D5A;
 }
@@ -78,7 +83,7 @@
 .tovar_wrap h3{
     font-size: 18px;
     padding: 0 10px;
-    margin: 20px 0 10px 0;
+    margin: 20px 0 20px 0;
 }
 
 .tovar_info_wrap {
@@ -98,7 +103,8 @@
     color:#2A7D5A;
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-top: auto;
+    margin-bottom: 10px;
 }
 
 .rub_symbol {
@@ -110,7 +116,6 @@
 }
 
 .tovar_button_wrap {
-    margin-top: auto;
     position: relative;
     margin-bottom: 20px;
 }

@@ -7,7 +7,7 @@
 
 <x-breadcrumbs></x-breadcrumbs>
 
-<x-tovar-page-content></x-tovar-page-content>
+<x-tovar-page-content :images="$images" :product="$product"></x-tovar-page-content>
 
 <x-brand-slider></x-brand-slider>
 <x-big-cat></x-big-cat>

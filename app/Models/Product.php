@@ -32,4 +32,8 @@ class Product extends Model
         else
             $this->attributes['slug'] =  $value;
     }
+
+    public function product_images() {
+        return $this->hasMany(ProductImage::class);
+    }
 }

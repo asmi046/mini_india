@@ -1,0 +1,119 @@
+.popup {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    z-index: 500000;
+    width: 100%;
+    height: 100%;
+    padding: 30px 10px;
+    transition: visibility 0.8s ease 0s;
+    visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .popup::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transition: opacity 0.8s ease 0s;
+  }
+
+  .popup.show {
+    visibility: visible;
+    overflow: auto;
+  }
+
+  .popup.show::before {
+    opacity: 1;
+  }
+
+  .popup.show .popup__body {
+    transform: scale(1);
+  }
+
+  .popup.active,
+  .popup._active {
+    overflow: auto;
+    visibility: visible;
+  }
+
+  .popup.active::before,
+  .popup._active::before {
+    opacity: 1;
+  }
+
+  .popup.active .popup__body,
+  .popup._active .popup__body {
+    border-radius: 10px;
+    transform: scale(1);
+    transition: all 0.3s ease 0.2s;
+  }
+
+  .popup__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .popup__body {
+    max-width: 800px;
+    width: 100%;
+    background: #EBEFE2;
+    transform: scale(0);
+    transition: all 0.3s ease 0s;
+    overflow: hidden;
+  }
+
+  .popup__close {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 30;
+    width: 20px;
+    height: 20px;
+    background: url("../img/icons/close.svg") 0 0 no-repeat;
+  }
+
+  .popup__img {
+    flex: 0 1 45%;
+  }
+
+  .popup__form-block {
+    flex: 0 1 65%;
+    padding: 35px;
+  }
+
+  .popup__form-block h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+
+  .popup__notific {
+    margin-bottom: 35px;
+  }
+
+  .popup__form-input {
+    height: 46px;
+    background: #F6F8F1;
+    border: 1px solid #737373;
+    border-radius: 10px;
+    margin-bottom: 25px;
+  }
+
+  .popup__policy {
+    margin-bottom: 25px;
+  }
+
+  .popup__form-btn {
+    font-size: 18px;
+    min-width: 160px;
+  }

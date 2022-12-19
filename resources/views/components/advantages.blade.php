@@ -2,18 +2,18 @@
     <div class="_container">
         <div class="advantages">
             <div class="advantages_blk">
-                <h3>Преимущество нашего магазина #1</h3>
-                <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
+                <h3>{{$options['preim1_title']}}</h3>
+                <p>{{$options['preim1_text']}}</p>
             </div>
 
             <div class="advantages_blk">
-                <h3>Преимущество нашего магазина #2</h3>
-                <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
+                <h3>{{$options['preim2_title']}}</h3>
+                <p>{{$options['preim2_text']}}</p>
             </div>
 
             <div class="advantages_blk">
-                <h3>Преимущество нашего магазина #3</h3>
-                <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
+                <h3>{{$options['preim3_title']}}</h3>
+                <p>{{$options['preim3_text']}}</p>
             </div>
         </div>
     </div>

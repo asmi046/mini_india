@@ -875,6 +875,30 @@ input {
 
 /*-----Описание окмпонентов формы end-----*/
 
+/*-----Скролбар-----*/
+
+::-webkit-scrollbar {
+    overflow-y: scroll;
+    width: 7px;
+    background-color: #f9f9fd;
+  }
+
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+}
+
+.all_city_list::-webkit-scrollbar-thumb,
+.page__sidebar-navigation-menu::-webkit-scrollbar-thumb,
+.page__sidebar-navigation-body-menu-options::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 2.5px;
+  background: #dde5ec;
+}
+
+/*-----Скролбар end-----*/
+
+
+
 @media (max-width: 1440px){
     ._container {
         width:96%;
