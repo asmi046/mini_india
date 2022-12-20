@@ -8,7 +8,7 @@
 
 <section class="category_section">
     <div class="_container">
-        <h2 class="page_h2">Наименование категории</h2>
+        <h2 class="page_h2">{{$category_info['title']}}</h2>
 
         <div class="category_body">
 
@@ -32,9 +32,11 @@
                     </form>
                 </div>
                 <div class="tovars_wrap">
-                    @for ($i = 0; $i < 16; $i++)
-                        <x-tovar-card></x-tovar-card>
-                    @endfor
+                    @foreach ($tovars as $tovar)
+                        <x-tovar-card :tovar="$tovar"></x-tovar-card>
+                    @endforeach
+
+
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
 
 @section('content')
 
-        <x-main-banner></x-main-banner>
+        <x-main-banner :banners="$banners"></x-main-banner>
         <x-main-category :categories="$categories"></x-main-category>
 
         <section class="main_sales">

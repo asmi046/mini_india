@@ -2,13 +2,12 @@
     <div class="slider">
         <div class="swiper main_banner_slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                      <img src="{{asset('img/banner.jpg')}}" alt="">
-                </div>
+                @foreach ($banners as $bn)
+                    <div class="swiper-slide">
+                        <img src="{{asset($bn['img'])}}" alt="{{$bn['title']}}">
+                    </div>
+                @endforeach
 
-                <div class="swiper-slide">
-                      <img src="{{asset('img/banner.jpg')}}" alt="">
-                </div>
             </div>
         </div>
 
