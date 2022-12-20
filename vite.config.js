@@ -15,7 +15,13 @@ export default defineConfig({
                 'public/css/tovar_card.css',
                 'public/css/tovar_filter.css',
                 'public/css/popup.css',
+                'public/css/pagination.css',
+                'public/css/cart.css',
                 'public/css/main.css',
+
+                'public/js/sliders.js',
+                'public/js/mainsearch.js',
+                'public/js/cart.js',
             ],
             refresh: true,
         }),

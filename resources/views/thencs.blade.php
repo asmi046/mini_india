@@ -1,7 +1,7 @@
 @extends('layouts.all')
 
 @php
-    $title = "Корзина"
+    $title = "Страница благодарности"
 @endphp
 
 @section('title', $title)
@@ -9,13 +9,13 @@
 
 @section('content')
 
-<x-breadcrumbs></x-breadcrumbs>
+<x-breadcrumbs :title="$title"></x-breadcrumbs>
 
 <section class="standatr_section">
     <div class="_container">
         <div class="text_blk">
-            <h1>{{$title}}</h1>
-
+            <h1>Благодарим за заказ</h1>
+            <p>Наши специалисты свяжутся с Вами в ближайшее время</p>
         </div>
     </div>
 </section>

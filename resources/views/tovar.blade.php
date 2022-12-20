@@ -5,7 +5,7 @@
 
 @section('content')
 
-<x-breadcrumbs></x-breadcrumbs>
+<x-breadcrumbs :tovar="$product"></x-breadcrumbs>
 
 <x-tovar-page-content :images="$images" :product="$product"></x-tovar-page-content>
 

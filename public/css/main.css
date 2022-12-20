@@ -201,6 +201,12 @@ section {
     padding: 20px 0;
 }
 
+.standatr_section h1{
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
 ._container {
     width: 100%;
     max-width:1440px;
@@ -831,12 +837,17 @@ footer .logo {
 
 /*-----Описание окмпонентов формы-----*/
 select,
+textarea,
 input {
     border-radius: 9px;
     min-height: 46px;
     padding: 0 20px;
     border: 1px solid #2A7D5A;
     outline: none;
+}
+
+textarea {
+    padding: 10px 20px;
 }
 
 ::placeholder {

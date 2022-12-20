@@ -16,8 +16,12 @@
 
         <link rel="stylesheet" href="{{asset('js/lib/swiper/swiper-bundle.min.css')}}"/>
 
+        <meta name="_token" content="{{ csrf_token() }}">
+
         @vite([ 'resources/css/app.css',
                 'resources/js/app.js',
+
+                'public/css/main.css',
 
                 'public/css/mobile_bottom_menu.css',
                 'public/css/tovar_page_content.css',
@@ -25,7 +29,9 @@
                 'public/css/tovar_filter.css',
                 'public/css/popup.css',
                 'public/css/mainsearch.css',
-                'public/css/main.css',
+                'public/css/pagination.css',
+                'public/css/cart.css',
+
 
         ])
     </head>
@@ -35,7 +41,7 @@
                 <div class="city_selector">
                     <city-select page-mode="head"></city-select>
                 </div>
-                <a href="" class="logo">
+                <a href="{{route('home')}}" class="logo">
                     <img class="big_logo" src="{{asset('img/logo.svg')}}" alt="">
                     <img class="hor_logo" src="{{asset('img/logo_horizont.svg')}}" alt="">
                     <img class="mini_logo" src="{{asset('img/logo_mini.svg')}}" alt="">
@@ -44,7 +50,9 @@
                 <div class="shop_button">
                     <a href="{{route('cabinet')}}" class="shop_buttons_ shop_button_cabinet"></a>
                     <a href="{{route('favorites')}}" class="shop_buttons_ shop_button_favorites"></a>
-                    <a href="{{route('bascet')}}" class="shop_buttons_ shop_button_cart"></a>
+                    <a href="{{route('bascet')}}" class="shop_buttons_ shop_button_cart bascet_blk">
+                        <span class="bascet_counter">1</span>
+                    </a>
                 </div>
             </div>
         </header>
@@ -83,6 +91,7 @@
         @vite([
             'public/js/sliders.js',
             'public/js/mainsearch.js',
+            'public/js/cart.js',
         ])
     </body>
 </html>

@@ -44,4 +44,8 @@ class Product extends Model
     public function product_images() {
         return $this->hasMany(ProductImage::class);
     }
+
+    public function tovar_category() {
+        return  $this->hasOne(Category::class, "title", "category");
+    }
 }

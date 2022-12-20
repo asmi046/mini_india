@@ -6,7 +6,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\TovarController;
 use App\Http\Controllers\TextPagesController;
-use App\Http\Controllers\BascetController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\SearchController;
@@ -30,7 +30,14 @@ Route::get('/obmen-vozvrat', [TextPagesController::class, 'obmen'])->name('obmen
 Route::get('/delivery', [TextPagesController::class, 'delivery'])->name('delivery');
 Route::get('/policy', [TextPagesController::class, 'policy'])->name('policy');
 
-Route::get('/bascet', [BascetController::class, 'index'])->name('bascet');
+Route::get('/bascet/thencs', [CartController::class, "thencs"])->name("bascet_thencs");
+Route::get('/bascet', [CartController::class, "index"])->name("bascet");
+Route::post('/bascet/add', [CartController::class, "add"])->name("bascet_add");
+Route::post('/bascet/update', [CartController::class, "update"])->name("bascet_update");
+Route::get('/bascet/get', [CartController::class, "get_all"])->name("bascet_get");
+Route::delete('/bascet/clear', [CartController::class, "clear"])->name("bascet_clear");
+Route::delete('/bascet/delete', [CartController::class, "delete"])->name("bascet_delete");
+Route::post('/bascet/send', [CartController::class, "send"])->name("bascet_send");
 
 Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites');
 
