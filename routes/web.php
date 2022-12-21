@@ -56,6 +56,7 @@ Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search
 Route::middleware('auth')->group(function () {
     Route::get('/cabinet', [AuthController::class, "show_cabinet_main"])->name("cabinet.home");
     Route::get('/logout', [AuthController::class, "logout"])->name("logout");
+    Route::post('/save_user', [AuthController::class, "save_user_data"])->name("save_user_data");
 });
 
 Route::middleware('guest')->group(function () {

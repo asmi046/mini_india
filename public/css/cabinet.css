@@ -1,0 +1,42 @@
+.cabinet_control_panel {
+    width:100%;
+    display: flex;
+    padding:  20px 10px;
+    border-bottom:1px solid #2A7D5A;
+}
+
+.cabinet_control_panel a:hover{
+    color:#2A7D5A;
+    text-decoration: underline;
+}
+
+.cabinet_content_panel {
+    padding: 20px 0;
+}
+
+.cabinet_control_panel a{
+    position:relative;
+    padding-left: 20px;
+}
+
+
+
+.cabinet_control_panel a:before{
+    content: "";
+    position:relative;
+    color:#2A7D5A;
+    position: absolute;
+    left:0;
+}
+
+.cabinet_control_panel a.cabinet_user_datd_btn::before{
+    content: "\270E";
+}
+
+.cabinet_control_panel a.cabinet_exit_btn::before{
+    content: "\2716";
+}
+
+.cabinet_exit_btn {
+    margin-left: auto;
+}
