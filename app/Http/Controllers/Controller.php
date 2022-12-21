@@ -17,14 +17,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $all_options = Option::all();
 
-        $opt = [];
-
-        foreach ($all_options as $otion) {
-            $opt[$otion['name']] = $otion['value'];
-        }
-        View::share('options', $opt);
     }
 
 }

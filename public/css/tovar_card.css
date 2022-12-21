@@ -121,7 +121,7 @@
 }
 
 .tovar_wrap .tovar_wrap_padding {
-    padding: 0 20% 0 20px;
+    padding: 0 20px 0 20px;
 }
 
 .tovar_button_wrap {
@@ -210,4 +210,13 @@
     .tovat_photo_wrap {
         height: 210px;
     }
+
+    .tovar_wrap h3 {
+        font-size: 14px;
+    }
+
+    .tovar_wrap .tovar_wrap_padding {
+        padding: 0 10px 0 10px;
+    }
+
 }

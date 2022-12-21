@@ -31,11 +31,15 @@
                 'public/css/mainsearch.css',
                 'public/css/pagination.css',
                 'public/css/cart.css',
+                'public/css/catalog_menu.css',
 
 
         ])
     </head>
     <body class="site_body" id="global_app">
+
+        <x-catalog-menu></x-catalog-menu>
+
         <header class="header">
             <div class="_container">
                 <div class="city_selector">
@@ -59,7 +63,7 @@
 
         <section class="hed_menu_section @yield('border')">
             <div class="_container">
-                <a href="#" class="catalog_button"><span>Каталог</span></a>
+                <a href="#" class="catalog_button open_cat_menu"><span>Каталог</span></a>
 
                 <form class="serch_form" action="">
                     <input type="text" class = "search_input search__input" placeholder="Поиск">
@@ -72,10 +76,7 @@
 
                 <x-phone></x-phone>
 
-                <div class="dostavka_head_blk">
-                    <a href="{{route('delivery')}}" class="delivery">Доставка</a>
-                    <a href="{{route('obmen-vozvrat')}}" class="obmen">Обмен возврат</a>
-                </div>
+                <x-service-btn></x-service-btn>
 
                 <x-messanger></x-messanger>
             </div>
@@ -93,6 +94,7 @@
             'public/js/mainsearch.js',
             'public/js/cart.js',
             'public/js/favorites.js',
+            'public/js/catalog_menu.js',
         ])
     </body>
 </html>

@@ -1,34 +1,34 @@
-document.addEventListener("DOMContentLoaded", () => { 
-    let showMobCataloMenuBtn = document.querySelector('.show_mob_menu')
-    let mobCatalogMenu = document.querySelector('.mobile_catalog_menu')
+// document.addEventListener("DOMContentLoaded", () => {
+//     let showMobCataloMenuBtn = document.querySelector('.show_mob_menu')
+//     let mobCatalogMenu = document.querySelector('.mobile_catalog_menu')
 
-    let mobCatalogMenuList = document.querySelectorAll('.catalogMenuPunct .catalogMenuPunctTitle')
-    
-    if (mobCatalogMenuList)
-        for (let item of mobCatalogMenuList)
-        item.onclick = (e) =>  {
-            e.preventDefault()
-            let elem = document.querySelector('.catalogMenuPunct[data-subwin="'+item.dataset.subwin+'"]')
-            if (elem)
-                elem.classList.toggle("_active")
-        }
-    
-    if (showMobCataloMenuBtn)
-        showMobCataloMenuBtn.onclick = (e) =>  {
-            e.preventDefault()
-            showMobCataloMenuBtn.classList.toggle("menu_open")
-            
-            let btnElement = showMobCataloMenuBtn.querySelector(".icon");
-            
-            btnElement.classList.remove("icon-ec_icon_abort")
-            btnElement.classList.remove("icon-ec_icon_menu")
+//     let mobCatalogMenuList = document.querySelectorAll('.catalogMenuPunct .catalogMenuPunctTitle')
 
-            if (showMobCataloMenuBtn.classList.contains("menu_open"))
-                btnElement.classList.add("icon-ec_icon_abort")
-            else 
-                btnElement.classList.add("icon-ec_icon_menu")
+//     if (mobCatalogMenuList)
+//         for (let item of mobCatalogMenuList)
+//         item.onclick = (e) =>  {
+//             e.preventDefault()
+//             let elem = document.querySelector('.catalogMenuPunct[data-subwin="'+item.dataset.subwin+'"]')
+//             if (elem)
+//                 elem.classList.toggle("_active")
+//         }
 
-            mobCatalogMenu.classList.toggle("mcm_active")
-        }
-    
-})
+//     if (showMobCataloMenuBtn)
+//         showMobCataloMenuBtn.onclick = (e) =>  {
+//             e.preventDefault()
+//             showMobCataloMenuBtn.classList.toggle("menu_open")
+
+//             let btnElement = showMobCataloMenuBtn.querySelector(".icon");
+
+//             btnElement.classList.remove("icon-ec_icon_abort")
+//             btnElement.classList.remove("icon-ec_icon_menu")
+
+//             if (showMobCataloMenuBtn.classList.contains("menu_open"))
+//                 btnElement.classList.add("icon-ec_icon_abort")
+//             else
+//                 btnElement.classList.add("icon-ec_icon_menu")
+
+//             mobCatalogMenu.classList.toggle("mcm_active")
+//         }
+
+// })

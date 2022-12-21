@@ -8,6 +8,8 @@ use App\Models\Option;
 
 use Illuminate\Support\Facades\View;
 
+use App\Models\Category;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -29,11 +31,14 @@ class AppServiceProvider extends ServiceProvider
     {
         $all_options = Option::all();
 
+        $categoryes = Category::all();
+
         $opt = [];
 
         foreach ($all_options as $otion) {
             $opt[$otion['name']] = $otion['value'];
         }
         View::share('options', $opt);
+        View::share('all_cat', $categoryes);
     }
 }

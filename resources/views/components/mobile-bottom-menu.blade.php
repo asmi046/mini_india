@@ -17,7 +17,7 @@
         <p>Корзина</p>
     </a>
 
-    <a href="#" class="bm_btn show_mob_menu">
+    <a href="#" class="bm_btn open_cat_menu ">
         <div class="icon bottom_menu_icon_catalog"></div>
         <p>Каталог</p>
     </a>
