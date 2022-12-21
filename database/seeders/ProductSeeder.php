@@ -67,7 +67,7 @@ class ProductSeeder extends Seeder
                         'sku' => 'tov_'.$row,
                         'title' => mb_convert_encoding($data[0], "utf-8", "windows-1251"),
                         'slug' => '',
-                        'description' => mb_convert_encoding($data[1], "utf-8", "windows-1251"),
+                        'description' => text_formater(mb_convert_encoding($data[1], "utf-8", "windows-1251")),
                         'price' => str_replace(",",".",doubleval ($data[2])),
                         'old_price' => str_replace(",",".",doubleval ($data[3])),
                         'img' => $ins_url,

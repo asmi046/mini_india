@@ -22,6 +22,13 @@
     margin-right: 6%;
 }
 
+.tovar_slider {
+    height: 636px;
+}
+
+.tovar_slider .swiper-slide img{
+    object-fit: contain;
+}
 
 .tovar_slider .btn_right {
     right: 10px!important;
@@ -202,6 +209,12 @@
 
 /*-----Страница товара end-----*/
 
+@media (max-width: 1024px) {
+    .tovar_slider {
+        height: 420px;
+    }
+}
+
 @media (max-width: 768px) {
 
     .tovar_page_photo_section ._container {
@@ -225,5 +238,21 @@
 
     .tovar_page_photo_section {
         padding-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .tovar_slider {
+        height: 370px;
+    }
+
+    .tovar_galery .swiper_obj {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 375px) {
+    .tovar_slider {
+        height: 270px;
     }
 }

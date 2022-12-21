@@ -52,7 +52,7 @@
 }
 
 .tovat_photo_wrap {
-    height: 370px;
+    height: 335px;
     position: relative;
 }
 
@@ -60,6 +60,7 @@
     width:100%;
     z-index: 2;
     position: absolute;
+    object-fit: scale-down;
 }
 
 .tovat_photo_wrap .labels {

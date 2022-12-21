@@ -9,13 +9,13 @@
 
 @section('content')
 
-<x-breadcrumbs></x-breadcrumbs>
+<x-breadcrumbs :title="$title"></x-breadcrumbs>
 
 <section class="standatr_section">
     <div class="_container">
         <div class="text_blk">
             <h1>{{$title}}</h1>
-
+            {!! $options['delivery'] !!}
         </div>
     </div>
 </section>

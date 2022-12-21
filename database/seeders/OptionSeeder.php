@@ -19,6 +19,21 @@ class OptionSeeder extends Seeder
         DB::table("options")->insert(
             [
                 [
+                    "name" => "obmen",
+                    "value" => file_get_contents(public_path('texts\obmen.txt')),
+                ],
+
+                [
+                    "name" => "delivery",
+                    "value" => file_get_contents(public_path('texts\delivery.txt')),
+                ],
+
+                [
+                    "name" => "policy",
+                    "value" => file_get_contents(public_path('texts\policy.txt')),
+                ],
+
+                [
                     "name" => "phone",
                     "value" => "8 800 100 20 30",
                 ],

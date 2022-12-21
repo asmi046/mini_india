@@ -1,7 +1,7 @@
 <div class="text_blk">
     <h2>Описание</h2>
 
-    {{$product['description']}}
+    {!!$product['description']!!}
 
     {{-- <h2>Состав</h2>
     <p>Куркума молотая.</p>

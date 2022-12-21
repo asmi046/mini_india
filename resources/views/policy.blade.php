@@ -15,7 +15,7 @@
     <div class="_container">
         <div class="text_blk">
             <h1>{{$title}}</h1>
-
+            {!!$options['policy']!!}
         </div>
     </div>
 </section>

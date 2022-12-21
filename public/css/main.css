@@ -257,6 +257,12 @@ header ._container {
     padding: 1em 0;
 }
 
+.text_blk h3 {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 1em 0;
+}
+
 .text_blk ul {
     margin: 0;
 }
@@ -272,7 +278,7 @@ header ._container {
     position: absolute;
     width:6px;
     height: 6px;
-    top:calc(50% - 4px);
+    top:4px;
     background-color: #2A7D5A;
     left: 0;
 }
@@ -318,24 +324,31 @@ header ._container {
 .shop_buttons_::before {
     content: "";
     background-size: cover;
+
 }
 
 .shop_buttons_.shop_button_cabinet {
     background-image: url("../img/icons/piple.svg");
     width: 25px;
     height: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .shop_buttons_.shop_button_favorites {
     background-image: url("../img/icons/like.svg");
     width: 32px;
     height: 26px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .shop_buttons_.shop_button_cart {
     background-image: url("../img/icons/cart.svg");
     width: 27px;
     height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /*-----Блок с кнопкой каталога-----*/
@@ -653,7 +666,7 @@ header ._container {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .main_brand_slider .swiper-slide {
