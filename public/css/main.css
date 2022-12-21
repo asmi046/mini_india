@@ -201,6 +201,10 @@ section {
     padding: 20px 0;
 }
 
+.section_minheight {
+    min-height: 300px;
+}
+
 .standatr_section h1{
     font-size: 48px;
     font-weight: bold;
@@ -911,6 +915,43 @@ textarea {
 /*-----Скролбар end-----*/
 
 
+.empty_favorites:before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    background-image: url(../img/icons/like-orange.svg);
+    background-size: contain;
+    background-repeat:  no-repeat;
+    position: absolute;
+    top:-220px;
+    left:calc( 50% - 100px);
+}
+
+.empty_favorites {
+    width: 300px;
+    margin:  250px auto 0 auto;
+    position: relative;
+    text-align: center;
+    display: none;
+}
+
+
+.section_404 {
+    width:100%;
+    display: flex;
+}
+
+.blk404 {
+    margin: auto;
+    text-align: center;
+}
+
+.blk404 h1 {
+    font-size: 172px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #2A7D5A;
+}
 
 @media (max-width: 1440px){
     ._container {
@@ -1037,8 +1078,6 @@ textarea {
     .shop_buttons_.shop_button_cart {
         width: 20px;
     }
-
-
 
     .serch_form {
         margin-left: 20px;

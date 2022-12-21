@@ -92,6 +92,7 @@
             'public/js/sliders.js',
             'public/js/mainsearch.js',
             'public/js/cart.js',
+            'public/js/favorites.js',
         ])
     </body>
 </html>

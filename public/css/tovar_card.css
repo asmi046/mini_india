@@ -26,6 +26,10 @@
     box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 
+.favorites-page .tovar_wrap:not(.in-favorites) {
+    display: none;
+}
+
 .tovar_wrap .like{
     position: absolute;
     width:25px;
@@ -42,7 +46,7 @@
 }
 
 
-.tovar_wrap.active,
+.tovar_wrap.in-favorites .like,
 .tovar_wrap .like:hover{
     background-image: url(../img/icons/like_orange_fill.svg);
 }

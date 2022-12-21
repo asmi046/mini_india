@@ -1,6 +1,6 @@
 <div class="tovar_wrap main-prod-card" data-prodid="{{$tovar['sku']}}">
     <div class="bascet_count"> В корзине <span>1</span> шт </div>
-    <div class="like"></div>
+    <div class="like to_favorites" data-prodid="{{$tovar['sku']}}"></div>
     <a href="{{route('tovar', $tovar['slug'])}}" class="tovat_photo_wrap">
         @if (!empty($tovar['img']))
             <img src="{{asset($tovar['img'])}}" alt="{{$tovar['title']}}">

@@ -1,16 +1,29 @@
 @extends('layouts.all')
 
-@section('title', "Понравившиеся товары")
+@php
+    $title = "Понравившиеся товары"
+@endphp
+
+@section('title',  $title)
 @section('border', "_bottom_border")
 
 @section('content')
 
-<x-breadcrumbs></x-breadcrumbs>
+<x-breadcrumbs :title=" $title"></x-breadcrumbs>
 
-<section class="standatr_section">
+<section class="standatr_section section_minheight">
     <div class="_container">
         <div class="text_blk">
             <h1>Понравившиеся товары</h1>
+
+            <div class="main-prod-card d-flex favorites-page tovars_wrap ">
+
+                @foreach ($products as $tovar)
+                    <x-tovar-card :tovar="$tovar->tovar_data"></x-tovar-card>
+                @endforeach
+
+                <div class="empty_favorites">Жмите на ♡ на странице товара и добавляйте товар в избранное</div>
+            </div>
 
         </div>
     </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +40,18 @@ Route::delete('/bascet/clear', [CartController::class, "clear"])->name("bascet_c
 Route::delete('/bascet/delete', [CartController::class, "delete"])->name("bascet_delete");
 Route::post('/bascet/send', [CartController::class, "send"])->name("bascet_send");
 
-Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites');
+
+Route::get('/favorites', [FavoriteController::class, "index"])->name("favorites");
+Route::get('/favorites/get', [FavoriteController::class, "get_all"])->name("favorites_get");
+Route::post('/favorites/add', [FavoriteController::class, "add"])->name("favorites_add");
+Route::delete('/favorites/delete', [FavoriteController::class, "delete"])->name("favorites_delete");
+Route::delete('/favorites/clear', [FavoriteController::class, "clear"])->name("favorites_clear");
 
 Route::get('/cabinet', [CabinetController::class, 'index'])->name('cabinet');
 Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search_pds');
+
+Route::fallback(function(){
+    return view('errors.404');
+ });
+
 

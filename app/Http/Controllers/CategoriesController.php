@@ -19,7 +19,7 @@ class CategoriesController extends Controller
         if($categoryInfo == null) abort('404');
 
         $cat_product = Product::where('category', $categoryInfo->title)->filter($request)->paginate(16)->withQueryString();
-// dd($cat_product);
+
         return view('category', ['category_info' => $categoryInfo, 'tovars' => $cat_product]);
     }
 }
