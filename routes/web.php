@@ -11,6 +11,7 @@ use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,8 +51,17 @@ Route::delete('/favorites/clear', [FavoriteController::class, "clear"])->name("f
 Route::get('/cabinet', [CabinetController::class, 'index'])->name('cabinet');
 Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search_pds');
 
-Route::fallback(function(){
-    return view('errors.404');
- });
 
 
+Route::middleware('auth')->group(function () {
+    Route::get('/cabinet', [AuthController::class, "show_cabinet_main"])->name("cabinet.home");
+    Route::get('/logout', [AuthController::class, "logout"])->name("logout");
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, "show_login_form"])->name("login");
+    Route::post('/login_do', [AuthController::class, "login"])->name("login_do");
+    Route::get('/passrec', [AuthController::class, "show_passrec_form"])->name("passrec");
+    Route::post('/register_do', [AuthController::class, "register"])->name("register_do");
+    Route::get('/register', [AuthController::class, "show_register_form"])->name("register");
+});

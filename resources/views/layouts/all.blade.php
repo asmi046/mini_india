@@ -32,6 +32,8 @@
                 'public/css/pagination.css',
                 'public/css/cart.css',
                 'public/css/catalog_menu.css',
+                'public/css/auth.css',
+                'public/css/cabinet.css',
 
 
         ])
@@ -52,9 +54,18 @@
                 </a>
 
                 <div class="shop_button">
-                    <a href="{{route('cabinet')}}" class="shop_buttons_ shop_button_cabinet"></a>
-                    <a href="{{route('favorites')}}" class="shop_buttons_ shop_button_favorites"></a>
-                    <a href="{{route('bascet')}}" class="shop_buttons_ shop_button_cart bascet_blk">
+                    @auth('web')
+                        <a href="{{route('cabinet.home')}}" title="Перейти в личьный кабинет" class="shop_buttons_ shop_button_cabinet autch_stiker"></a>
+                    @endauth
+
+                    @guest
+                        <a href="{{route('login')}}" title="Перейти к авторизации" class="shop_buttons_ shop_button_cabinet"></a>
+                    @endguest
+
+
+
+                    <a href="{{route('favorites')}}" title="Понравившиеся товары" class="shop_buttons_ shop_button_favorites"></a>
+                    <a href="{{route('bascet')}}" title="Корзина" class="shop_buttons_ shop_button_cart bascet_blk">
                         <span class="bascet_counter">1</span>
                     </a>
                 </div>

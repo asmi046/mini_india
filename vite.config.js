@@ -21,6 +21,8 @@ export default defineConfig({
                 'public/css/pagination.css',
                 'public/css/cart.css',
                 'public/css/catalog_menu.css',
+                'public/css/auth.css',
+                'public/css/cabinet.css',
 
                 'public/js/sliders.js',
                 'public/js/mainsearch.js',

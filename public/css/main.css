@@ -93,6 +93,12 @@ input::-ms-clear {
   display: none;
 }
 
+
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #fff !important; /* Цвет фона */
+
+}
+
 button {
   cursor: pointer;
   background-color: inherit;
@@ -333,6 +339,19 @@ header ._container {
     height: 25px;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
+}
+
+
+.autch_stiker:before {
+    content:"\2714";
+    position: absolute;
+    color:#F18614;
+    font-size: 22px;
+    font-weight: bold;
+    right: 0;
+    top:10px;
+
 }
 
 .shop_buttons_.shop_button_favorites {
@@ -989,6 +1008,7 @@ textarea {
     font-weight: bold;
     color: #2A7D5A;
 }
+
 
 @media (max-width: 1440px){
     ._container {
