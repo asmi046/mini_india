@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Cart;
+use App\Models\Order;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BascetSend;
@@ -46,6 +47,18 @@ class CartController extends Controller
     }
 
     public function send(BascetForm $request) {
+        $order = Order::create([
+            'name' => $request->input('fio'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'adress' => $request->input('adress'),
+            'comment' => $request->input('comment'),
+            'session_id' => session()->getId(),
+            'user_id' => ($request->user())?$request->user()->id:0,
+        ]);
+
+        $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
+
         Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru"])->send(new BascetSend($request));
     }
 
