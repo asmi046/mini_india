@@ -76,12 +76,17 @@
                     <li v-for="item in errorList" :key="item">{{item}}</li>
                 </ul>
 
-                <button @click.prevent="sendBascet()" class="btn" type="submit"><span v-show="!loadet" class="nadp">Отправить</span><span v-show="loadet" class="btnLoader shoved"></span></button>
+                <button @click.prevent="sendBascet()" class="btn" type="submit">Отправить</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
                 <p class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
             </form>
         </div>
     </div>
-    <h3 v-show="show_bascet && bascetList.length == 0" >Ваша корзина пуста</h3>
+    <div class="empty_bascet" v-show="show_bascet && bascetList.length == 0">
+        <img src="../../../../public/img/icons/cart.svg" alt="">
+        <h3>Ваша корзина пуста</h3>
+        <p>Жмите на значек корзиныи добавляйте товар!</p>
+    </div>
+
 </template>
 
 <script>

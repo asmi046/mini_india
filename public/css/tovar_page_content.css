@@ -102,9 +102,20 @@
     background-image: url("../img/icons/like.svg");
 }
 
+.sales_control .control .favorites.active:before,
+.sales_control .control .favorites:hover:before {
+    content: "";
+    background-image: url("../img/icons/like_orange_fill.svg");
+}
+
 .sales_control .control .share:before {
     content: "";
     background-image: url("../img/icons/share.svg");
+}
+
+.sales_control .control .share:hover:before {
+    content: "";
+    background-image: url("../img/icons/share-orange.svg");
 }
 
 .price_in_page {

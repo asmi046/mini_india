@@ -1,7 +1,7 @@
-<h1>Специи "Куркума молотая", вес 70 г.</h1>
+<h1>{{$product['title']}}</h1>
 
 <div class="brand_articl_blk">
-    <span class="brand">Бренд: GANGA</span>
+    <span class="brand">Бренд: {{$product['brand']}}</span>
     <span class="sku">Артикул: {{$product['sku']}}</span>
 </div>
 
@@ -21,8 +21,8 @@
     </div>
 
     <div class="control">
-        <a href="#" class="all_control favorites"></a>
-        <a href="#" class="all_control share"></a>
+        <a href="#" class="all_control favorites to_favorites" data-prodid="{{$product['sku']}}"></a>
+        <a href="#" onclick="navigator.share({'title': document.title, 'url':document.location.href}); return false;" class="all_control share"></a>
     </div>
 </div>
 
@@ -34,14 +34,17 @@
 </div>
 
 <div class="btn_in_page_wrap">
-    <a href="#" class="btn btn_fill">Купить</a>
+    <a href="#" class="btn btn_fill card_to_bascet_btn to_bascet" data-prodid="{{$product['sku']}}">
+        <span class="nadp">Купить</span>
+        <span class="btnLoader"></span>
+    </a>
 </div>
 
 <div class="tovar_properties_wrap">
     <div class="properti">
         <span class="p_name">Бренд:</span>
         <span class="zap"></span>
-        <span class="p_value">GANGA</span>
+        <span class="p_value">{{$product['brand']}}</span>
     </div>
 
     <div class="properti">

@@ -19,9 +19,12 @@
             <option {{ value_check('order')=='В алфавитном порядке'?"selected":""}}>В алфавитном порядке</option>
         </select>
         <select onchange="chenge_order(this, 'brand')" name="brand" id="">
-            <option {{ value_check('brand')=='Бренд 1'?"selected":""}}>Бренд 1</option>
-            <option {{ value_check('brand')=='Бренд 2'?"selected":""}}>Бренд 2</option>
-            <option {{ value_check('brand')=='Бренд 3'?"selected":""}}>Бренд 3</option>
+            <option {{ empty(value_check('brand'))?"selected":""}} value="%">Все бренды</option>
+            @foreach ($brands as $item)
+                <option {{ value_check('brand')==$item['title']?"selected":""}} value="{{$item['title']}}">{{$item['title']}}</option>
+            @endforeach
+
+
         </select>
     </form>
 </div>

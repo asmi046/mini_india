@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BannerSeeder::class,
             OptionSeeder::class,
-            BrandSeeder::class,
             ProductSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();

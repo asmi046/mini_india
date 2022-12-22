@@ -38,8 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let elem of catalog_btn)
     elem.addEventListener("click", function (e) {
         e.preventDefault()
-        wrapper.style.display = "flex"
-        wrapper_zt.style.display = "flex"
+        if ( wrapper.style.display == "flex" ) {
+            wrapper.style.display = "none"
+            wrapper_zt.style.display = "none"
+        } else {
+            wrapper.style.display = "flex"
+            wrapper_zt.style.display = "flex"
+        }
     })
 
     wrapper_zt.addEventListener("click", function (e) {

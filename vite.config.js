@@ -29,6 +29,7 @@ export default defineConfig({
                 'public/js/cart.js',
                 'public/js/favorites.js',
                 'public/js/catalog_menu.js',
+                'public/js/filter.js',
             ],
             refresh: true,
         }),

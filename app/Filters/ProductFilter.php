@@ -21,6 +21,10 @@ class ProductFilter extends QueryFilter {
             if ($order == "В алфавитном порядке") $this->builder->orderBy('title', 'asc');
     }
 
+    public function brand($brand) {
+            if ($brand != "%") $this->builder->where("brand", $brand);
+    }
+
     public function osobennosti($osobennosti) {
 
         foreach ($osobennosti as $osb)

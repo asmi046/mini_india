@@ -59,8 +59,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let main_card = document.querySelector(".main-prod-card[data-prodid='"+product_id+"']");
 
-            main_card.querySelector(".card_to_bascet_btn .nadp").style.display = "none"
-            main_card.querySelector(".card_to_bascet_btn .btnLoader").style.display = "block"
+            let thisBtn = this;
+            if (main_card == null)
+             {
+                thisBtn.querySelector(".card_to_bascet_btn .nadp").style.display = "none"
+                thisBtn.querySelector(".card_to_bascet_btn .btnLoader").style.display = "block"
+             } else {
+                main_card.querySelector(".card_to_bascet_btn .nadp").style.display = "none"
+                main_card.querySelector(".card_to_bascet_btn .btnLoader").style.display = "block"
+             }
+
+
 
             var xhr = new XMLHttpRequest()
 
@@ -83,9 +92,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         update_counter(parseInt(count_in_bascet)+1)
 
-                        main_card.classList.add("in-bascet")
-                        main_card.querySelector(".card_to_bascet_btn").style.display = "none"
-                        main_card.querySelector(".card_bascet_btn").style.display = "inline-block"
+                        if (main_card == null) {
+                            thisBtn.querySelector(".card_to_bascet_btn .nadp").style.display = "block"
+                            thisBtn.querySelector(".card_to_bascet_btn .btnLoader").style.display = "none"
+                        } else {
+                            main_card.classList.add("in-bascet")
+                            main_card.querySelector(".card_to_bascet_btn").style.display = "none"
+                            main_card.querySelector(".card_bascet_btn").style.display = "inline-block"
+                        }
                     }
 
                 };

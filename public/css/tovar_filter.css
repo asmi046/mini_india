@@ -19,6 +19,7 @@
     font-weight: bold;
     position: relative;
     display: inline-block;
+    margin: 10px 0;
 }
 
 .acc_blk .acc_head span::before{
@@ -37,9 +38,18 @@
 .acc_blk .acc_body{
     width:100%;
     min-height: 40px;
-    padding: 20px 0;
-    display: flex;
+    padding: 10px 0;
+    display: none;
     flex-direction: column;
+}
+
+.acc_blk.open .acc_body {
+    display: flex;
+}
+
+.acc_blk.open .acc_head span::before{
+    content: "";
+    transform: rotate(180deg);
 }
 
 .price_selector_wrapper {
@@ -107,6 +117,10 @@
     padding: 10px ;
 }
 
+.filter_mobile_panel.open {
+    background-color: #F18614;
+}
+
 /*-----Фильтр end-----*/
 
 @media (max-width: 768px) {
@@ -117,5 +131,9 @@
 
     .tovar_filter {
         display: none;
+    }
+
+    .tovar_filter.open {
+        display: block;
     }
 }

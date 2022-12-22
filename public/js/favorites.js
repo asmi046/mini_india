@@ -28,22 +28,30 @@ function favorites_to_page() {
                         {
                             card.classList.add("in-favorites")
                         }
+
+                        let noCard = document.querySelector('.favorites[data-prodid="'+element.product_sku+'"]');
+                        if (noCard != undefined)
+                        {
+                            noCard.classList.add("active")
+                        }
                     }
 
-
+                    empty_fav_page();
             })
             .catch(error => console.log(error));
 }
 
 function empty_fav_page() {
     let count_fav = document.querySelectorAll(".favorites-page .tovar_wrap.in-favorites").length
-    if (count_fav ==  0) document.querySelector(".empty_favorites").style.display = "inline-block"
+    console.log(count_fav)
+    let es = document.querySelector(".empty_favorites")
+    if (count_fav ==  0 && es != null) es.style.display = "inline-block"
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 
     favorites_to_page();
-    empty_fav_page();
+
 
     let add_buttons = document.querySelectorAll(".to_favorites")
 

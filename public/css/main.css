@@ -480,13 +480,13 @@ header ._container {
 
 .dostavka_head_blk .delivery::before {
     content: '';
-    width: 22px;
-    height: 25px;
+    width: 23px;
+    height: 27px;
     background-image: url(../img/icons/box.svg);
     background-size: cover;
     position: absolute;
-    left:-30px;
-    top:-2px;
+    left:-32px;
+    top:-4px;
 }
 
 .dostavka_head_blk .obmen::before {
@@ -602,11 +602,18 @@ header ._container {
     flex-direction: row;
     line-height: 88px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
+}
 
+.catalog_menu .top_category .text{
+    max-width:200px;
+    font-size: 18px;
+    width: auto;
+    padding: 0 30px;
 }
 
 .catalog_menu .top_category .cat_img{
-    margin: 0 auto 0 auto;
+    margin: unset;
 }
 
 .top_category {
@@ -703,6 +710,10 @@ header ._container {
 
 .main_brand_slider{
     width:90%;
+}
+
+.main_brand_slider .swiper-slide img {
+    width:85%
 }
 
 .swiper-slide img {

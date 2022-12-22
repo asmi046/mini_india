@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
@@ -28,16 +29,30 @@ class ProductSeeder extends Seeder
         return "";
     }
 
+    public function grt_brand_img_name($val) {
+        if ($val === "bastofindia") return Storage::url("bastofindia.jpg");
+        if ($val === "dabur") return Storage::url("dabur.jpg");
+        if ($val === "himalaya") return Storage::url("himalaya.jpg");
+        if ($val === "maharishi") return Storage::url("maharishi.jpg");
+        return "";
+    }
+
     public function run()
     {
         Storage::disk('public')->put("zdorovie.jpg", file_get_contents(public_path('img\faker_img\zdorovie.jpg')), 'public');
         Storage::disk('public')->put("gigiena.jpg", file_get_contents(public_path('img\faker_img\gigiena.jpg')), 'public');
         Storage::disk('public')->put("krasota.jpg", file_get_contents(public_path('img\faker_img\krasota.jpg')), 'public');
 
+        Storage::disk('public')->put("bastofindia.jpg", file_get_contents(public_path('img/faker_img/bastofindia.jpg')), 'public');
+        Storage::disk('public')->put("dabur.jpg", file_get_contents(public_path('img/faker_img/dabur.jpg')), 'public');
+        Storage::disk('public')->put("himalaya.jpg", file_get_contents(public_path('img/faker_img/himalaya.jpg')), 'public');
+        Storage::disk('public')->put("maharishi.jpg", file_get_contents(public_path('img/faker_img/maharishi.jpg')), 'public');
+
         $files = base_path() . '/public/tovars/tovars_v1.csv';
         $row = 0;
 
         $categories = [];
+        $brands = [];
 
         if (($handle = fopen($files, "r")) !== FALSE) {
             echo  $files."\n\r";
@@ -74,7 +89,7 @@ class ProductSeeder extends Seeder
                         'hit' => rand(0,1)?true:false,
                         'new' => rand(0,1)?true:false,
                         'category' => mb_convert_encoding($data[7], "utf-8", "windows-1251"),
-                        'brand' => ""
+                        'brand' => mb_convert_encoding($data[8], "utf-8", "windows-1251"),
                     ];
 
 
@@ -88,6 +103,14 @@ class ProductSeeder extends Seeder
                         'description' => "Описание категории: ".$one_row['category'],
                         'img' => $this->grt_cat_img_name($one_row['category'])
                     ];
+
+                    $brands[$one_row['brand']] = [
+                        'title' => $one_row['brand'],
+                        'slug' => "",
+                        'description' => "Описание категории: ".$one_row['brand'],
+                        'img' => $this->grt_brand_img_name($one_row['brand'])
+                    ];
+
 
                     if (!empty($data[5])) {
                         $fcontent = @file_get_contents($data[5]);
@@ -138,9 +161,14 @@ class ProductSeeder extends Seeder
 
         foreach($categories as $element)
         {
-            // var_dump($element);
             $cat_id = Category::create($element);
             echo $cat_id->id."\n\r";
+        }
+
+        foreach($brands as $element)
+        {
+            $brand_id = Brand::create($element);
+            echo $brand_id->id."\n\r";
         }
 
         // unlink($dir."/".$files);

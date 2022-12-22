@@ -122,3 +122,17 @@
     margin-right: 10px;
     font-weight: bold;
 }
+
+@media (max-width: 768px) {
+    .close_catalog {
+        display: none;
+    }
+
+    .catalog_menu_wrapper {
+        width:100%;
+    }
+
+    .catalog_menu {
+        width:100%;
+    }
+}

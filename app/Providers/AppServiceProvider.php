@@ -4,11 +4,13 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-use App\Models\Option;
+
 
 use Illuminate\Support\Facades\View;
 
+use App\Models\Option;
 use App\Models\Category;
+use App\Models\Brand;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $all_options = Option::all();
-
+        $brands = Brand::all();
         $categoryes = Category::all();
 
         $opt = [];
@@ -40,5 +42,6 @@ class AppServiceProvider extends ServiceProvider
         }
         View::share('options', $opt);
         View::share('all_cat', $categoryes);
+        View::share('brands', $brands);
     }
 }

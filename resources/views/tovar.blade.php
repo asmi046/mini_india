@@ -1,6 +1,6 @@
 @extends('layouts.all')
 
-@section('title', "Страница товара")
+@section('title', $product['title'])
 @section('border', "_bottom_border")
 
 @section('content')

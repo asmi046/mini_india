@@ -5,9 +5,9 @@
     </div>
 
     <form action="{{url()->current()}}" method="GET" class="tovar_filter accordion">
-        <input type="hidden" name="order" value="Сначала дешевые">
-        <input type="hidden" name="brand" value="">
-        <div class="acc_blk">
+        <input type="hidden" name="order" value="{{ value_check('order','',"Сначала дешевые") }}">
+        <input type="hidden" name="brand" value="{{ value_check('brand','','%') }}">
+        <div class="acc_blk open">
             <div class="acc_head">
                 <span>Стоимость</span>
             </div>
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="acc_blk">
+        <div class="acc_blk open">
             <div class="acc_head">
                 <span>Особенности</span>
             </div>
