@@ -48,13 +48,14 @@ Route::post('/favorites/add', [FavoriteController::class, "add"])->name("favorit
 Route::delete('/favorites/delete', [FavoriteController::class, "delete"])->name("favorites_delete");
 Route::delete('/favorites/clear', [FavoriteController::class, "clear"])->name("favorites_clear");
 
-Route::get('/cabinet', [CabinetController::class, 'index'])->name('cabinet');
 Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search_pds');
 
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/cabinet', [AuthController::class, "show_cabinet_main"])->name("cabinet.home");
+    Route::get('/cabinet', [CabinetController::class, "show_cabinet_main"])->name("cabinet.home");
+    Route::get('/cabinet/orders', [CabinetController::class, "show_cabinet_orders"])->name("cabinet.orders");
+
     Route::get('/logout', [AuthController::class, "logout"])->name("logout");
     Route::post('/save_user', [AuthController::class, "save_user_data"])->name("save_user_data");
 });

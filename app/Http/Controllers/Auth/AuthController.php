@@ -9,10 +9,6 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function show_cabinet_main() {
-        return view('cabinet.cabinet');
-    }
-
     public function show_login_form() {
         return view('auth.login');
     }
@@ -42,6 +38,23 @@ class AuthController extends Controller
         }
 
         return redirect(route('login'))->withErrors(['email'=>'Неверный логин или пароль']);
+    }
+
+
+
+    public function save_user_data(Request $request) {
+        $user_data = $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'email', 'string', 'exists:users,email'],
+        ]);
+
+        $user = User::where('id', auth()->user()->id)->first()->update([
+            'name' => $user_data['name'],
+            'email' => $user_data['email'],
+        ]);
+
+
+        return redirect(route('cabinet.home'));
     }
 
     public function register(Request $request) {

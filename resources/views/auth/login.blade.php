@@ -13,26 +13,25 @@
 
 <section class="standatr_section">
     <div class="_container">
-        <div class="text_blk">
-            <h1>{{$title}}</h1>
 
-            <form class="autch_form" action="{{route('login_do')}}" method="post">
-                @csrf
+        <h1>{{$title}}</h1>
 
-                <input type="text" required name="email" palceholder="Логин">
-                @error('email')
-                    <p class="form_error">{{$message}}</p>
-                @enderror
+        <form class="autch_form" action="{{route('login_do')}}" method="post">
+            @csrf
 
-                <input type="password" required name="password" palceholder="Пароль">
-                @error('password')
-                    <p class="form_error">{{$message}}</p>
-                @enderror
-                <button type="submit" class="btn">Авторизоваться</button>
-                <a href="{{route('register')}}">Регистрация</a>
-                <a href="{{route('register')}}">Забыли пароль?</a>
-            </form>
-        </div>
+            <input type="text" required name="email" palceholder="Логин">
+            @error('email')
+                <p class="form_error">{{$message}}</p>
+            @enderror
+
+            <input type="password" required name="password" palceholder="Пароль">
+            @error('password')
+                <p class="form_error">{{$message}}</p>
+            @enderror
+            <button type="submit" class="btn">Авторизоваться</button>
+            <a href="{{route('register')}}">Регистрация</a>
+            <a href="{{route('register')}}">Забыли пароль?</a>
+        </form>
     </div>
 </section>
 
