@@ -30,8 +30,8 @@ return new class extends Migration
             $table->string('category');
             $table->string('brand');
 
-            $table->string('seo_title')->default("")->nullable();
-            $table->text('seo_description')->default("")->nullable();
+            $table->string('seo_title')->nullable();
+            $table->text('seo_description')->nullable();
         });
     }
 
