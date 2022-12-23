@@ -19,8 +19,8 @@
         <meta name="_token" content="{{ csrf_token() }}">
 
         @vite([
-                // 'resources/css/app.css',
-                // 'resources/js/app.js',
+                'resources/css/app.css',
+                'resources/js/app.js',
 
                 'public/css/main.css',
 
