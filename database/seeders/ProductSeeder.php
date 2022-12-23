@@ -39,9 +39,10 @@ class ProductSeeder extends Seeder
 
     public function run()
     {
-        Storage::disk('public')->put("zdorovie.jpg", file_get_contents(public_path('img\faker_img\zdorovie.jpg')), 'public');
-        Storage::disk('public')->put("gigiena.jpg", file_get_contents(public_path('img\faker_img\gigiena.jpg')), 'public');
-        Storage::disk('public')->put("krasota.jpg", file_get_contents(public_path('img\faker_img\krasota.jpg')), 'public');
+
+        Storage::disk('public')->put("zdorovie.jpg", file_get_contents(public_path('img/faker_img/zdorovie.jpg')), 'public');
+        Storage::disk('public')->put("gigiena.jpg", file_get_contents(public_path('img/faker_img/gigiena.jpg')), 'public');
+        Storage::disk('public')->put("krasota.jpg", file_get_contents(public_path('img/faker_img/krasota.jpg')), 'public');
 
         Storage::disk('public')->put("bastofindia.jpg", file_get_contents(public_path('img/faker_img/bastofindia.jpg')), 'public');
         Storage::disk('public')->put("dabur.jpg", file_get_contents(public_path('img/faker_img/dabur.jpg')), 'public');
