@@ -16,7 +16,7 @@
                     <div class="tl-side left-side">
                         <div class="tovar_all_blk picture_blk">
                             <img v-if="item.tovar_data.img != ''" :src="item.tovar_data.img" alt="">
-                            <img v-else else src="img/noPhoto.jpg" alt="">
+                            <img v-else else src="" alt="">
 
                         </div>
                         <div class="tovar_all_blk name_blk">

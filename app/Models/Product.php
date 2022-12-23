@@ -26,6 +26,8 @@ class Product extends Model
         'description',
         'price',
         'old_price',
+        'hit',
+        'new',
         'category',
         'brand',
         'seo_title',

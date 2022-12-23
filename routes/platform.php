@@ -35,11 +35,30 @@ use App\Orchid\Screens\SiteVisual\MainBannersScreen;
 |
 */
 
-Route::screen('/brand', BrandScreen::class)->name('platform.brand');
-Route::screen('/categories', CategoriesListScreen::class)->name('platform.categories');
-Route::screen('/products', ProductsScreen::class)->name('platform.products');
-Route::screen('/products/{id}/edit', EditProductScreen::class)->name('platform.products.edit');
-Route::screen('/mainbanner', MainBannersScreen::class)->name('platform.mainbanner');
+Route::screen('/brand', BrandScreen::class)->name('platform.brand')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Бренды')));
+
+Route::screen('/categories', CategoriesListScreen::class)->name('platform.categories')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Категории')));
+
+Route::screen('/products', ProductsScreen::class)->name('platform.products')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Продукты'), route('platform.products')));
+
+Route::screen('/products/{id}/edit', EditProductScreen::class)->name('platform.products.edit')
+    ->breadcrumbs(fn (Trail $trail, $id) => $trail
+        ->parent('platform.products')
+        ->push(__('Редактирование продукта'), route('platform.products.edit', $id)));
+
+Route::screen('/mainbanner', MainBannersScreen::class)->name('platform.mainbanner')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Баннеры')));
 
 // Main
 Route::screen('/main', PlatformScreen::class)

@@ -19,19 +19,19 @@ return new class extends Migration
             $table->string('sku');
             $table->string('title');
             $table->string('slug');
-            $table->string('img');
-            $table->text('description');
+            $table->string('img')->nullable();
+            $table->text('description')->nullable();
             $table->double('price', 10, 2);
             $table->double('old_price', 10, 2);
 
-            $table->boolean("hit");
-            $table->boolean("new");
+            $table->boolean("hit")->nullable();
+            $table->boolean("new")->nullable();
 
             $table->string('category');
             $table->string('brand');
 
-            $table->string('seo_title')->default("");
-            $table->text('seo_description')->default("");
+            $table->string('seo_title')->default("")->nullable();
+            $table->text('seo_description')->default("")->nullable();
         });
     }
 

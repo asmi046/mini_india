@@ -35,7 +35,7 @@ class ProductListTable extends Table
                     return "<img width='50' height='50' src='".($element->img?$element->img:asset("img/noPhoto.jpg"))."'>";
                 }
             ),
-            TD::make('title', 'Название'),
+            TD::make('title', 'Название')->width('50%'),
             TD::make('price', 'Цена')->render(
                 function($element) {
                     return $element->price." ₽";
