@@ -26,7 +26,7 @@
                 'public/js/mainsearch.js',
                 'public/js/cart.js',
                 'public/js/favorites.js',
-                'public/js/catalog_menu.js',
+                // 'public/js/catalog_menu.js',
                 'public/js/filter.js',
 
                 'resources/css/app.css',

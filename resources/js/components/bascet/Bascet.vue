@@ -16,7 +16,7 @@
                     <div class="tl-side left-side">
                         <div class="tovar_all_blk picture_blk">
                             <img v-if="item.tovar_data.img != ''" :src="item.tovar_data.img" alt="">
-                            <img v-else else src="" alt="">
+                            <img v-else else :src="noPhotoUrl" alt="">
 
                         </div>
                         <div class="tovar_all_blk name_blk">
@@ -93,6 +93,7 @@
 export default {
     data() {
         return {
+            noPhotoUrl:"img/noPhoto.jpg",
             bascetList:[],
             loadet:false,
             count:0,
@@ -111,7 +112,7 @@ export default {
 
     mounted: function() {
         this.show_bascet = false;
-        axios.get('/bascet/get/')
+        axios.get('/bascet/get')
             .then((response) => {
                 this.bascetList = response.data.position
                 this.updateBascet()
@@ -177,7 +178,7 @@ export default {
         },
 
         clearBascet() {
-            axios.delete('/bascet/clear/', {
+            axios.delete('/bascet/clear', {
                 _token: document.querySelector('meta[name="_token"]').content
             })
             .then(() => {
@@ -190,7 +191,7 @@ export default {
         },
 
         deleteElement(item,index) {
-            axios.delete('/bascet/delete/', {
+            axios.delete('/bascet/delete', {
                 data: {
                     _token: document.querySelector('meta[name="_token"]').content,
                     product_id: item.product_sku
