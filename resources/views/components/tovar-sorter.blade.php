@@ -1,15 +1,3 @@
-<script>
-  function chenge_order(elem, target) {
-    console.log(elem.value)
-    let filter_form = document.querySelector(".tovar_filter")
-    let order_elem = document.querySelector(".tovar_filter input[name="+target+"]")
-
-    if (order_elem) {
-        order_elem.value = elem.value
-        filter_form.submit()
-    }
-  }
-</script>
 
 <div class="class_tovar_sorter">
     <form action="">

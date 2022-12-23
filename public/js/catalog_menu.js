@@ -1,3 +1,13 @@
+function chenge_order(elem, target) {
+    console.log(elem.value)
+    let filter_form = document.querySelector(".tovar_filter")
+    let order_elem = document.querySelector(".tovar_filter input[name="+target+"]")
+    if (order_elem) {
+        order_elem.value = elem.value
+        filter_form.submit()
+    }
+}
+
 function hide_all_submenu() {
 
     let smls = document.querySelectorAll(".sub_cat_menu_wrapper")
