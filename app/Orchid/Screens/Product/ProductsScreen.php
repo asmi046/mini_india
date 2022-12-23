@@ -2,7 +2,11 @@
 
 namespace App\Orchid\Screens\Product;
 
+use App\Orchid\Layouts\Product\ProductListTable;
+
 use Orchid\Screen\Screen;
+
+use App\Models\Product;
 
 class ProductsScreen extends Screen
 {
@@ -13,7 +17,9 @@ class ProductsScreen extends Screen
      */
     public function query(): iterable
     {
-        return [];
+        return [
+            'tovars' => Product::paginate(25)
+        ];
     }
 
     /**
@@ -43,6 +49,8 @@ class ProductsScreen extends Screen
      */
     public function layout(): iterable
     {
-        return [];
+        return [
+            ProductListTable::class
+        ];
     }
 }
