@@ -16,21 +16,25 @@ class OptionSeeder extends Seeder
      */
     public function run()
     {
+        php_uname();
+
+        // if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+
         DB::table("options")->insert(
             [
                 [
                     "name" => "obmen",
-                    "value" => file_get_contents(public_path('texts\obmen.txt')),
+                    "value" => (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')?file_get_contents(public_path('texts\obmen.txt')):file_get_contents(public_path('texts/obmen.txt')),
                 ],
 
                 [
                     "name" => "delivery",
-                    "value" => file_get_contents(public_path('texts\delivery.txt')),
+                    "value" => (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')?file_get_contents(public_path('texts\delivery.txt')):file_get_contents(public_path('texts/delivery.txt')),
                 ],
 
                 [
                     "name" => "policy",
-                    "value" => file_get_contents(public_path('texts\policy.txt')),
+                    "value" => (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')?file_get_contents(public_path('texts\policy.txt')):file_get_contents(public_path('texts/policy.txt')),
                 ],
 
                 [
