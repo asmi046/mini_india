@@ -18,6 +18,7 @@ export default defineConfig({
                 'public/css/tovar_card.css',
                 'public/css/tovar_filter.css',
                 'public/css/popup.css',
+                'public/css/mainsearch.css',
                 'public/css/pagination.css',
                 'public/css/cart.css',
                 'public/css/catalog_menu.css',

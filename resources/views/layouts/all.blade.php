@@ -34,7 +34,7 @@
                 'public/css/catalog_menu.css',
                 'public/css/auth.css',
                 'public/css/cabinet.css',
-                'public/js/filter.js',
+
         ])
     </head>
     <body class="site_body" id="global_app">
@@ -105,6 +105,7 @@
             'public/js/cart.js',
             'public/js/favorites.js',
             'public/js/catalog_menu.js',
+            'public/js/filter.js',
         ])
     </body>
 </html>
