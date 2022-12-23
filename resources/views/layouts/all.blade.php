@@ -21,17 +21,11 @@
         <script src="{{asset('js/lib/swiper/swiper-bundle.min.js')}}"></script>
 
         @vite([
-                'resources/js/app.js',
-                'public/js/sliders.js',
-                'public/js/mainsearch.js',
-                'public/js/cart.js',
-                'public/js/favorites.js',
-                // 'public/js/catalog_menu.js',
-                'public/js/filter.js',
-
                 'resources/css/app.css',
+                'resources/js/app.js',
 
                 'public/css/main.css',
+
                 'public/css/mobile_bottom_menu.css',
                 'public/css/tovar_page_content.css',
                 'public/css/tovar_card.css',
@@ -43,6 +37,13 @@
                 'public/css/catalog_menu.css',
                 'public/css/auth.css',
                 'public/css/cabinet.css',
+
+                'public/js/sliders.js',
+                'public/js/mainsearch.js',
+                'public/js/cart.js',
+                'public/js/favorites.js',
+                'public/js/catalog_menu.js',
+                'public/js/filter.js',
 
         ])
     </head>
