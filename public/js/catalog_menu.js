@@ -2,6 +2,8 @@ function hide_all_submenu() {
 
     let smls = document.querySelectorAll(".sub_cat_menu_wrapper")
 
+    if (smls == null) return;
+
     for (let elem of smls) {
         elem.style.display = "none"
 
