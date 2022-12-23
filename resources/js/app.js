@@ -1,6 +1,6 @@
 import './bootstrap';
 
-import {createApp} from 'vue/dist/vue.esm-bundler';
+import {createApp} from 'vue/dist/vue.esm-bundler'
 import CitySelect from "./components/CitySelect.vue"
 import Bascet from "./components/bascet/Bascet.vue"
 
