@@ -101,12 +101,12 @@
         <script src="{{asset('js/lib/swiper/swiper-bundle.min.js')}}"></script>
 
         @vite([
-            'public/js/sliders.js',
-            'public/js/mainsearch.js',
-            'public/js/cart.js',
-            'public/js/favorites.js',
+            // 'public/js/sliders.js',
+            // 'public/js/mainsearch.js',
+            // 'public/js/cart.js',
+            // 'public/js/favorites.js',
             // 'public/js/catalog_menu.js',
-            'public/js/filter.js',
+            // 'public/js/filter.js',
         ])
     </body>
 </html>
