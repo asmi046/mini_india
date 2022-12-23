@@ -18,12 +18,20 @@
 
         <meta name="_token" content="{{ csrf_token() }}">
 
+        <script src="{{asset('js/lib/swiper/swiper-bundle.min.js')}}"></script>
+
         @vite([
-                'resources/css/app.css',
                 'resources/js/app.js',
+                'public/js/sliders.js',
+                'public/js/mainsearch.js',
+                'public/js/cart.js',
+                'public/js/favorites.js',
+                'public/js/catalog_menu.js',
+                'public/js/filter.js',
+
+                'resources/css/app.css',
 
                 'public/css/main.css',
-
                 'public/css/mobile_bottom_menu.css',
                 'public/css/tovar_page_content.css',
                 'public/css/tovar_card.css',
@@ -98,15 +106,5 @@
         <x-mobile-bottom-menu></x-mobile-bottom-menu>
         <x-footer></x-footer>
 
-        <script src="{{asset('js/lib/swiper/swiper-bundle.min.js')}}"></script>
-
-        @vite([
-            'public/js/sliders.js',
-            'public/js/mainsearch.js',
-            'public/js/cart.js',
-            'public/js/favorites.js',
-            'public/js/catalog_menu.js',
-            'public/js/filter.js',
-        ])
     </body>
 </html>
