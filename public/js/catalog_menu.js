@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let category_filter_select = document.querySelectorAll(".category_filter_select")
 
     for (let elem of category_filter_select)
-        elem.addEventListener("click", function (e) {
+        elem.addEventListener("change", function (e) {
             chenge_order(elem, elem.name)
         })
 
