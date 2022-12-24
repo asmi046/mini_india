@@ -26,6 +26,14 @@ function hide_all_submenu() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    let category_filter_select = document.querySelectorAll(".category_filter_select")
+
+    for (let elem of category_filter_select)
+        elem.addEventListener("click", function (e) {
+            chenge_order(elem, elem.name)
+        })
+
     let wrapper = document.querySelector(".catalog_menu_wrapper")
     let wrapper_zt = document.querySelector(".catalog_menu_wrapper_zt")
     let catalog_btn = document.querySelectorAll(".open_cat_menu")

@@ -17,6 +17,8 @@ function all_component_set_value(componrnt = "", param = "") {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
+
 	let clBtnEvent = document.querySelectorAll('.sub-sclose');
 	for (let index = 0; index < clBtnEvent.length; index++) {
 		clBtnEvent[index].addEventListener('click', function (e) {
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			search[index].addEventListener('keydown', function (e) {
 				let prefix_api_url = document.location.protocol+"//"+document.location.host
-
+                console.log(prefix_api_url)
 
 				var xhr = new XMLHttpRequest()
 
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-				xhr.open('GET', prefix_api_url+'/search_pds/?search_str='+search[index].value, true);
+				xhr.open('GET', '/search_pds?search_str='+search[index].value, true);
 				xhr.send();
 			});
 		}
