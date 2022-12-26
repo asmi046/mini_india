@@ -17,13 +17,12 @@ var swiper = new Swiper(".main_brand_slider", {
         },
 
         768: {
-          slidesPerView: 5,
+          slidesPerView: 3,
         }
     }
   });
 
 var brandSlider = new Swiper(".main_banner_slider", {
-
   pagination: {
     el: ".banner_controll",
     clickable: true,

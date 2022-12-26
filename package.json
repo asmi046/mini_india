@@ -26,7 +26,8 @@
         "cache_view": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 artisan view:cache\"",
         "cache_clear": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 artisan cache:clear\"",
         "optimize": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 artisan optimize\"",
-        "optimize_all": "npm run optimize && npm run cache_clear && npm run cache_view && npm run cache_route && npm run cache_config"
+        "optimize_all": "npm run optimize && npm run cache_clear && npm run cache_view && npm run cache_route && npm run cache_config",
+        "orchid_user": "ssh asmi04s9_all@asmi04s9.beget.tech \"cd mi.asmi-studio.ru/public_html && php8.1 artisan orchid:admin admin asmi046@gmail.com 123\""
     },
     "devDependencies": {
         "axios": "^1.1.2",

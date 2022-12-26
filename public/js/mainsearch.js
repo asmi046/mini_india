@@ -28,8 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			clBtnEvent[index].style.display = "none"
 		});
-
-
 	}
 
 
@@ -75,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					for (let i = 0; i<searchElements.products.length; i++){
                         let product_img = (searchElements.products[i].img == "")?"/img/noPhoto.jpg":searchElements.products[i].img
 
-    					rez_str += '<a class="preSearchElemLnk" href="'+prefix_api_url+'/product/'+searchElements.products[i].slug+'">'+
+    					rez_str += '<a class="preSearchElemLnk" href="'+prefix_api_url+'/tovar/'+searchElements.products[i].slug+'">'+
 										'<div class="preSearchElem">'+
 					  						'<div class="img" style="background-image: url('+product_img+')"></div>'+
 
@@ -111,8 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				xhr.onerror = function () {
 					error(xhr, xhr.status);
 				};
-
-
 
 				xhr.open('GET', '/search_pds?search_str='+search[index].value, true);
 				xhr.send();

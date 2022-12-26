@@ -713,7 +713,8 @@ header ._container {
 }
 
 .main_brand_slider .swiper-slide img {
-    width:85%
+    width:85%;
+    object-fit: cover;
 }
 
 .swiper-slide img {
@@ -745,6 +746,7 @@ header ._container {
     width:41px;
     height:41px;
     position: absolute;
+    background-size: cover;
 }
 
 
@@ -763,6 +765,7 @@ header ._container {
     transform: rotate(-180deg);
     right:0;
     background-image: url(../img/icons/slider_arrw.svg);
+
 }
 
 /*-----Слайдер с брендами end-----*/
@@ -897,7 +900,8 @@ footer .logo {
 }
 
 .class_tovar_sorter select {
-    min-height: 36px;;
+    min-height: 36px;
+    background-color: white;
 }
 
 .class_tovar_sorter select:first-child {
@@ -1225,12 +1229,31 @@ textarea {
     .hed_menu_section .messendger_head_blk {
         display: none;
     }
+
+    .main_brand_slider .swiper-slide {
+        height: 60px;
+    }
+
+    .swiper_obj .btn_all::before {
+        content: '';
+        width: 21px;
+        height: 21px;
+        top:10px;
+    }
 }
 
 @media (max-width: 375px){
     .logo {
         width: 100px;
         padding: 0;
+    }
+
+    .class_tovar_sorter select {
+        width:100%;
+    }
+
+    .class_tovar_sorter select:first-child {
+        margin: 0 0 10px 0;
     }
     /* .logo .mini_logo
     {
