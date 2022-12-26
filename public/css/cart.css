@@ -425,6 +425,7 @@
 
     .itogo .itogo_price_count {
         width:100%;
+        min-width: 100%;
     }
 
     .bascet_tovar {

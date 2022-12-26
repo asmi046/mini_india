@@ -1,10 +1,13 @@
 @extends('layouts.all')
 
 @php
-    $title = "Корзина"
+    $title = "Корзина";
+    $description = "Корзина";
 @endphp
 
 @section('title', $title)
+@section('description', $description)
+
 @section('border', "_bottom_border")
 
 @section('content')

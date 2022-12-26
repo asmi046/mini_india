@@ -54,6 +54,9 @@
     </div>
 </div>
 
+@if (false)
+
+
 <div class="calories_wrap">
     <p>Пищевая ценность на 100 г</p>
     <div class="calories">
@@ -82,6 +85,8 @@
         </div>
     </div>
 </div>
+
+@endif
 
 <div class="pay_sens">
     <span>Принимаем к оплате:</span>

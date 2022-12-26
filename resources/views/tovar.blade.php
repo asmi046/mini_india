@@ -1,6 +1,13 @@
 @extends('layouts.all')
 
-@section('title', $product['title'])
+@php
+    $title = (!empty($product['seo_title']))?$product['seo_title']:$product['title'];
+    $description = (!empty($product['seo_description']))?$product['seo_description']:$product['title'];;
+@endphp
+
+@section('title', $title)
+@section('description', $description)
+
 @section('border', "_bottom_border")
 
 @section('content')

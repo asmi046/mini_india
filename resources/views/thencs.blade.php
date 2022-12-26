@@ -1,10 +1,13 @@
 @extends('layouts.all')
 
 @php
-    $title = "Страница благодарности"
+    $title = "Благодарим за заказ";
+    $description = "Спасибо за заказ наши специалисты свяжутся с Вами в ближайшее время";
 @endphp
 
 @section('title', $title)
+@section('description', $description)
+
 @section('border', "_bottom_border")
 
 @section('content')

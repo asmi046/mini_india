@@ -1,10 +1,13 @@
 @extends('layouts.all')
 
 @php
-    $title = "Понравившиеся товары"
+    $title = "Понравившиеся товары";
+    $description = "Понравившиеся вам товары можно посмотреть здесь";
 @endphp
 
-@section('title',  $title)
+@section('title', $title)
+@section('description', $description)
+
 @section('border', "_bottom_border")
 
 @section('content')

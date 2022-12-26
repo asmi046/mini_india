@@ -5,12 +5,12 @@
         <p>Главная</p>
     </a>
 
-    <a href="{{route('home')}}" class="bm_btn">
+    <a href="{{route('favorites')}}" class="bm_btn">
         <div class="icon bottom_menu_icon_favorites"></div>
         <p>Избранное</p>
     </a>
 
-    <a href="{{route('home')}}" class="bm_btn">
+    <a href="{{route('bascet')}}" class="bm_btn">
         <div class="icon bascet_blk bottom_menu_icon_bascet">
             <span class="bascet_counter">0</span>
         </div>

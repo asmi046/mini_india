@@ -137,3 +137,9 @@
         display: block;
     }
 }
+
+@media (max-width: 375px) {
+    .tovar_info_side h1 {
+        font-size: 22px;
+    }
+}

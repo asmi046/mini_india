@@ -1,6 +1,13 @@
 @extends('layouts.all')
 
-@section('title', "Категория товара")
+@php
+    $title = (!empty($category_info['seo_title']))?$category_info['seo_title']:$category_info['title'];
+    $description = (!empty($category_info['seo_description']))?$category_info['seo_description']:"Индийские товары в категории: ".$category_info['title'];;
+@endphp
+
+@section('title', $title)
+@section('description', $description)
+
 @section('border', "_bottom_border")
 
 @section('content')

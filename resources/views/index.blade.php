@@ -1,7 +1,13 @@
 
 @extends('layouts.all')
 
-@section('title', "Главная страница")
+@php
+    $title = "Товары из Индии по выгодным ценам";
+    $description = "Товары из Индии высочайшего качества по выгодным ценам с доставкой по Москве и всей России";
+@endphp
+
+@section('title', $title)
+@section('description', $description)
 
 @section('content')
 

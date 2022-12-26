@@ -1,10 +1,13 @@
 @extends('layouts.all')
 
 @php
-    $title = "Политика конфиденциальности"
+    $title = "Политика конфиденциальности";
+    $description = "Политика конфиденциальности и обработки персональных данных";
 @endphp
 
 @section('title', $title)
+@section('description', $description)
+
 @section('border', "_bottom_border")
 
 @section('content')

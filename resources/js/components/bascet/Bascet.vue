@@ -21,7 +21,7 @@
                         </div>
                         <div class="tovar_all_blk name_blk">
                             <h2>{{item.tovar_data.title}}</h2>
-                            <p>{{item.tovar_data.brand}} ({{item.tovar_data.state}}) Артикул: {{item.product_sku}}</p>
+                            <p> Бренд: {{item.tovar_data.brand}} Артикул: {{item.product_sku}}</p>
                         </div>
                     </div>
 

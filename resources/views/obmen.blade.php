@@ -1,10 +1,13 @@
 @extends('layouts.all')
 
 @php
-    $title = "Обмен возврат"
+    $title = "Обмен и возврат";
+    $description = "Обмен и возврат товаров в нашем магазине осуществляется по правилам изложенным в нашем магазине";
 @endphp
 
 @section('title', $title)
+@section('description', $description)
+
 @section('border', "_bottom_border")
 
 @section('content')

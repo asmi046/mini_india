@@ -1222,8 +1222,9 @@ textarea {
         margin: 0 10px;
     }
 
+    .advantages_blk h3,
     h2.main {
-        font-size: 26px;
+        font-size: 22px;
     }
 
     .hed_menu_section .messendger_head_blk {
@@ -1247,6 +1248,10 @@ textarea {
 
     .class_tovar_sorter select:first-child {
         margin: 0 0 10px 0;
+    }
+
+    .standatr_section h1 {
+        font-size: 32px;
     }
 }
 
