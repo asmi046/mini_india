@@ -1240,13 +1240,6 @@ textarea {
         height: 21px;
         top:10px;
     }
-}
-
-@media (max-width: 375px){
-    .logo {
-        width: 100px;
-        padding: 0;
-    }
 
     .class_tovar_sorter select {
         width:100%;
@@ -1255,6 +1248,15 @@ textarea {
     .class_tovar_sorter select:first-child {
         margin: 0 0 10px 0;
     }
+}
+
+@media (max-width: 375px){
+    .logo {
+        width: 100px;
+        padding: 0;
+    }
+
+
     /* .logo .mini_logo
     {
         display: block;
