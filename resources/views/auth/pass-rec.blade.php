@@ -16,8 +16,12 @@
 
         <h1>{{$title}}</h1>
 
-        <form class="autch_form" action="{{route('login_do')}}" method="post">
+        <form class="autch_form" action="{{route('pass_rec_do')}}" method="post">
             @csrf
+
+            @if ($confirm)
+                <p class="form_compleet">Новый парорль отправлен Вам на электронную почьту</p>
+            @endif
 
             <input type="text" required name="email" palceholder="e-mail">
             @error('email')

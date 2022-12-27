@@ -19,10 +19,18 @@
     display: none;
 }
 
+.catalog_menu h2{
+    font-size: 22px;
+    font-weight: 600;
+    margin: 1em auto 1em 30px;
+}
+
 .catalog_menu {
     width: 320px;
     height: 100%;
     background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .close_catalog:hover {

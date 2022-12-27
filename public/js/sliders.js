@@ -16,9 +16,13 @@ var swiper = new Swiper(".main_brand_slider", {
             slidesPerView: 6,
         },
 
+        1440:{
+            slidesPerView: 5,
+        },
+
         768: {
           slidesPerView: 3,
-        }
+        },
     }
   });
 

@@ -23,6 +23,7 @@ use App\Orchid\Screens\Categories\CategoriesListScreen;
 use App\Orchid\Screens\Product\ProductsScreen;
 use App\Orchid\Screens\Product\EditProductScreen;
 use App\Orchid\Screens\SiteVisual\MainBannersScreen;
+use App\Orchid\Screens\TextEditScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,11 @@ Route::screen('/mainbanner', MainBannersScreen::class)->name('platform.mainbanne
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
         ->push(__('Баннеры')));
+
+Route::screen('/text-edit/{id}', TextEditScreen::class)->name('platform.textedit')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Редактирование текстового контента')));
 
 // Main
 Route::screen('/main', PlatformScreen::class)
