@@ -49,6 +49,7 @@ Route::delete('/favorites/delete', [FavoriteController::class, "delete"])->name(
 Route::delete('/favorites/clear', [FavoriteController::class, "clear"])->name("favorites_clear");
 
 Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search_pds');
+Route::get('/search', [SearchController::class, 'show_search_page'])->name('show_search_page');
 
 
 

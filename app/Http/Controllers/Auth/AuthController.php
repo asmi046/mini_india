@@ -18,7 +18,7 @@ class AuthController extends Controller
     }
 
     public function show_passrec_form() {
-
+        return view('auth.pass-rec');
     }
 
     public function logout() {

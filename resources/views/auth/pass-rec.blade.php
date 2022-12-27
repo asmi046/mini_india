@@ -1,7 +1,7 @@
 @extends('layouts.all')
 
 @php
-    $title = "Авторизация в личьном кабинете"
+    $title = "Восстановление пароля"
 @endphp
 
 @section('title', $title)
@@ -19,18 +19,13 @@
         <form class="autch_form" action="{{route('login_do')}}" method="post">
             @csrf
 
-            <input type="text" required name="email" palceholder="Логин">
+            <input type="text" required name="email" palceholder="e-mail">
             @error('email')
                 <p class="form_error">{{$message}}</p>
             @enderror
 
-            <input type="password" required name="password" palceholder="Пароль">
-            @error('password')
-                <p class="form_error">{{$message}}</p>
-            @enderror
-            <button type="submit" class="btn">Авторизоваться</button>
-            <a href="{{route('register')}}">Регистрация</a>
-            <a href="{{route('passrec')}}">Забыли пароль?</a>
+            <button type="submit" class="btn">Восстановить пароль</button>
+            <a href="{{route('cabinet.home')}}">Вернуться к авторизации</a>
         </form>
     </div>
 </section>

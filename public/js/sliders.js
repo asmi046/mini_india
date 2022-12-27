@@ -13,7 +13,7 @@ var swiper = new Swiper(".main_brand_slider", {
 
     breakpoints: {
         1920:{
-            slidesPerView: 8,
+            slidesPerView: 6,
         },
 
         768: {
