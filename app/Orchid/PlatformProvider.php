@@ -58,6 +58,10 @@ class PlatformProvider extends OrchidServiceProvider
             ->icon("shuffle")
             ->route("platform.textedit", "obmen"),
 
+            Menu::make('Преимущества')
+            ->icon("like")
+            ->route("platform.advantages"),
+
         //     // -----------------------------------------
 
         //     Menu::make('Example screen')

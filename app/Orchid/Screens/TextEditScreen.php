@@ -4,6 +4,18 @@ namespace App\Orchid\Screens;
 
 use Orchid\Screen\Screen;
 
+use App\Models\Option;
+
+use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\Quill;
+
+use Orchid\Support\Color;
+
+use Orchid\Support\Facades\Toast;
+
+use Illuminate\Http\Request;
+
 class TextEditScreen extends Screen
 {
     /**
@@ -11,9 +23,14 @@ class TextEditScreen extends Screen
      *
      * @return array
      */
-    public function query(): iterable
+
+     public $option;
+
+    public function query($id): iterable
     {
-        return [];
+        return [
+            "option" => Option::where('name', $id)->first()
+        ];
     }
 
     /**
@@ -23,7 +40,7 @@ class TextEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'TextEditScreen';
+        return 'Редактирование: '.$this->option->title;
     }
 
     /**
@@ -33,7 +50,9 @@ class TextEditScreen extends Screen
      */
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            Button::make('Сохранить')->method('save_i')->type(Color::SUCCESS())
+        ];
     }
 
     /**
@@ -43,6 +62,20 @@ class TextEditScreen extends Screen
      */
     public function layout(): iterable
     {
-        return [];
+        return [
+            Layout::rows([
+                Quill::make('value')->title('Содержание страницы')->value($this->option->value),
+                Button::make('Сохранить')->method('save_i')->type(Color::SUCCESS())
+            ])
+        ];
+    }
+
+    public function save_i($option, Request $request) {
+
+
+        $this_option = Option::where('name', $option)->first();
+        $this_option->value = $request->get('value');
+        $this_option->save();
+        Toast::info("Товар сохранен");
     }
 }
