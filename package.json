@@ -10,7 +10,7 @@
         "pull_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && git pull\"",
         "clean_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && git clean -f\"",
         "reset_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && git reset --hard\"",
-        "send_vite_build": "scp -C -r public/build asmi04s9_all@asmi04s9.beget.tech:www/miniindia.ru/public",
+        "send_vite_build": "scp -C -r public/build u1831841@server136.hosting.reg.ru:www/miniindia.ru/public",
         "migrate_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php artisan migrate\"",
         "rollback_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php artisan migrate:rollback\"",
         "seed_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php artisan DB:seed\"",
