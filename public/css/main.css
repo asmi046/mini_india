@@ -489,6 +489,17 @@ header ._container {
     top:-4px;
 }
 
+.dostavka_head_blk .contacts::before {
+    content: '';
+    width: 24px;
+    height: 27px;
+    background-image: url(../img/icons/contacts.svg);
+    background-size: cover;
+    position: absolute;
+    left:-35px;
+    top:-4px;
+}
+
 .dostavka_head_blk .obmen::before {
     content: '';
     width: 25px;
@@ -1036,6 +1047,18 @@ textarea {
     margin-bottom: 20px;
     font-weight: bold;
     color: #2A7D5A;
+}
+
+.tel_in_page:hover {
+    text-decoration: underline;
+}
+
+.tel_in_page {
+    width: 100%;
+    display: inline-block;
+    font-size: 32px;
+    line-height: 1.5;
+    color:#2A7D5A
 }
 
 

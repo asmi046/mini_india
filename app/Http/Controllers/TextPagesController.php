@@ -17,4 +17,9 @@ class TextPagesController extends Controller
     public function policy() {
         return view('policy');
     }
+
+    public function contacts() {
+        return view('contacts');
+    }
+
 }

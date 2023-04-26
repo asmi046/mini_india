@@ -28,6 +28,7 @@ Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/category/{slug}', [CategoriesController::class, 'index'])->name('category');
 Route::get('/tovar/{slug}', [TovarController::class, 'index'])->name('tovar');
 
+Route::get('/contacts', [TextPagesController::class, 'contacts'])->name('contacts');
 Route::get('/obmen-vozvrat', [TextPagesController::class, 'obmen'])->name('obmen-vozvrat');
 Route::get('/delivery', [TextPagesController::class, 'delivery'])->name('delivery');
 Route::get('/policy', [TextPagesController::class, 'policy'])->name('policy');
