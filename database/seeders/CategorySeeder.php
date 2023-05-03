@@ -11,6 +11,25 @@ use DB;
 
 class CategorySeeder extends Seeder
 {
+
+    protected function add_to_base($item, $parent) {
+
+        $img = Storage::url("zdorovie.jpg");
+        if ($item === "Здоровье") $img = Storage::url("zdorovie.jpg");
+        if ($item === "Красота") $img = Storage::url("aromo.jpg");
+        if ($item === "Гигиена") $img = Storage::url("gigiena.jpg");
+
+        DB::table("categories")->insert(
+            [
+                "parent" => $parent,
+                "img" => $img,
+                "slug" => Str::slug($item),
+                "title" => $item,
+                "description" => 'Описание категории - ' . $item
+            ]
+        );
+    }
+
     /**
      * Run the database seeds.
      *
@@ -22,30 +41,16 @@ class CategorySeeder extends Seeder
         Storage::disk('public')->put("gigiena.jpg", file_get_contents(public_path('img//faker_img//gigiena.jpg')), 'public');
         Storage::disk('public')->put("aromo.jpg", file_get_contents(public_path('img//faker_img//aromo.jpg')), 'public');
 
-        $all_cat1 = get_all_cat( base_path() . '/public/tovars/new_products_1.csv' );
-        $all_cat2 = get_all_cat( base_path() . '/public/tovars/new_products_2.csv' );
+        $all_cat = get_all_cat( base_path() . '/public/tovars/new_products_1.csv' );
 
-        dd(array_merge($all_cat1, $all_cat2));
-        return;
+        foreach($all_cat as $key => $value) {
+            $this->add_to_base($key, "");
+            echo "Добавлена категория: ".$key." \n\r";
 
-        foreach($all_cat as $item) {
-            $img = "";
-            if ($item === "Здоровье") $img = Storage::url("zdorovie.jpg");
-            if ($item === "Красота") $img = Storage::url("aromo.jpg");
-            if ($item === "Гигиена") $img = Storage::url("gigiena.jpg");
-            if ($item === "Уход за волосами") $img = Storage::url("gigiena.jpg");
-            if ($item === "Уход за полостью рта") $img = Storage::url("gigiena.jpg");
-            if ($item === "Уход за лицом") $img = Storage::url("gigiena.jpg");
-            if ($item === "Уход за кожей") $img = Storage::url("gigiena.jpg");
-
-            DB::table("categories")->insert(
-                    [
-                        "img" => $img,
-                        "slug" => Str::slug($item),
-                        "title" => $item,
-                        "description" => 'Описание категории - ' . $item
-                    ]
-                );
+            foreach ($value as $item) {
+                $this->add_to_base($item, $key);
+                echo "Добавлена категория: ".$item." Родительская: ".$key."\n\r";
+            }
         }
 
 

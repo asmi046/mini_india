@@ -14,6 +14,7 @@ class Category extends Model
     use AsSource;
 
     public $fillable = [
+        'parent',
         'title',
         'slug',
         'description',
@@ -26,5 +27,9 @@ class Category extends Model
             $this->attributes['slug'] =  Str::slug($this->title);
         else
             $this->attributes['slug'] =  $value;
+    }
+
+    public function category_tovars() {
+        return $this->belongsToMany(Product::class);
     }
 }

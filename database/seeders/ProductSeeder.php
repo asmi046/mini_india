@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Str;
 
+use DB;
+
 class ProductSeeder extends Seeder
 {
     /**
@@ -22,37 +24,28 @@ class ProductSeeder extends Seeder
      * @return void
      */
 
-    public function grt_cat_img_name($val) {
-        if ($val === "Красота") return Storage::url("krasota.jpg");
-        if ($val === "Гигиена") return Storage::url("gigiena.jpg");
-        if ($val === "Здоровье") return Storage::url("zdorovie.jpg");
-        return "";
-    }
 
     public function grt_brand_img_name($val) {
+
         if ($val === "bastofindia") return Storage::url("bastofindia.jpg");
         if ($val === "dabur") return Storage::url("dabur.jpg");
         if ($val === "himalaya") return Storage::url("himalaya.jpg");
         if ($val === "maharishi") return Storage::url("maharishi.jpg");
-        return "";
+
+        return Storage::url("bastofindia.jpg");
     }
 
     public function run()
     {
-
-        Storage::disk('public')->put("zdorovie.jpg", file_get_contents(public_path('img/faker_img/zdorovie.jpg')), 'public');
-        Storage::disk('public')->put("gigiena.jpg", file_get_contents(public_path('img/faker_img/gigiena.jpg')), 'public');
-        Storage::disk('public')->put("krasota.jpg", file_get_contents(public_path('img/faker_img/krasota.jpg')), 'public');
 
         Storage::disk('public')->put("bastofindia.jpg", file_get_contents(public_path('img/faker_img/bastofindia.jpg')), 'public');
         Storage::disk('public')->put("dabur.jpg", file_get_contents(public_path('img/faker_img/dabur.jpg')), 'public');
         Storage::disk('public')->put("himalaya.jpg", file_get_contents(public_path('img/faker_img/himalaya.jpg')), 'public');
         Storage::disk('public')->put("maharishi.jpg", file_get_contents(public_path('img/faker_img/maharishi.jpg')), 'public');
 
-        $files = base_path() . '/public/tovars/tovars_v1.csv';
+        $files = base_path() . '/public/tovars/new_products_1.csv';
         $row = 0;
 
-        $categories = [];
         $brands = [];
 
         if (($handle = fopen($files, "r")) !== FALSE) {
@@ -63,13 +56,21 @@ class ProductSeeder extends Seeder
 
                     if (empty($data) || empty($data[0])) continue;
 
-                    $fcontent = @file_get_contents($data[4]);
+                    $context  = stream_context_create([
+                        "ssl" => [
+                            "verify_peer"      => false,
+                            "verify_peer_name" => false,
+                        ],
+                    ]);
+
+                    if (!empty($data[4]))
+                    $fcontent = @file_get_contents($data[4], false, $context);
 
                     if (empty($fcontent)&&(!empty($data[5])))
-                        $fcontent = @file_get_contents($data[5]);
+                        $fcontent = @file_get_contents($data[5], false, $context);
 
                     if (empty($fcontent)&&(!empty($data[6])))
-                        $fcontent = @file_get_contents($data[6]);
+                        $fcontent = @file_get_contents($data[6], false, $context);
 
                     if (!empty($fcontent)) {
                         $img_name = basename($data[4]);
@@ -79,18 +80,36 @@ class ProductSeeder extends Seeder
                         $ins_url = "";
                     }
 
+                    // $one_row = [
+                    //     'sku' => 'tov_'.$row,
+                    //     'title' => mb_convert_encoding($data[0], "utf-8", "windows-1251"),
+                    //     'slug' => '',
+                    //     'description' => text_formater(mb_convert_encoding($data[1], "utf-8", "windows-1251")),
+                    //     'price' => str_replace(",",".",doubleval ($data[2])),
+                    //     'old_price' => str_replace(",",".",doubleval ($data[3])),
+                    //     'img' => $ins_url,
+                    //     'hit' => rand(0,1)?true:false,
+                    //     'new' => rand(0,1)?true:false,
+                    //     'category' => mb_convert_encoding($data[7], "utf-8", "windows-1251"),
+                    //     'sub_category' => mb_convert_encoding($data[8], "utf-8", "windows-1251"),
+                    //     'brand' => mb_convert_encoding($data[9], "utf-8", "windows-1251"),
+                    // ];
+
                     $one_row = [
                         'sku' => 'tov_'.$row,
-                        'title' => mb_convert_encoding($data[0], "utf-8", "windows-1251"),
+                        'title' => $data[0],
                         'slug' => '',
-                        'description' => text_formater(mb_convert_encoding($data[1], "utf-8", "windows-1251")),
+                        'description' => text_formater($data[1]),
                         'price' => str_replace(",",".",doubleval ($data[2])),
                         'old_price' => str_replace(",",".",doubleval ($data[3])),
                         'img' => $ins_url,
                         'hit' => rand(0,1)?true:false,
                         'new' => rand(0,1)?true:false,
-                        'category' => mb_convert_encoding($data[7], "utf-8", "windows-1251"),
-                        'brand' => mb_convert_encoding($data[8], "utf-8", "windows-1251"),
+                        'category' => $data[7],
+                        'sub_category' => $data[8],
+                        'brand' => $data[9],
+                        'seo_title' => $data[0]." купить",
+                        'seo_description' => $data[0]." купить с доставкой по России. Выгодные цены."
                     ];
 
 
@@ -98,12 +117,26 @@ class ProductSeeder extends Seeder
                     echo $product_id->id ." -> ". $one_row['title']."\n\r";
 
 
-                    $categories[$one_row['category']] = [
-                        'title' => $one_row['category'],
-                        'slug' => "",
-                        'description' => "Описание категории: ".$one_row['category'],
-                        'img' => $this->grt_cat_img_name($one_row['category'])
-                    ];
+                    $category = DB::table('categories')->select('id')->where("title", $data[7])->first();
+                    $sub_category = DB::table('categories')->select('id')->where("title", $data[8])->first();
+
+                    if (!empty($category->id))
+                    DB::table("category_product")->insert(
+                        [
+                            "category_id" => $category->id,
+                            "product_id" => $product_id->id,
+                        ]
+
+                    );
+
+                    if (!empty($sub_category->id))
+                    DB::table("category_product")->insert(
+
+                        [
+                            "category_id" => $sub_category->id,
+                            "product_id" => $product_id->id,
+                        ]
+                    );
 
                     $brands[$one_row['brand']] = [
                         'title' => $one_row['brand'],
@@ -159,12 +192,6 @@ class ProductSeeder extends Seeder
 
         fclose($handle);
 
-
-        foreach($categories as $element)
-        {
-            $cat_id = Category::create($element);
-            echo $cat_id->id."\n\r";
-        }
 
         foreach($brands as $element)
         {

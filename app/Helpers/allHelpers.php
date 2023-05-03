@@ -11,17 +11,20 @@ if (!function_exists("get_all_cat")) {
             while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
                 if ($row == 0) {$row++; continue;}
                 if (empty($data) || empty($data[0])) continue;
-                    $cat = mb_convert_encoding($data[7], "utf-8", "windows-1251");
-                    $sub_cat = mb_convert_encoding($data[8], "utf-8", "windows-1251");
+                    // $cat = mb_convert_encoding($data[7], "utf-8", "windows-1251");
+                    // $sub_cat = mb_convert_encoding($data[8], "utf-8", "windows-1251");
+
+                    $cat = $data[7];
+                    $sub_cat = $data[8];
 
                     if (empty($cat) || empty($sub_cat)) {$row++; continue;}
 
-                    $categories[$cat] = $cat;
-                    $sub_categories[$sub_cat] = $sub_cat;
+                    $categories[$cat][$sub_cat] = $sub_cat;
             }
         }
 
-        return array_merge($categories, $sub_categories);
+        // return array_merge($categories, $sub_categories);
+        return $categories;
     }
 }
 

@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string("parent")->nullable();
             $table->string("title");
             $table->string("slug");
-            $table->text("description");
-            $table->string("img");
+            $table->text("description")->nullable();
+            $table->string("img")->nullable();
         });
 
         Schema::create('category_product', function (Blueprint $table) {
