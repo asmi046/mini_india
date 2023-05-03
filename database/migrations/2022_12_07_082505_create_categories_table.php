@@ -21,7 +21,16 @@ return new class extends Migration
             $table->text("description");
             $table->string("img");
         });
+
+        Schema::create('category_product', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+        });
+
     }
+
+
 
     /**
      * Reverse the migrations.
@@ -30,6 +39,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('category_product');
         Schema::dropIfExists('categories');
     }
 };
