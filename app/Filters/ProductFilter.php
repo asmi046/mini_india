@@ -25,6 +25,10 @@ class ProductFilter extends QueryFilter {
             if ($brand != "%") $this->builder->where("brand", $brand);
     }
 
+    public function subcat($subcat) {
+        if (!empty($subcat)) $this->builder->whereIn("sub_category", $subcat);
+    }
+
     public function osobennosti($osobennosti) {
 
         foreach ($osobennosti as $osb)

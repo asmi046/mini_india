@@ -20,9 +20,15 @@
                     <a class="pagination__numbers @if($paginator->currentPage() == $i) current @endif" href="{{$paginator->url($i)}}">{{ $i }}</a>
                 @endfor
             @else
-                @for ($i = $paginator->currentPage()-2; $i <= $paginator->currentPage()+2; $i++)
-                    <a class="pagination__numbers @if($paginator->currentPage() == $i) current @endif" href="{{$paginator->url($i)}}">{{ $i }}</a>
-                @endfor
+
+                    @for ($i = $paginator->currentPage()-2; $i <= $paginator->currentPage()+2; $i++)
+                        @if ($paginator->lastPage() < $i)
+                            @break
+                        @endif
+
+                        <a class="pagination__numbers @if($paginator->currentPage() == $i) current @endif" href="{{$paginator->url($i)}}">{{ $i }}</a>
+                    @endfor
+
             @endif
 
             @if ($paginator->lastPage() > $paginator->currentPage() + 2)
@@ -42,5 +48,7 @@
 
 
         <a class="pagination__next" href="{{$paginator->nextPageUrl()}}">Вперед</a>
+
+
     </div>
 </nav>

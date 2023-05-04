@@ -7,6 +7,21 @@
     <form action="{{url()->current()}}" method="GET" class="tovar_filter accordion">
         <input type="hidden" name="order" value="{{ value_check('order','',"Сначала дешевые") }}">
         <input type="hidden" name="brand" value="{{ value_check('brand','','%') }}">
+
+        <div class="acc_blk open">
+            <div class="acc_head">
+                <span>Категории</span>
+            </div>
+            <div class="acc_body">
+                @foreach ($subcat as $item)
+                    <label class="ch_label">
+                        <input type="checkbox" {{ value_check('subcat', $item->title)?"checked":""}} value="{{$item->title}}" name="subcat[]">
+                        <span>{{$item->title}}</span>
+                    </label>
+                @endforeach
+            </div>
+        </div>
+
         <div class="acc_blk open">
             <div class="acc_head">
                 <span>Стоимость</span>
@@ -46,25 +61,6 @@
             </div>
         </div>
 
-        {{-- <div class="acc_blk">
-            <div class="acc_head">
-                <span>Категории</span>
-            </div>
-            <div class="acc_body">
-                <label class="ch_label">
-                    <input type="checkbox"  value="Категория 1" name="osobennosti[]">
-                    <span>Категория 1</span>
-                </label>
-                <label class="ch_label">
-                    <input type="checkbox" value="Категория 2" name="osobennosti[]">
-                    <span>Категория 2</span>
-                </label>
-                <label class="ch_label">
-                    <input type="checkbox" value="Категория 3" name="osobennosti[]">
-                    <span>Категория 3</span>
-                </label>
-            </div>
-        </div> --}}
 
         <div class="filter_control_blk">
             <button name="filter" type="submit" class="btn btn_fill">Применить</button>

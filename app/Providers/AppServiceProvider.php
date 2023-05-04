@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $all_options = Option::all();
             $brands = Brand::all();
-            $categoryes = Category::all();
+            $categoryes = Category::where("parent", "")->get();
 
             $opt = [];
 

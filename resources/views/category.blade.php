@@ -21,7 +21,7 @@
         <div class="category_body">
 
             <div class="sidebar">
-                <x-tovar-filter></x-tovar-filter>
+                <x-tovar-filter :subcat="$sub_cat"></x-tovar-filter>
             </div>
 
             <div class="category_tovars">
