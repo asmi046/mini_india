@@ -412,9 +412,9 @@ header ._container {
 
 .serch_form {
     border-radius: 9px;
-
     position:relative;
-    width:30%;
+    display: flex;
+    max-width:30%;
 }
 
 .search_input {
@@ -435,7 +435,7 @@ header ._container {
     height: 18px;
     background-image: url(../img/icons/linse.svg);
     position: absolute;
-    top: 7px;
+    top: 13px;
     left: -40px;
 
 }
@@ -1070,6 +1070,12 @@ textarea {
 }
 
 @media (max-width: 1024px){
+
+    .serch_form {
+        max-width: unset;
+        width: 40%;
+    }
+
     .dostavka_head_blk{
         flex-direction: column;
     }

@@ -7,7 +7,7 @@
             @endif
 
             @if (Request::route()->named('tovar'))
-                <span class="sep"> / </span> <a href="{{route('category', $tovar['tovar_category']->slug)}}">{{$tovar['tovar_category']->title}}</a>
+                <span class="sep"> / </span> <a href="{{route('category', $tovar['tovar_category'][0]->slug)}}">{{$tovar['tovar_category'][0]->title}}</a>
                 <span class="sep"> / </span> <span class="finish">{{$tovar['title']}}</span>
             @endif
 
