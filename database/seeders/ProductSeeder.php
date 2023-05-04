@@ -43,7 +43,7 @@ class ProductSeeder extends Seeder
         Storage::disk('public')->put("himalaya.jpg", file_get_contents(public_path('img/faker_img/himalaya.jpg')), 'public');
         Storage::disk('public')->put("maharishi.jpg", file_get_contents(public_path('img/faker_img/maharishi.jpg')), 'public');
 
-        $files = base_path() . '/public/tovars/new_products_1.csv';
+        $files = base_path() . '/public/tovars/new_products_load_img_utf_8.csv';
         $row = 0;
 
         $brands = [];
@@ -63,14 +63,16 @@ class ProductSeeder extends Seeder
                         ],
                     ]);
 
+                    $fcontent = null;
+
                     if (!empty($data[4]))
-                    $fcontent = @file_get_contents($data[4], false, $context);
+                        $fcontent = @file_get_contents(public_path('img/faker_img/products/'.$data[4]));
 
                     if (empty($fcontent)&&(!empty($data[5])))
-                        $fcontent = @file_get_contents($data[5], false, $context);
+                        $fcontent = @file_get_contents(public_path('img/faker_img/products/'.$data[5]));
 
                     if (empty($fcontent)&&(!empty($data[6])))
-                        $fcontent = @file_get_contents($data[6], false, $context);
+                        $fcontent = @file_get_contents(public_path('img/faker_img/products/'.$data[6]));
 
                     if (!empty($fcontent)) {
                         $img_name = basename($data[4]);
@@ -147,7 +149,7 @@ class ProductSeeder extends Seeder
 
 
                     if (!empty($data[5])) {
-                        $fcontent = @file_get_contents($data[5]);
+                        $fcontent = @file_get_contents(public_path('img/faker_img/products/'.$data[5]));
 
                         if (!empty($fcontent)) {
                             $img_name = basename($data[5]);
@@ -164,7 +166,7 @@ class ProductSeeder extends Seeder
                     }
 
                     if (!empty($data[6])) {
-                        $fcontent = @file_get_contents($data[6]);
+                        $fcontent = @file_get_contents(public_path('img/faker_img/products/'.$data[6]));
 
                         if (!empty($fcontent)) {
                             $img_name = basename($data[6]);

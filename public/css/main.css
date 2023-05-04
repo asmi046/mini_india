@@ -412,16 +412,15 @@ header ._container {
 
 .serch_form {
     border-radius: 9px;
-    border: 1px solid #2A7D5A;;
-    display: flex;
+
     position:relative;
     width:30%;
 }
 
 .search_input {
+    border: 1px solid #2A7D5A;
     position: relative;
-    border: none;
-    width:93%
+    width:100%
 }
 
 .search_btn {
@@ -436,8 +435,9 @@ header ._container {
     height: 18px;
     background-image: url(../img/icons/linse.svg);
     position: absolute;
-    top:13px;
-    left: -10px;
+    top: 7px;
+    left: -40px;
+
 }
 
 .phone_head_blk {

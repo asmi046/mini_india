@@ -94,7 +94,9 @@
 
         <section class="hed_menu_section @yield('border')">
             <div class="_container">
-                <a href="#" class="catalog_button open_cat_menu"><span>Каталог</span></a>
+                <div>
+                    <a href="#" class="catalog_button open_cat_menu"><span>Каталог</span></a>
+                </div>
 
                 <form class="serch_form" action="{{route('show_search_page')}}" method="GET">
                     <input type="text" name="search_str" class = "search_input search__input" placeholder="Поиск">
