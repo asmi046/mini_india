@@ -76,7 +76,9 @@
                     <li v-for="item in errorList" :key="item">{{item}}</li>
                 </ul>
 
-                <button @click.prevent="sendBascet()" class="btn" type="submit">Отправить</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
+                <pay-selector></pay-selector>
+
+                <button @click.prevent="sendBascet()" class="btn" type="submit">Оформить</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
                 <p class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
             </form>
         </div>
@@ -90,7 +92,9 @@
 </template>
 
 <script>
+import PaySelector from './PaySelector.vue';
 export default {
+    components: { PaySelector },
     data() {
         return {
             noPhotoUrl:"img/noPhoto.jpg",
@@ -141,11 +145,14 @@ export default {
                 phone: this.bascetInfo.phone,
                 adress: this.bascetInfo.adress,
                 comment: this.bascetInfo.comment,
+                count: this.count,
+                amount: this.subtotal,
                 tovars: this.bascetList,
             })
             .then((response) => {
+                console.log(response)
                 this.loadet = false;
-                document.location.href="/bascet/thencs"
+                // document.location.href="/bascet/thencs"
             })
             .catch(error => console.log(error));
         },

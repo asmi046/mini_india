@@ -8,25 +8,27 @@
         <input type="hidden" name="order" value="{{ value_check('order','',"Сначала дешевые") }}">
         <input type="hidden" name="brand" value="{{ value_check('brand','','%') }}">
 
-        <div class="acc_blk open">
-            <div class="acc_head">
-                <span>Категории</span>
+        @if (isset($subcat))
+            <div class="acc_blk">
+                <div class="acc_head open">
+                    <span>Категории</span>
+                </div>
+                <div class="acc_body open">
+                    @foreach ($subcat as $item)
+                        <label class="ch_label">
+                            <input type="checkbox" {{ value_check('subcat', $item->title)?"checked":""}} value="{{$item->title}}" name="subcat[]">
+                            <span>{{$item->title}}</span>
+                        </label>
+                    @endforeach
+                </div>
             </div>
-            <div class="acc_body">
-                @foreach ($subcat as $item)
-                    <label class="ch_label">
-                        <input type="checkbox" {{ value_check('subcat', $item->title)?"checked":""}} value="{{$item->title}}" name="subcat[]">
-                        <span>{{$item->title}}</span>
-                    </label>
-                @endforeach
-            </div>
-        </div>
+        @endif
 
-        <div class="acc_blk open">
-            <div class="acc_head">
+        <div class="acc_blk">
+            <div class="acc_head open">
                 <span>Стоимость</span>
             </div>
-            <div class="acc_body">
+            <div class="acc_body open">
                 <div class="price_selector_wrapper">
                     <label class="price_start" for="price_start">
                         <span>От</span>
@@ -41,11 +43,11 @@
             </div>
         </div>
 
-        <div class="acc_blk open">
-            <div class="acc_head">
+        <div class="acc_blk">
+            <div class="acc_head open">
                 <span>Особенности</span>
             </div>
-            <div class="acc_body">
+            <div class="acc_body open">
                 <label class="ch_label">
                     <input type="checkbox" value="Новинки" {{ value_check('osobennosti', 'Новинки')?"checked":""}} name="osobennosti[]">
                     <span>Новинки</span>

@@ -17,6 +17,8 @@ class Order extends Model
         'comment',
         'session_id',
         'user_id',
+        'position_count',
+        'amount',
     ];
 
     public function orderProducts() {

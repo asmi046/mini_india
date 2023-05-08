@@ -27,21 +27,95 @@ class ProductSeeder extends Seeder
 
     public function grt_brand_img_name($val) {
 
-        if ($val === "bastofindia") return Storage::url("bastofindia.jpg");
-        if ($val === "dabur") return Storage::url("dabur.jpg");
-        if ($val === "himalaya") return Storage::url("himalaya.jpg");
-        if ($val === "maharishi") return Storage::url("maharishi.jpg");
+        if ($val === "Aimil") return Storage::url("aimil.jpg");
+        if ($val === "Al-Rehab") return Storage::url("al_rehab.jpg");
+        if ($val === "Albert David") return Storage::url("albert_david.jpg");
+        if ($val === "Alsu") return Storage::url("alsu.jpg");
+        if ($val === "Amil") return Storage::url("amil.jpg");
+        if ($val === "Baidyanath") return Storage::url("baidyanath.jpg");
+        if ($val === "Balm") return Storage::url("balm.jpg");
+        if ($val === "Blue Heaven") return Storage::url("blue_heaven.jpg");
+        if ($val === "Brooke Bond") return Storage::url("brooke_bond.jpg");
+        if ($val === "Charak") return Storage::url("charak.jpg");
+        if ($val === "Cipla") return Storage::url("cipla.jpg");
+        if ($val === "Dabur") return Storage::url("dabur.jpeg");
+        if ($val === "Dey's") return Storage::url("days.jpg");
+        if ($val === "Divya") return Storage::url("divya.jpg");
+        if ($val === "Dr Ortho") return Storage::url("dr_ortho.jpg");
+        if ($val === "Emami") return Storage::url("emami.jpg");
+        if ($val === "Everest") return Storage::url("everest.jpg");
+        if ($val === "Gomata") return Storage::url("gomata.jpg");
+        if ($val === "Hamdard") return Storage::url("hamdard.jpg");
+        if ($val === "HEM") return Storage::url("hem.jpg");
+        if ($val === "Hemani") return Storage::url("hemani.jpg");
+        if ($val === "Himalaya") return Storage::url("himalaya.jpg");
+        if ($val === "Indian Khadi") return Storage::url("indian_khadi.jpg");
+        if ($val === "Indulekha") return Storage::url("indulekha.jpg");
+        if ($val === "Jagat Pharma") return Storage::url("jagat_pharma.jpg");
+        if ($val === "Kailash Jeevan") return Storage::url("kailash-jeevan.jpg");
+        if ($val === "Vicco") return Storage::url("vicco.jpg");
+        if ($val === "Maharishi Ayurveda") return Storage::url("maharishi.jpg");
+        if ($val === "Nagarjuna") return Storage::url("nagarjuna.jpg");
+        if ($val === "Kottakkal") return Storage::url("kottakkal.jpg");
+        if ($val === "Jyothy") return Storage::url("jyothy.jpg");
+        if ($val === "Nirdosh") return Storage::url("nirdosh.jpg");
+        if ($val === "Satya") return Storage::url("satya.jpg");
+        if ($val === "Zandu") return Storage::url("zandu.jpg");
+        if ($val === "Organic India") return Storage::url("organic-india.jpg");
+        if ($val === "Supradyn") return Storage::url("supradyn.jpg");
+        if ($val === "Patanjali") return Storage::url("patanjali.jpg");
+        if ($val === "Sri Sri tattva") return Storage::url("sri-sri.jpg");
+        if ($val === "Sri Sri Tattva") return Storage::url("sri-sri.jpg");
+        if ($val === "Vasu") return Storage::url("vasu.jpg");
+        if ($val === "Sun Pharma") return Storage::url("sun-pharma.jpg");
+        if ($val === "Yogi Ayurvedic") return Storage::url("yogy.jpg");
 
-        return Storage::url("bastofindia.jpg");
+        return "";
     }
 
     public function run()
     {
-
-        Storage::disk('public')->put("bastofindia.jpg", file_get_contents(public_path('img/faker_img/bastofindia.jpg')), 'public');
-        Storage::disk('public')->put("dabur.jpg", file_get_contents(public_path('img/faker_img/dabur.jpg')), 'public');
-        Storage::disk('public')->put("himalaya.jpg", file_get_contents(public_path('img/faker_img/himalaya.jpg')), 'public');
-        Storage::disk('public')->put("maharishi.jpg", file_get_contents(public_path('img/faker_img/maharishi.jpg')), 'public');
+        Storage::disk('public')->put("aimil.jpg", file_get_contents(public_path('img/faker_img/brands/aimil.jpg')), 'public');
+        Storage::disk('public')->put("al_rehab.jpg", file_get_contents(public_path('img/faker_img/brands/al_rehab.jpg')), 'public');
+        Storage::disk('public')->put("albert_david.jpg", file_get_contents(public_path('img/faker_img/brands/albert_david.jpg')), 'public');
+        Storage::disk('public')->put("alsu.jpg", file_get_contents(public_path('img/faker_img/brands/alsu.jpg')), 'public');
+        Storage::disk('public')->put("amil.jpg", file_get_contents(public_path('img/faker_img/brands/amil.jpg')), 'public');
+        Storage::disk('public')->put("baidyanath.jpg", file_get_contents(public_path('img/faker_img/brands/baidyanath.jpg')), 'public');
+        Storage::disk('public')->put("balm.jpg", file_get_contents(public_path('img/faker_img/brands/balm.jpg')), 'public');
+        Storage::disk('public')->put("blue_heaven.jpg", file_get_contents(public_path('img/faker_img/brands/blue_heaven.jpg')), 'public');
+        Storage::disk('public')->put("brooke_bond.jpg", file_get_contents(public_path('img/faker_img/brands/brooke_bond.jpg')), 'public');
+        Storage::disk('public')->put("charak.jpg", file_get_contents(public_path('img/faker_img/brands/charak.jpg')), 'public');
+        Storage::disk('public')->put("cipla.jpg", file_get_contents(public_path('img/faker_img/brands/cipla.jpg')), 'public');
+        Storage::disk('public')->put("dabur.jpeg", file_get_contents(public_path('img/faker_img/brands/dabur.jpeg')), 'public');
+        Storage::disk('public')->put("days.jpg", file_get_contents(public_path('img/faker_img/brands/days.jpg')), 'public');
+        Storage::disk('public')->put("divya.jpg", file_get_contents(public_path('img/faker_img/brands/divya.jpg')), 'public');
+        Storage::disk('public')->put("dr_ortho.jpg", file_get_contents(public_path('img/faker_img/brands/dr_ortho.jpg')), 'public');
+        Storage::disk('public')->put("emami.jpg", file_get_contents(public_path('img/faker_img/brands/emami.jpg')), 'public');
+        Storage::disk('public')->put("everest.jpg", file_get_contents(public_path('img/faker_img/brands/everest.jpg')), 'public');
+        Storage::disk('public')->put("gomata.jpg", file_get_contents(public_path('img/faker_img/brands/gomata.jpg')), 'public');
+        Storage::disk('public')->put("hamdard.jpg", file_get_contents(public_path('img/faker_img/brands/hamdard.jpg')), 'public');
+        Storage::disk('public')->put("hem.jpg", file_get_contents(public_path('img/faker_img/brands/hem.jpg')), 'public');
+        Storage::disk('public')->put("hemani.jpg", file_get_contents(public_path('img/faker_img/brands/hemani.jpg')), 'public');
+        Storage::disk('public')->put("himalaya.jpg", file_get_contents(public_path('img/faker_img/brands/himalaya.jpg')), 'public');
+        Storage::disk('public')->put("indian_khadi.jpg", file_get_contents(public_path('img/faker_img/brands/indian_khadi.jpg')), 'public');
+        Storage::disk('public')->put("indulekha.jpg", file_get_contents(public_path('img/faker_img/brands/indulekha.jpg')), 'public');
+        Storage::disk('public')->put("jagat_pharma.jpg", file_get_contents(public_path('img/faker_img/brands/jagat_pharma.jpg')), 'public');
+        Storage::disk('public')->put("kailash-jeevan.jpg", file_get_contents(public_path('img/faker_img/brands/kailash-jeevan.jpg')), 'public');
+        Storage::disk('public')->put("vicco.jpg", file_get_contents(public_path('img/faker_img/brands/vicco.jpg')), 'public');
+        Storage::disk('public')->put("maharishi.jpg", file_get_contents(public_path('img/faker_img/brands/maharishi.jpg')), 'public');
+        Storage::disk('public')->put("nagarjuna.jpg", file_get_contents(public_path('img/faker_img/brands/nagarjuna.jpg')), 'public');
+        Storage::disk('public')->put("kottakkal.jpg", file_get_contents(public_path('img/faker_img/brands/kottakkal.jpg')), 'public');
+        Storage::disk('public')->put("jyothy.jpg", file_get_contents(public_path('img/faker_img/brands/jyothy.jpg')), 'public');
+        Storage::disk('public')->put("nirdosh.jpg", file_get_contents(public_path('img/faker_img/brands/nirdosh.jpg')), 'public');
+        Storage::disk('public')->put("satya.jpg", file_get_contents(public_path('img/faker_img/brands/satya.jpg')), 'public');
+        Storage::disk('public')->put("zandu.jpg", file_get_contents(public_path('img/faker_img/brands/zandu.jpg')), 'public');
+        Storage::disk('public')->put("organic-india.jpg", file_get_contents(public_path('img/faker_img/brands/organic-india.jpg')), 'public');
+        Storage::disk('public')->put("supradyn.jpg", file_get_contents(public_path('img/faker_img/brands/supradyn.jpg')), 'public');
+        Storage::disk('public')->put("patanjali.jpg", file_get_contents(public_path('img/faker_img/brands/patanjali.jpg')), 'public');
+        Storage::disk('public')->put("sri-sri.jpg", file_get_contents(public_path('img/faker_img/brands/sri-sri.jpg')), 'public');
+        Storage::disk('public')->put("vasu.jpg", file_get_contents(public_path('img/faker_img/brands/vasu.jpg')), 'public');
+        Storage::disk('public')->put("sun-pharma.jpg", file_get_contents(public_path('img/faker_img/brands/sun-pharma.jpg')), 'public');
+        Storage::disk('public')->put("yogy.jpg", file_get_contents(public_path('img/faker_img/brands/yogy.jpg')), 'public');
 
         $files = base_path() . '/public/tovars/new_products_load_img_utf_8.csv';
         $row = 0;

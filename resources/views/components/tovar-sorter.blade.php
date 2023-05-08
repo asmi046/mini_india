@@ -6,13 +6,16 @@
             <option {{ value_check('order')=='Сначала дорогие'?"selected":""}}>Сначала дорогие</option>
             <option {{ value_check('order')=='В алфавитном порядке'?"selected":""}}>В алфавитном порядке</option>
         </select>
-        <select name="brand" class="category_filter_select" id="">
-            <option {{ empty(value_check('brand'))?"selected":""}} value="%">Все бренды</option>
-            @foreach ($brands as $item)
-                <option {{ value_check('brand')==$item['title']?"selected":""}} value="{{$item['title']}}">{{$item['title']}}</option>
-            @endforeach
+
+        @if (isset($brandlist))
+            <select name="brand" class="category_filter_select" id="">
+                <option {{ empty(value_check('brand'))?"selected":""}} value="%">Все бренды</option>
+                @foreach ($brandlist as $item)
+                    <option {{ value_check('brand')==$item['brand']?"selected":""}} value="{{$item['brand']}}">{{$item['brand']}}</option>
+                @endforeach
 
 
-        </select>
+            </select>
+        @endif
     </form>
 </div>

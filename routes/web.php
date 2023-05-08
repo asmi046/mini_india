@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\TovarController;
 use App\Http\Controllers\TextPagesController;
 use App\Http\Controllers\CartController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/category/{slug}', [CategoriesController::class, 'index'])->name('category');
+Route::get('/brand/{slug}', [BrandController::class, 'index'])->name('brand');
 Route::get('/tovar/{slug}', [TovarController::class, 'index'])->name('tovar');
 
 Route::get('/contacts', [TextPagesController::class, 'contacts'])->name('contacts');
@@ -51,6 +54,8 @@ Route::delete('/favorites/clear', [FavoriteController::class, "clear"])->name("f
 
 Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search_pds');
 Route::get('/search', [SearchController::class, 'show_search_page'])->name('show_search_page');
+
+Route::get('/pay_confirm', [PaymentController::class, 'pay_confirm'])->name('pay_confirm');
 
 
 

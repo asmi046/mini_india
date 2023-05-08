@@ -22,12 +22,17 @@
         <h2>Бренды</h2>
 
         @foreach ($brands as $cat_elem)
-        <a href="{{route('category', $cat_elem['slug'])}}" class="top_category">
+        <a href="{{route('brand', $cat_elem['slug'])}}" class="top_category">
 
             <div class="cat_img">
                 <div class="border">
                     <div class="img_wrap">
-                        <img src="{{asset($cat_elem['img'])}}" alt="">
+                        @if(!empty($cat_elem['img']))
+                            <img src="{{asset($cat_elem['img'])}}" alt="">
+                        @else
+                            <img src="{{asset("img/noPhoto.jpg")}}" alt="">
+
+                        @endif
                     </div>
                 </div>
             </div>

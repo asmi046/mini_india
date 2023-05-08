@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\BascetSend;
 use App\Http\Requests\BascetForm;
 
+use YooKassa\Client;
+
 class CartController extends Controller
 {
     public function index() {
@@ -53,13 +55,40 @@ class CartController extends Controller
             'phone' => $request->input('phone'),
             'adress' => $request->input('adress'),
             'comment' => $request->input('comment'),
+            'position_count' => $request->input('count'),
+            'amount' => $request->input('amount'),
             'session_id' => session()->getId(),
             'user_id' => ($request->user())?$request->user()->id:0,
+
         ]);
 
         $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
 
         Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru"])->send(new BascetSend($request));
+
+        $client = new Client();
+        $client->setAuth(config('yookassa.shop_id'), config('yookassa.secret_key'));
+
+        $payment = $client->createPayment(
+            array(
+                'amount' => array(
+                    'value' => $request->input('amount'),
+                    'currency' => 'RUB',
+                ),
+                'confirmation' => array(
+                    'type' => 'redirect',
+                    'return_url' => route('pay_confirm'),
+                ),
+                'capture' => false,
+                'description' => 'Заказ '.$order->id,
+                'metadata' => [
+                    'order_id' => $order->id
+                ]
+            ),
+            uniqid('', true)
+        );
+
+        return ['pay_url' => $payment->confirmation->confirmation_url];
     }
 
     public function thencs() {
