@@ -71,15 +71,24 @@
                 <input v-model="bascetInfo.email" name="email" type="email" placeholder="e-mail">
                 <input v-model="bascetInfo.phone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
                 <textarea v-model="bascetInfo.adress" name="adress" placeholder="Адрес"></textarea>
+                <select v-model="deliveryMethod" name="delivery_method" >
+                    <option value="" selected disabled>Выберите спопоб доставки</option>
+                    <option value="Почта России">Почта России</option>
+                    <option value="Курьером до двери">Курьером до двери</option>
+                    <option value="Транспортной компантей до пункта выдачи">Транспортной компантей до пункта выдачи</option>
+                </select>
                 <textarea v-model="bascetInfo.comment" name="comment" placeholder="Комментарий"></textarea>
+
+                <pay-selector v-model="payType"></pay-selector>
+
                 <ul v-show="errorList.length != 0" class ="errors_list">
                     <li v-for="item in errorList" :key="item">{{item}}</li>
                 </ul>
 
-                <pay-selector></pay-selector>
+
 
                 <button @click.prevent="sendBascet()" class="btn" type="submit">Оформить</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
-                <p class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+                <p @click.prevent="test()" class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
             </form>
         </div>
     </div>
@@ -103,6 +112,8 @@ export default {
             count:0,
             subtotal:0,
             show_bascet:false,
+            payType:1,
+            deliveryMethod:"",
             errorList:[],
             bascetInfo:{
                 fio:"",
@@ -125,7 +136,12 @@ export default {
             .catch(error => console.log(error));
     },
     methods: {
+        test() {
+            console.log(this.payType)
+        },
         sendBascet() {
+
+            console.log(this.deliveryMethod)
 
             this.errorList = []
 
@@ -147,12 +163,17 @@ export default {
                 comment: this.bascetInfo.comment,
                 count: this.count,
                 amount: this.subtotal,
+                delivery: this.deliveryMethod,
                 tovars: this.bascetList,
             })
             .then((response) => {
                 console.log(response)
                 this.loadet = false;
-                // document.location.href="/bascet/thencs"
+
+                if (this.payType == 1)
+                    document.location.href=response.data.pay_url
+                else
+                      document.location.href="/bascet/thencs"
             })
             .catch(error => console.log(error));
         },

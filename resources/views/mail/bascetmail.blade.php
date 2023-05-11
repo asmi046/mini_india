@@ -3,6 +3,7 @@
 <p><strong>Телефон:</strong> {{$formData['phone']}}</p>
 <p><strong>E-mail:</strong> {{$formData['email']}}</p>
 <p><strong>Адрес:</strong> {{$formData['adress']}}</p>
+<p><strong>Способ доставки:</strong> {{$formData['delivery']}}</p>
 <p><strong>Комментарий:</strong> {{$formData['comment']}}</p>
 <table style="width:100%; border-top:1px solid black; border-left:1px solid black; border-spacing: 0;">
     <thead style="text-align:left;">

@@ -57,6 +57,7 @@ class CartController extends Controller
             'comment' => $request->input('comment'),
             'position_count' => $request->input('count'),
             'amount' => $request->input('amount'),
+            'delivery' => $request->input('delivery'),
             'session_id' => session()->getId(),
             'user_id' => ($request->user())?$request->user()->id:0,
 
@@ -77,10 +78,10 @@ class CartController extends Controller
                 ),
                 'confirmation' => array(
                     'type' => 'redirect',
-                    'return_url' => route('pay_confirm'),
+                    'return_url' => route('bascet_thencs'),
                 ),
                 'capture' => false,
-                'description' => 'Заказ '.$order->id,
+                'description' => 'Заказ №'.$order->id,
                 'metadata' => [
                     'order_id' => $order->id
                 ]

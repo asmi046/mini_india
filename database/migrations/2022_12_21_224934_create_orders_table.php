@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('adress')->nullable()->default("");
             $table->string('comment')->nullable()->default("");
+            $table->string('delivery')->nullable()->default("");
             $table->string('session_id');
             $table->integer('user_id');
             $table->integer('position_count');
