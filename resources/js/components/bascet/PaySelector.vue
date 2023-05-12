@@ -74,16 +74,5 @@ export default {
         cursor:pointer
     }
 
-    .yoo_cassa::before {
-        content:"";
-        position: absolute;
-        background-image: url(img/icons/pay/yoo.svg);
-    }
-
-    .sbol::before {
-        content:"";
-        position: absolute;
-        background-image: url(img/icons/pay/sber.svg);
-    }
 
 </style>

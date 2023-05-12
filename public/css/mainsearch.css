@@ -128,7 +128,7 @@
 }
 
 .catPreSearchElemLnk:hover:before {
-    background-image: url(../img/icons/category_hover.svg);
+    /* background-image: url(../img/icons/category_hover.svg); */
 }
 
 .catPreSearchElemLnk:before {
@@ -141,7 +141,7 @@
     height: 20px;
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-image: url(../img/icons/category.svg);
+    /* background-image: url(../img/icons/category.svg); */
 }
 
   /* Меню поиска END */

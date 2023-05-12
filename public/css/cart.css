@@ -45,13 +45,13 @@
     background-size: 100%;
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-image: url("../img/icons/bascet.svg");
+    /* background-image: url("../img/icons/bascet.svg"); */
 }
 
 /* Значек карзины end*/
 
 .header__bascket:hover:before {
-    background-image: url("../img/icons/bascet_hover.svg");
+    /* background-image: url("../img/icons/bascet_hover.svg"); */
 }
 
 .bascet {
@@ -419,6 +419,18 @@
   .empty_bascet h3{
     margin: 0 auto 0 auto;
   }
+
+  .yoo_cassa::before {
+    content:"";
+    position: absolute;
+    background-image: url(../img/icons/pay/yoo.svg);
+}
+
+.sbol::before {
+    content:"";
+    position: absolute;
+    background-image: url(../img/icons/pay/sber.svg);
+}
 
 @media (max-width: 768px) {
     .bascet {
