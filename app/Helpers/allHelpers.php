@@ -1,4 +1,10 @@
 <?php
+if (!function_exists("shpw_option")) {
+    function shpw_option($value, $options) {
+        return (array_key_exists($value, $options))?$options[$value]:"";
+    }
+}
+
 if (!function_exists("get_all_cat")) {
     function get_all_cat($filename) {
         $row = 0;

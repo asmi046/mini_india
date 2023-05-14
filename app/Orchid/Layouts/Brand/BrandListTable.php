@@ -10,6 +10,8 @@ use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\ModalToggle;
 
+use Orchid\Screen\Actions\DropDown;
+
 use App\Models\Brand;
 
 
@@ -41,24 +43,48 @@ class BrandListTable extends Table
                     return "<img width='50' height='50' src='".($element->img?$element->img:asset("img/noPhoto.jpg"))."'>";
                 }
             ),
-            TD::make('title', 'Название'),
+            TD::make('title', 'Название')->sort()->filter(TD::FILTER_TEXT),
             TD::make('description', 'Описание'),
-            TD::make('action', 'Действие')->render(function(Brand $brand) {
-                return  Group::make([
+
+
+            TD::make(__('Действие'))
+            ->align(TD::ALIGN_CENTER)
+            ->width('100px')
+            ->render(fn (Brand $brand) => DropDown::make()
+                ->icon('options-vertical')
+                ->list([
+
                     ModalToggle::make('Редактировать')
                     ->modal('editBrandModal')
                     ->method('editBrand')
                     ->modalTitle('Редактировать бренд '.$brand->title)
                     ->asyncParameters([
                         'brand' => $brand->id
-                    ])->type(Color::PRIMARY())->icon('note'),
+                    ])->icon('note'),
 
                     Button::make('Удалить')->method('deleteBrand')->parameters([
                         'id' => $brand->id,
                         'img' => $brand->img,
-                    ])->type(Color::DANGER())->icon('trash')
-                ]);
-            })
+                    ])->icon('trash')
+                ])),
+
+
+            // TD::make('action', 'Действие')->render(function(Brand $brand) {
+            //     return  Group::make([
+            //         ModalToggle::make('Редактировать')
+            //         ->modal('editBrandModal')
+            //         ->method('editBrand')
+            //         ->modalTitle('Редактировать бренд '.$brand->title)
+            //         ->asyncParameters([
+            //             'brand' => $brand->id
+            //         ])->type(Color::PRIMARY())->icon('note'),
+
+            //         Button::make('Удалить')->method('deleteBrand')->parameters([
+            //             'id' => $brand->id,
+            //             'img' => $brand->img,
+            //         ])->type(Color::DANGER())->icon('trash')
+            //     ]);
+            // })
         ];
     }
 }

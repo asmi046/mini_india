@@ -22,6 +22,8 @@ use Orchid\Attachment\Models\Attachment;
 
 use Illuminate\Support\Facades\Storage;
 
+use Orchid\Filter\Filterable;
+
 class BrandScreen extends Screen
 {
     /**
@@ -32,7 +34,7 @@ class BrandScreen extends Screen
     public function query(): iterable
     {
         return [
-            'brands' => Brand::paginate(15)
+            'brands' => Brand::filters()->defaultSort('title')->paginate(15)
         ];
     }
 
@@ -71,6 +73,8 @@ class BrandScreen extends Screen
                     Input::make("title")->required()->title('Название бренда'),
                     Input::make("slug")->required()->title('Псевданим'),
                     TextArea::make("description")->required()->title('Описание бренда'),
+                    Input::make("seo_title")->title('seo заголовок'),
+                    Input::make("seo_description")->title('seo описание'),
                     Picture::make('img')->title('Загрузить логотип')->targetRelativeUrl(),
                 ])
             )->title("Создать новый бренд"),
@@ -81,6 +85,8 @@ class BrandScreen extends Screen
                     Input::make("brand.title")->required()->title('Название бренда'),
                     Input::make("brand.slug")->required()->title('Псевданим'),
                     TextArea::make("brand.description")->required()->title('Описание бренда'),
+                    Input::make("brand.seo_title")->title('seo заголовок'),
+                    Input::make("brand.seo_description")->title('seo описание'),
                     Picture::make('brand.img')->title('Загрузить логотип')->targetRelativeUrl(),
                 ])
             )->async('asyncGetBrand'),
@@ -100,6 +106,8 @@ class BrandScreen extends Screen
         $request->validate([
             'title' => ['required'],
             'slug' => ['required'],
+            'seo_description' => [],
+            'seo_title' => [],
             'description' => ['required', 'min:5'],
             'img' => ['required'],
         ]);
@@ -114,7 +122,16 @@ class BrandScreen extends Screen
     }
 
     public function editBrand(Request $request) {
-        // dd($request->brand);
+
+        $request->validate([
+            'brand.title' => ['required'],
+            'brand.slug' => ['required'],
+            'brand.seo_description' => [],
+            'brand.seo_title' => [],
+            'brand.description' => ['required', 'min:5'],
+            'brand.img' => ['required'],
+        ]);
+
         Brand::find($request->input('brand.id'))->update($request->brand);
         Toast::info("Бренд обновлен");
     }

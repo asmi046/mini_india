@@ -18,7 +18,7 @@
     <div class="_container">
         <div class="text_blk">
             <h1>{{$title}}</h1>
-
+            {!! shpw_option('obmen', $options) !!}
         </div>
     </div>
 </section>

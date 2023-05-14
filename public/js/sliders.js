@@ -16,21 +16,21 @@ var swiper = new Swiper(".main_brand_slider", {
             slidesPerView: 6,
         },
 
-        1440:{
+        1024: {
             slidesPerView: 5,
-        },
+          },
 
         768: {
-          slidesPerView: 3,
+          slidesPerView: 4,
         },
     }
   });
 
 var brandSlider = new Swiper(".main_banner_slider", {
-  pagination: {
-    el: ".banner_controll",
-    clickable: true,
-  },
+    pagination: {
+        el: ".banner_controll",
+        clickable: true,
+    }
 });
 
 var tovarSlider = new Swiper(".tovar_slider", {

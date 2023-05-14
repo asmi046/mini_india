@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use Orchid\Screen\AsSource;
+use Orchid\Filters\Filterable;
 
 use Illuminate\Support\Str;
 
@@ -13,6 +14,7 @@ class Brand extends Model
 {
     use HasFactory;
     use AsSource;
+    use Filterable;
 
     public $fillable = [
         'img',
@@ -21,6 +23,14 @@ class Brand extends Model
         'description',
         'seo_title',
         'seo_description',
+    ];
+
+    protected $allowedSorts = [
+        'title'
+    ];
+
+    protected $allowedFilters = [
+        'title'
     ];
 
     public function setSlugAttribute($value)

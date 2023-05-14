@@ -21,18 +21,18 @@
             <a class="tel_in_page" href="tel:+74998411312">+7 (499) 841-13-12</a>
             <a class="tel_in_page" href="tel:+79776563786">+7 (977) 656-37-86</a>
 
-            <h2>Магазин индийских товаров MiniIndia.ru</h2>
-            <p><strong>Юридическое лицо:</strong> Индивидуальный предприниматель Шарма Вишал</p>
-            <p><strong>ИНН:</strong> 7723 1055 6606</p>
-            <p><strong>ОГРНИП:</strong> 32277 46002 25450</p>
-            <p><strong>ОКПО:</strong> 2014 5297 95</p>
-            <p><strong>Юридический адрес:</strong> 109144, РОССИЯ, г МОСКВА, ул ЛЮБЛИНСКАЯ, ДОМ 124, кв 21</p>
+            <h2>{{shpw_option('mag_name', $options)}}</h2>
+            <p><strong>Юридическое лицо:</strong> {{shpw_option('ur_l', $options)}}</p>
+            <p><strong>ИНН:</strong> {{shpw_option('inn', $options)}}</p>
+            <p><strong>ОГРНИП:</strong> {{shpw_option('ogrn', $options)}}</p>
+            <p><strong>ОКПО:</strong> {{shpw_option('okpo', $options)}}</p>
+            <p><strong>Юридический адрес:</strong> {{shpw_option('ur_adr', $options)}}</p>
 
             <h2>Банковские реквизиты</h2>
-            <p><strong>Банк:</strong> Точка ПАО Банка "ФК Открытие"</p>
-            <p><strong>р/с:</strong> 4080 2810 1015 0030 0451</p>
-            <p><strong>к/с:</strong> 3010 1810 8452 5000 0999</p>
-            <p><strong>БИК:</strong> 044 525 999</p>
+            <p><strong>Банк:</strong> {{shpw_option('bank', $options)}}</p>
+            <p><strong>р/с:</strong> {{shpw_option('rs', $options)}}</p>
+            <p><strong>к/с:</strong> {{shpw_option('ks', $options)}}</p>
+            <p><strong>БИК:</strong> {{shpw_option('bik', $options)}}</p>
         </div>
     </div>
 </section>

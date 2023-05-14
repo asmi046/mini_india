@@ -40,7 +40,12 @@ class MainBannersTable extends Table
                 }
             ),
             TD::make('title', 'Описание'),
+
+
+
+
             TD::make('action', 'Действие')->render(function(Banner $banner) {
+
                 return  Group::make([
                     ModalToggle::make('Редактировать')
                     ->modal('editBannerModal')
@@ -50,12 +55,13 @@ class MainBannersTable extends Table
                         'banner' => $banner->id
                     ])->type(Color::PRIMARY())->icon('note'),
 
-                    Button::make('Удалить')->method('deleteBrand')->parameters([
+                    Button::make('Удалить')->method('deleteBanner')->parameters([
                         'id' => $banner->id,
                         'img' => $banner->img,
                     ])->type(Color::DANGER())->icon('trash')
                 ]);
             })
+
         ];
     }
 }

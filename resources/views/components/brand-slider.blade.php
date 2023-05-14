@@ -5,7 +5,13 @@
             <div class="swiper main_brand_slider">
                 <div class="swiper-wrapper">
                     @foreach ($brands as $item)
-                        <div class="swiper-slide"><img src="{{$item['img']}}" alt=""></div>
+
+                    @if (!empty($item['img']))
+                        <div class="swiper-slide">
+                            <a href="{{route('brand', $item['slug'])}}"><img src="{{$item['img']}}" alt=""></a>
+                        </div>
+                    @endif
+
                     @endforeach
 
                     {{-- <div class="swiper-slide"><img src="{{asset('img/faker_img/dabur.jpg')}}" alt=""></div>

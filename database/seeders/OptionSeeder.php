@@ -22,6 +22,67 @@ class OptionSeeder extends Seeder
 
         DB::table("options")->insert(
             [
+
+                [
+                    "name" => "mag_name",
+                    'title' => 'Название магазина',
+                    "value" => "Магазин индийских товаров MiniIndia.ru",
+                ],
+
+                [
+                    "name" => "ur_l",
+                    'title' => 'Юридическое лицо',
+                    "value" => "Индивидуальный предприниматель Шарма Вишал",
+                ],
+
+                [
+                    "name" => "inn",
+                    'title' => 'ИНН',
+                    "value" => "7723 1055 6606",
+                ],
+
+                [
+                    "name" => "ogrn",
+                    'title' => 'ОГРНИП',
+                    "value" => "32277 46002 25450",
+                ],
+
+                [
+                    "name" => "okpo",
+                    'title' => 'ОКПО',
+                    "value" => "2014 5297 95",
+                ],
+
+                [
+                    "name" => "ur_adr",
+                    'title' => 'Юридический адрес',
+                    "value" => "109144, РОССИЯ, г МОСКВА, ул ЛЮБЛИНСКАЯ, ДОМ 124, кв 21",
+                ],
+
+                [
+                    "name" => "bank",
+                    'title' => 'Банк',
+                    "value" => "ООО «Банк Точка»",
+                ],
+
+                [
+                    "name" => "bik",
+                    'title' => 'БИК',
+                    "value" => "044525104",
+                ],
+
+                [
+                    "name" => "rs",
+                    'title' => 'Расчётный счёт',
+                    "value" => "4080 2810 1015 0030 0451",
+                ],
+
+                [
+                    "name" => "ks",
+                    'title' => 'Корсчёт',
+                    "value" => "3010 1810 7453 7452 5104",
+                ],
+
                 [
                     "name" => "obmen",
                     'title' => 'Обмен возврат',
@@ -43,31 +104,31 @@ class OptionSeeder extends Seeder
                 [
                     "name" => "phone",
                     'title' => 'Телефон',
-                    "value" => "8 800 100 20 30",
+                    "value" => "+7 (495) 841-13-12",
                 ],
 
                 [
                     "name" => "email",
                     'title' => 'e-mail',
-                    "value" => "info@mini-india.ru",
+                    "value" => "Miniindia@mail.ru",
                 ],
 
                 [
                     "name" => "email_send",
                     'title' => 'e-mail для отправки',
-                    "value" => "info@mini-india.ru, asmi046@gmail.com",
+                    "value" => "Miniindia@mail.ru, asmi046@gmail.com",
                 ],
 
                 [
                     "name" => "telegram_lnk",
                     'title' => 'Ссылка Telegram',
-                    "value" => "#",
+                    "value" => "tg://resolve?domain=",
                 ],
 
                 [
                     "name" => "whatsapp_lnk",
                     'title' => 'Ссылка WhatsApp',
-                    "value" => "#",
+                    "value" => "https://wa.me/70000000000",
                 ],
 
                 [
