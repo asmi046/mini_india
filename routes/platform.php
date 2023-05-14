@@ -22,6 +22,7 @@ use App\Orchid\Screens\Brand\BrandScreen;
 use App\Orchid\Screens\Categories\CategoriesListScreen;
 use App\Orchid\Screens\Product\ProductsScreen;
 use App\Orchid\Screens\Product\EditProductScreen;
+use App\Orchid\Screens\Product\CreateProductScreen;
 use App\Orchid\Screens\SiteVisual\MainBannersScreen;
 use App\Orchid\Screens\TextEditScreen;
 use App\Orchid\Screens\AdvantagesScreen;
@@ -56,6 +57,11 @@ Route::screen('/products/{id}/edit', EditProductScreen::class)->name('platform.p
     ->breadcrumbs(fn (Trail $trail, $id) => $trail
         ->parent('platform.products')
         ->push(__('Редактирование продукта'), route('platform.products.edit', $id)));
+
+Route::screen('/products/create', CreateProductScreen::class)->name('platform.products.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.products')
+        ->push(__('Создание продукта'), route('platform.products.create')));
 
 Route::screen('/mainbanner', MainBannersScreen::class)->name('platform.mainbanner')
     ->breadcrumbs(fn (Trail $trail) => $trail

@@ -28,7 +28,7 @@ use Illuminate\Http\Request;
 
 use App\Orchid\Layouts\Product\ProductImageTable;
 
-class EditProductScreen extends Screen
+class CreateProductScreen extends Screen
 {
     /**
      * Query data.
@@ -36,18 +36,9 @@ class EditProductScreen extends Screen
      * @return array
      */
 
-    public $tovar;
-    public $tovar_category;
-    public $product_img;
-
     public function query($id): iterable
     {
-        $t = Product::where('id', $id)->first();
-        return [
-            'tovar' => $t,
-            'tovar_category' => $t->tovar_category,
-            'product_img' => $t->product_images
-        ];
+        return [];
     }
 
     /**
@@ -57,7 +48,7 @@ class EditProductScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Редактирование продукта: '.$this->tovar->title;
+        return 'Создание нового продукта: ';
     }
 
     /**
@@ -79,66 +70,48 @@ class EditProductScreen extends Screen
     {
         return [
 
-            Layout::modal('ImgLoadModal', [
-                Layout::rows([
-                    Picture::make('link')->title('Загрузить изображение')->targetRelativeUrl(),
-
-                    Input::make('alt')
-                        ->title('alt изображения'),
-
-                    Input::make('title')
-                        ->title('title изображения')
-                ]),
-            ]),
 
             Layout::rows([
                 Input::make('title')
                     ->title('Название')
-                    ->value($this->tovar->title)
                     ->require()
                     ->help('Наименование товара')
                     ->horizontal(),
 
                 Input::make('slug')
                     ->title('Ссылка')
-                    ->value($this->tovar->slug)
                     ->help('Ококнчание ссылки')
                     ->horizontal(),
 
                 Input::make('sku')
                     ->title('Артикул')
-                    ->value($this->tovar->sku)
                     ->help('SKU товара')
                     ->require()
                     ->horizontal(),
 
                 Input::make('price')
                     ->title('Цена')
-                    ->value($this->tovar->price)
                     ->help('Действующая цена')
                     ->require()
                     ->horizontal(),
 
                 Input::make('old_price')
                     ->title('Старая цена')
-                    ->value($this->tovar->old_price)
                     ->help('Цена до скидки')
                     ->horizontal(),
 
-                Quill::make('description')->title('Описание')->value($this->tovar->description),
+                Quill::make('description')->title('Описание'),
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('Основные поля'),
 
             Layout::rows([
                 Switcher::make('hit')
-                    ->value($this->tovar->hit)
                     ->sendTrueOrFalse()
                     ->title('Хит продаж (hit)')
                     ->placeholder('Пометка hit')
                     ->help('Пометка hit 2'),
 
                 Switcher::make('new')
-                    ->value($this->tovar->new)
                     ->sendTrueOrFalse()
                     ->title('Хит продаж (new)')
                     ->placeholder('Пометка new')
@@ -147,7 +120,6 @@ class EditProductScreen extends Screen
                 Relation::make('category.')
                     ->fromModel(Category::class, 'title', 'id')
                     ->title('Категория товара')
-                    ->value($this->tovar_category)
                     ->multiple()
                     ->require()
                     ->chunk(1000)
@@ -155,13 +127,11 @@ class EditProductScreen extends Screen
 
                 Input::make('sub_category')
                     ->title('Подкатегория')
-                    ->value($this->tovar->sub_category)
                     ->help('Подкатегория для фильтра'),
 
                 Relation::make('brand')
                     ->fromModel(Brand::class, 'title', 'title')
                     ->title('Бренд товара')
-                    ->value($this->tovar->brand)
                     ->require()
                     ->chunk(1000)
                     ->help('Выберите бренд'),
@@ -170,32 +140,19 @@ class EditProductScreen extends Screen
             ])->title('Аттрибуты товара'),
 
             Layout::rows([
-                Picture::make('img')->title('Загрузить основное изображение записи')->targetRelativeUrl()->value($this->tovar->img),
+                Picture::make('img')->title('Загрузить основное изображение записи')->targetRelativeUrl(),
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('Изображения товара'),
-
-            ProductImageTable::class,
-
-            Layout::rows([
-
-                ModalToggle::make('Добавить изображение')
-                ->modal('ImgLoadModal')
-                ->method('load_image')
-                ->icon('picture')
-                ->modalTitle('Добавить изображение'),
-
-            ])->title('Управление изображениями товара'),
 
             Layout::rows([
                 Input::make('seo_title')
                     ->title('SEO заголовок')
-                    ->value($this->tovar->seo_title)
                     ->help('SEO заголовок')
                     ->horizontal(),
 
                 TextArea::make('seo_description')
                     ->title('SEO описание')
-                    ->value($this->tovar->seo_description)
+
                     ->help('SEO описание')
                     ->horizontal(),
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
@@ -203,54 +160,30 @@ class EditProductScreen extends Screen
         ];
     }
 
-    public function save_info(Product $tovar, Request $request) {
+    public function save_info(Request $request) {
         $new_data = $request->validate([
-            'sku' => ['required', 'string', Rule::unique('products')->ignore($tovar->id)],
+            'sku' => ['required', 'string', Rule::unique('products')->ignore(Product::class)],
             'title' => ['required', 'string'],
-            'slug' => ['required', 'string'],
+            'slug' => [],
             'description' => [],
             'img' => [],
             'price' => ['required', 'digits_between:1,12'],
             'old_price' => [ 'digits_between:1,12'],
             'hit' => [],
             'new' => [],
-            'category' => ['required'],
             'sub_category' => [],
             'brand' => ['required'],
             'seo_title' => [],
             'seo_description' => []
         ]);
 
-        $tovar->tovar_category()->sync($request->get("category"));
+        $new_tovar = Product::create($new_data);
 
-        $n_product = Product::where('id', $tovar->id)->update($new_data);
+        $new_tovar->tovar_category()->sync($request->get("category"));
+
         Toast::info("Товар сохранен");
-    }
 
-    public function load_image(Product $product, Request $request) {
-
-        $new_data = $request->validate([
-            'link' => ['required', 'string'],
-            'alt' => [],
-            'title' => [],
-        ]);
-
-
-        $product->product_images()->create($new_data);
-
-        Toast::info("Изображение добавлено");
-    }
-
-    public function delete_image(Request $request) {
-        $dell_elem = ProductImage::where('id', $request->input("id"))->first();
-
-        if ($dell_elem ) {
-            $dell_elem->delete();
-            Toast::info("Изображение удалено");
-            // Alert::info("Изображение удалено");
-        } else {
-            Toast::info("Ошибка при удалении");
-        }
+        return redirect()->route('platform.products');
     }
 
 }

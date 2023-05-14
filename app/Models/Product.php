@@ -13,10 +13,14 @@ use Illuminate\Support\Str;
 
 use Orchid\Screen\AsSource;
 
+use Orchid\Filters\Filterable;
+
 class Product extends Model
 {
     use HasFactory;
     use AsSource;
+    use Filterable;
+
 
     public $fillable = [
         'sku',
@@ -29,11 +33,23 @@ class Product extends Model
         'hit',
         'new',
         'category',
+        'sub_category',
         'brand',
         'seo_title',
         'seo_description'
     ];
 
+    protected $allowedSorts = [
+        'id',
+        'sku',
+        'title'
+    ];
+
+    protected $allowedFilters = [
+        'id',
+        'sku',
+        'title'
+    ];
 
     public function scopeFilter(Builder $builder, QueryFilter $filter) {
         return $filter->apply($builder);

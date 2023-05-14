@@ -3,10 +3,15 @@
 namespace App\Orchid\Screens\Product;
 
 use App\Orchid\Layouts\Product\ProductListTable;
+use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Support\Facades\Toast;
+use Orchid\Screen\Actions\Link;
 
 use Orchid\Screen\Screen;
 
 use App\Models\Product;
+
+use Illuminate\Http\Request;
 
 class ProductsScreen extends Screen
 {
@@ -39,7 +44,9 @@ class ProductsScreen extends Screen
      */
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            Link::make('Добавить товар')->route('platform.products.create')
+        ];
     }
 
     /**
@@ -52,5 +59,11 @@ class ProductsScreen extends Screen
         return [
             ProductListTable::class
         ];
+    }
+
+    public function deleteProduct(Request $request) {
+
+        Product::find($request->input('id'))->delete();
+        Toast::info("Продукт удален");
     }
 }

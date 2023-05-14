@@ -8,6 +8,12 @@ use Orchid\Screen\TD;
 use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Actions\Link;
 
+use Orchid\Screen\Actions\DropDown;
+
+use Orchid\Screen\Actions\Button;
+
+use App\Models\Product;
+
 class ProductListTable extends Table
 {
     /**
@@ -29,23 +35,38 @@ class ProductListTable extends Table
     {
         return [
             TD::make('id', 'id'),
-            TD::make('sku', 'Артикул'),
+            TD::make('sku', 'Артикул')->sort()->filter(TD::FILTER_TEXT),
             TD::make('img', 'Логотип')->render(
                 function($element) {
                     return "<img width='50' height='50' src='".($element->img?$element->img:asset("img/noPhoto.jpg"))."'>";
                 }
             ),
-            TD::make('title', 'Название')->width('50%'),
+            TD::make('title', 'Название')->width('50%')->sort()->filter(TD::FILTER_TEXT),
             TD::make('price', 'Цена')->render(
                 function($element) {
                     return $element->price." ₽";
                 }
             ),
-            TD::make('action', 'Действие')->render(function($element) {
-                return  Group::make([
-                    Link::make('Редактировать')->route('platform.products.edit',$element->id)
-                ]);
-            })
+
+            TD::make(__('Действие'))
+            ->align(TD::ALIGN_CENTER)
+            ->width('100px')
+            ->render(fn (Product $product) => DropDown::make()
+                ->icon('options-vertical')
+                ->list([
+
+                    Link::make('Редактировать')->route('platform.products.edit',$product->id)->icon('note'),
+
+                    Button::make('Удалить')->method('deleteProduct')->parameters([
+                        'id' => $product->id,
+                    ])->icon('trash')
+                ])),
+
+            // TD::make('action', 'Действие')->render(function($element) {
+            //     return  Group::make([
+            //         Link::make('Редактировать')->route('platform.products.edit',$element->id)
+            //     ]);
+            // })
         ];
     }
 }
