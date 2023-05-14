@@ -11,6 +11,8 @@ use Orchid\Screen\Actions\Button;
 
 use App\Models\Category;
 
+use Orchid\Screen\Actions\DropDown;
+
 class CategoriesListTable extends Table
 {
     /**
@@ -38,24 +40,30 @@ class CategoriesListTable extends Table
                     return "<img width='50' height='50' src='".($element->img?$element->img:asset("img/noPhoto.jpg"))."'>";
                 }
             ),
-            TD::make('title', 'Название'),
+            TD::make('title', 'Название')->sort()->filter(TD::FILTER_TEXT),
             TD::make('description', 'Описание'),
-            TD::make('action', 'Действие')->render(function(Category $category) {
-                return  Group::make([
+
+            TD::make(__('Действие'))
+            ->align(TD::ALIGN_CENTER)
+            ->width('100px')
+            ->render(fn (Category $category) => DropDown::make()
+                ->icon('options-vertical')
+                ->list([
+
                     ModalToggle::make('Редактировать')
                     ->modal('editCategoryModal')
                     ->method('editCategory')
                     ->modalTitle('Редактировать категорию '.$category->title)
                     ->asyncParameters([
                         'category' => $category->id
-                    ])->type(Color::PRIMARY())->icon('note'),
+                    ])->icon('note'),
 
                     Button::make('Удалить')->method('deleteCategory')->parameters([
                         'id' => $category->id,
                         'img' => $category->img,
-                    ])->type(Color::DANGER())->icon('trash')
-                ]);
-            })
+                    ])->icon('trash')
+                ])),
+
         ];
     }
 }

@@ -8,17 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\AsSource;
 use Illuminate\Support\Str;
 
+use Orchid\Filters\Filterable;
+
 class Category extends Model
 {
     use HasFactory;
     use AsSource;
+    use Filterable;
 
     public $fillable = [
         'parent',
         'title',
         'slug',
         'description',
-        'img'
+        'img',
+        'seo_title',
+        'seo_description',
+    ];
+
+    protected $allowedSorts = [
+        'id',
+        'title'
+    ];
+
+    protected $allowedFilters = [
+        'id',
+        'title'
     ];
 
     public function setSlugAttribute($value)

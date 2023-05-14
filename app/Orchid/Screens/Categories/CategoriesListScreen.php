@@ -19,6 +19,7 @@ use Orchid\Screen\Fields\Picture;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
+use Orchid\Filter\Filterable;
 
 class CategoriesListScreen extends Screen
 {
@@ -30,7 +31,7 @@ class CategoriesListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'categories' => Category::paginate(15)
+            'categories' => Category::filters()->defaultSort('id')->paginate(15)
         ];
     }
 
@@ -69,6 +70,8 @@ class CategoriesListScreen extends Screen
                     Input::make("title")->required()->title('Название категории'),
                     Input::make("slug")->required()->title('Псевданим'),
                     TextArea::make("description")->required()->title('Описание категории'),
+                    Input::make("seo_title")->title('seo заголовок'),
+                    Input::make("seo_description")->title('seo описание'),
                     Picture::make('img')->title('Загрузить изображение')->targetRelativeUrl(),
                 ])
             )->title("Создать новую категорию"),
@@ -79,6 +82,8 @@ class CategoriesListScreen extends Screen
                     Input::make("category.title")->required()->title('Название категории'),
                     Input::make("category.slug")->required()->title('Псевданим'),
                     TextArea::make("category.description")->required()->title('Описание категории'),
+                    Input::make("category.seo_title")->title('seo заголовок'),
+                    Input::make("category.seo_description")->title('seo описание'),
                     Picture::make('category.img')->title('Загрузить изображение')->targetRelativeUrl(),
                 ])
             )->async('asyncGetСategory'),
@@ -98,6 +103,8 @@ class CategoriesListScreen extends Screen
             'title' => ['required'],
             'slug' => ['required'],
             'description' => ['required', 'min:5'],
+            'seo_title' => [],
+            'seo_description' => [],
             'img' => ['required'],
         ]);
 
@@ -107,13 +114,22 @@ class CategoriesListScreen extends Screen
         $attach = Attachment::where('name',  pathinfo($request->input('img'))['filename'])->first();
         if ($attach) $attach->delete();
 
-        Toast::info("Бренд добавлен");
+        Toast::info("Категория добавлена");
     }
 
     public function editCategory(Request $request) {
-        // dd($request->brand);
+
+        $request->validate([
+            'category.title' => ['required'],
+            'category.slug' => ['required'],
+            'category.description' => ['required', 'min:5'],
+            'category.seo_title' => [],
+            'category.seo_description' => [],
+            'category.img' => ['required'],
+        ]);
+
         Category::find($request->input('category.id'))->update($request->category);
-        Toast::info("Категория добавлена");
+        Toast::info("Категория изменена");
     }
 
     public function deleteCategory(Request $request) {

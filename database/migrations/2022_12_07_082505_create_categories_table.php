@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string("slug")->unique();
             $table->text("description")->nullable();
             $table->string("img")->nullable();
+
+            $table->string('seo_title')->nullable();
+            $table->text('seo_description')->nullable();
         });
 
         Schema::create('category_product', function (Blueprint $table) {
