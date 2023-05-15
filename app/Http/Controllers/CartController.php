@@ -59,6 +59,7 @@ class CartController extends Controller
             'position_count' => $request->input('count'),
             'amount' => $request->input('amount'),
             'delivery' => $request->input('delivery'),
+            'pay' => $request->input('pay'),
             'session_id' => session()->getId(),
             'user_id' => ($request->user())?$request->user()->id:0,
 

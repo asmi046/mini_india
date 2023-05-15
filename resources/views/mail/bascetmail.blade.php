@@ -4,6 +4,7 @@
 <p><strong>E-mail:</strong> {{$formData['email']}}</p>
 <p><strong>Адрес:</strong> {{$formData['adress']}}</p>
 <p><strong>Способ доставки:</strong> {{$formData['delivery']}}</p>
+<p><strong>Способ оплаты:</strong> {{$formData['pay']}}</p>
 <p><strong>Комментарий:</strong> {{$formData['comment']}}</p>
 <table style="width:100%; border-top:1px solid black; border-left:1px solid black; border-spacing: 0;">
     <thead style="text-align:left;">
@@ -22,11 +23,11 @@
                 <tr>
                     <td style="padding: 5px; border-bottom:1px solid black; border-right:1px solid black;"><img width="70" height="70" src="{{asset($item["tovar_data"]["img"])}}" alt=""></td>
                     <td style="padding: 5px; border-bottom:1px solid black; border-right:1px solid black;">{{$item["tovar_data"]["title"]}}<br/><span style="font-size:12px">{{$item["tovar_data"]["brand"]}}</span></td>
-                    <td style="padding: 5px; border-bottom:1px solid black; border-right:1px solid black;">{{$item["tovar_data"]["price"]}}</td>
+                    <td style="padding: 5px; border-bottom:1px solid black; border-right:1px solid black;">{{$item["tovar_data"]["price"]}} ₽</td>
                     <td style="padding: 5px; border-bottom:1px solid black; border-right:1px solid black;">{{$item["quentity"]}}</td>
-                    <td style="padding: 5px; border-bottom:1px solid black; border-right:1px solid black;">{{(float)$item["quentity"] * (float)$item["tovar_data"]["price"]}}</td>
+                    <td style="padding: 5px; border-bottom:1px solid black; border-right:1px solid black;">{{(float)$item["quentity"] * (float)$item["tovar_data"]["price"]}} ₽</td>
                 </tr>
             @endforeach
     </tbody>
 </table>
-<hr/>
+<h2>ИТОГО: {{$formData['amount']}} ₽</h2>

@@ -26,6 +26,8 @@ class Order extends Model
         'user_id',
         'position_count',
         'amount',
+        'pay',
+        'delivery',
     ];
 
     protected $allowedSorts = [

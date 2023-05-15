@@ -103,6 +103,18 @@ class OrderEditScreen extends Screen
                 ->help('Телефон заказчика')
                 ->horizontal(),
 
+                Input::make('pay')
+                ->title('Оплата')
+                ->value($this->order->pay)
+                ->help('Способ оплаты')
+                ->horizontal(),
+
+                Input::make('delivery')
+                ->title('Доставка')
+                ->value($this->order->delivery)
+                ->help('Способ доставки')
+                ->horizontal(),
+
                 TextArea::make('adress')
                 ->title('Адрес')
                 ->value($this->order->adress)

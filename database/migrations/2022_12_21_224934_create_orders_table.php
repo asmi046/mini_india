@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('delivery')->nullable()->default("");
             $table->string('session_id');
             $table->integer('user_id');
+            $table->string('pay')->nullable()->default("");
             $table->integer('position_count');
             $table->double('amount', 10, 2);
         });

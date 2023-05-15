@@ -164,6 +164,7 @@ export default {
                 count: this.count,
                 amount: this.subtotal,
                 delivery: this.deliveryMethod,
+                pay: (this.payType == 1)?"Ю-касса":"Перевод на карту",
                 tovars: this.bascetList,
             })
             .then((response) => {
