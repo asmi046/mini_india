@@ -46,6 +46,8 @@ class PlatformScreen extends Screen
             'options' => [
                 'phone' => Option::where('name','phone')->first(),
                 'email' => Option::where('name','email')->first(),
+                'tg' => Option::where('name','telegram_lnk')->first(),
+                'ws' => Option::where('name','whatsapp_lnk')->first(),
                 'email_send' => Option::where('name','email_send')->first()
             ]
         ];
@@ -110,6 +112,18 @@ class PlatformScreen extends Screen
                 ])->title('Редактирование'),
 
                 Layout::rows([
+                    Input::make('opt.tg')
+                    ->title('Ссылка на telegram')
+                    ->value(Arr::get($this->query(),'options.tg.value'))
+                    ->help('Введите ссылку на telegram')
+                    ->horizontal(),
+
+                    Input::make('opt.ws')
+                    ->title('Ссылка на whatsapp')
+                    ->value(Arr::get($this->query(),'options.ws.value'))
+                    ->help('Введите ссылку на whatsapp')
+                    ->horizontal(),
+
                     Input::make('opt.phone')
                     ->title('Телефон')
                     ->value(Arr::get($this->query(),'options.phone.value'))
@@ -137,9 +151,12 @@ class PlatformScreen extends Screen
     }
 
     public function save_options(Request $request) {
+        Option::where('name', 'telegram_lnk')->update(['value' => $request->input('opt.tg')]);
+        Option::where('name', 'whatsapp_lnk')->update(['value' => $request->input('opt.ws')]);
+
         Option::where('name', 'phone')->update(['value' => $request->input('opt.phone')]);
         Option::where('name', 'email')->update(['value' => $request->input('opt.email')]);
-        Option::where('name', 'email_send')->update(['value' => $request->input('opt.email')]);
+        Option::where('name', 'email_send')->update(['value' => $request->input('opt.email_send')]);
         Toast::info("Основные настройки сохранены");
     }
 }
