@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\OrderProduct;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BascetSend;
@@ -62,6 +63,10 @@ class CartController extends Controller
             'user_id' => ($request->user())?$request->user()->id:0,
 
         ]);
+
+        foreach ($request->input('tovars') as $item) {
+            $order->orderCart()->create($item);
+        }
 
         $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
 

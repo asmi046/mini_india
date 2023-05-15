@@ -27,9 +27,13 @@ class OrderEditScreen extends Screen
     public function query($id): iterable
     {
         $order = Order::where('id', $id)->first();
+        $op = $order->orderCart()->with('tovar_data')->get();
+
+        // dd($op);
+
         return [
             'order' => $order,
-            'orderProducts' => $order->orderProducts
+            'orderProducts' => $op
         ];
     }
 
@@ -73,6 +77,12 @@ class OrderEditScreen extends Screen
                 ->title('Время')
                 ->value($this->order->created_at)
                 ->help('Время оформления заказчика')
+                ->horizontal(),
+
+                Input::make('amount')
+                ->title('Сумма (₽)')
+                ->value($this->order->amount)
+                ->help('Сумма заказа (₽)')
                 ->horizontal(),
 
                 Input::make('name')

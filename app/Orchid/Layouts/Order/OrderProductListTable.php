@@ -34,18 +34,23 @@ class OrderProductListTable extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make('id', 'id'),
-            TD::make('sku', 'Артикул'),
+            TD::make('tovar_data.sku', 'Артикул'),
 
-            TD::make('img', 'Логотип')->render(
+            TD::make('tovar_data.img', 'Фото')->render(
                 function($element) {
-                    return "<img width='50' height='50' src='".($element->img?$element->img:asset("img/noPhoto.jpg"))."'>";
+                    return "<img width='50' height='50' src='".($element->tovar_data->img?$element->tovar_data->img:asset("img/noPhoto.jpg"))."'>";
                 }
             ),
-            TD::make('title', 'Название')->width('50%'),
+            TD::make('tovar_data.title', 'Название')->width('50%'),
+            TD::make('quentity', 'Количество'),
             TD::make('price', 'Цена')->render(
                 function($element) {
                     return $element->price." ₽";
+                }
+            ),
+            TD::make('summ', 'Сумма')->render(
+                function($element) {
+                    return round($element->price * $element->quentity, 2)." ₽";
                 }
             ),
         ];
