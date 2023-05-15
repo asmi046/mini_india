@@ -70,7 +70,7 @@ class CartController extends Controller
 
         $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
 
-        Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru"])->send(new BascetSend($request));
+        Mail::to(["asmi046@gmail.com","Miniindia@mail.ru"])->send(new BascetSend($request));
 
         $client = new Client();
         $client->setAuth(config('yookassa.shop_id'), config('yookassa.secret_key'));
