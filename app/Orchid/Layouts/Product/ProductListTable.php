@@ -36,6 +36,11 @@ class ProductListTable extends Table
         return [
             TD::make('id', 'id'),
             TD::make('sku', 'Артикул')->sort()->filter(TD::FILTER_TEXT),
+            TD::make('created_at', 'Дата')->render(
+                function($element) {
+                    return date("d.m.Y H:i", strtotime($element->created_at));
+                }
+            )->sort(),
             TD::make('img', 'Логотип')->render(
                 function($element) {
                     return "<img width='50' height='50' src='".($element->img?$element->img:asset("img/noPhoto.jpg"))."'>";

@@ -74,7 +74,7 @@ class CreateProductScreen extends Screen
             Layout::rows([
                 Input::make('title')
                     ->title('Название')
-                    ->require()
+                    ->required()
                     ->help('Наименование товара')
                     ->horizontal(),
 
@@ -86,17 +86,19 @@ class CreateProductScreen extends Screen
                 Input::make('sku')
                     ->title('Артикул')
                     ->help('SKU товара')
-                    ->require()
+                    ->required()
                     ->horizontal(),
 
                 Input::make('price')
                     ->title('Цена')
                     ->help('Действующая цена')
-                    ->require()
+                    ->required()
+                    ->value("0")
                     ->horizontal(),
 
                 Input::make('old_price')
                     ->title('Старая цена')
+                    ->value("0")
                     ->help('Цена до скидки')
                     ->horizontal(),
 
@@ -121,7 +123,7 @@ class CreateProductScreen extends Screen
                     ->fromModel(Category::class, 'title', 'id')
                     ->title('Категория товара')
                     ->multiple()
-                    ->require()
+                    ->required()
                     ->chunk(1000)
                     ->help('Выберите нужную категорию'),
 
@@ -132,7 +134,7 @@ class CreateProductScreen extends Screen
                 Relation::make('brand')
                     ->fromModel(Brand::class, 'title', 'title')
                     ->title('Бренд товара')
-                    ->require()
+                    ->required()
                     ->chunk(1000)
                     ->help('Выберите бренд'),
 

@@ -23,6 +23,7 @@ class Product extends Model
 
 
     public $fillable = [
+        'created_at',
         'sku',
         'title',
         'slug',
@@ -41,6 +42,7 @@ class Product extends Model
 
     protected $allowedSorts = [
         'id',
+        'created_at',
         'sku',
         'title'
     ];

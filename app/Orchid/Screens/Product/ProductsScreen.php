@@ -23,7 +23,7 @@ class ProductsScreen extends Screen
     public function query(): iterable
     {
         return [
-            'tovars' => Product::paginate(25)
+            'tovars' => Product::filters()->defaultSort('created_at', 'desc')->paginate(25)
         ];
     }
 

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->boolean("new")->nullable();
 
             $table->string('category')->nullable();
-            $table->string('sub_category');
+            $table->string('sub_category')->nullable();
             $table->string('brand');
 
             $table->string('seo_title')->nullable();

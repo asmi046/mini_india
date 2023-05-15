@@ -23,6 +23,8 @@ use App\Orchid\Screens\Categories\CategoriesListScreen;
 use App\Orchid\Screens\Product\ProductsScreen;
 use App\Orchid\Screens\Product\EditProductScreen;
 use App\Orchid\Screens\Product\CreateProductScreen;
+use App\Orchid\Screens\Order\OrderListScreen;
+use App\Orchid\Screens\Order\OrderEditScreen;
 use App\Orchid\Screens\SiteVisual\MainBannersScreen;
 use App\Orchid\Screens\TextEditScreen;
 use App\Orchid\Screens\AdvantagesScreen;
@@ -47,6 +49,20 @@ Route::screen('/categories', CategoriesListScreen::class)->name('platform.catego
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
         ->push(__('Категории')));
+
+// Заказы
+
+Route::screen('/orders', OrderListScreen::class)->name('platform.orders')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Заказы'), route('platform.orders')));
+
+Route::screen('/orders/{id}/edit', OrderEditScreen::class)->name('platform.orders.edit')
+    ->breadcrumbs(fn (Trail $trail, $id) => $trail
+        ->parent('platform.orders')
+        ->push(__('Просмотр заказа'), route('platform.orders.edit', $id)));
+
+// Заказы end
 
 Route::screen('/products', ProductsScreen::class)->name('platform.products')
     ->breadcrumbs(fn (Trail $trail) => $trail

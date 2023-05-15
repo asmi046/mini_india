@@ -41,6 +41,10 @@ class PlatformProvider extends OrchidServiceProvider
             ->icon("dropbox")
             ->route("platform.products"),
 
+            Menu::make('Заказы')
+            ->icon("event")
+            ->route("platform.orders"),
+
             Menu::make('Баннеры на главной')
             ->icon("picture")
             ->route("platform.mainbanner")

@@ -95,7 +95,7 @@ class EditProductScreen extends Screen
                 Input::make('title')
                     ->title('Название')
                     ->value($this->tovar->title)
-                    ->require()
+                    ->required()
                     ->help('Наименование товара')
                     ->horizontal(),
 
@@ -109,14 +109,14 @@ class EditProductScreen extends Screen
                     ->title('Артикул')
                     ->value($this->tovar->sku)
                     ->help('SKU товара')
-                    ->require()
+                    ->required()
                     ->horizontal(),
 
                 Input::make('price')
                     ->title('Цена')
                     ->value($this->tovar->price)
                     ->help('Действующая цена')
-                    ->require()
+                    ->required()
                     ->horizontal(),
 
                 Input::make('old_price')
@@ -149,7 +149,7 @@ class EditProductScreen extends Screen
                     ->title('Категория товара')
                     ->value($this->tovar_category)
                     ->multiple()
-                    ->require()
+                    ->required()
                     ->chunk(1000)
                     ->help('Выберите нужную категорию'),
 
@@ -162,7 +162,7 @@ class EditProductScreen extends Screen
                     ->fromModel(Brand::class, 'title', 'title')
                     ->title('Бренд товара')
                     ->value($this->tovar->brand)
-                    ->require()
+                    ->required()
                     ->chunk(1000)
                     ->help('Выберите бренд'),
 
@@ -207,7 +207,7 @@ class EditProductScreen extends Screen
         $new_data = $request->validate([
             'sku' => ['required', 'string', Rule::unique('products')->ignore($tovar->id)],
             'title' => ['required', 'string'],
-            'slug' => ['required', 'string'],
+            'slug' => [],
             'description' => [],
             'img' => [],
             'price' => ['required', 'digits_between:1,12'],
