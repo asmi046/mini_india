@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				xhr.onload = function (e) {
 					let searchElements = JSON.parse( xhr.response)
+                    console.log(searchElements)
 					let rez_str = ""
 
 					if ((searchElements.products.length == 0)&&(searchElements.categories.length == 0)) {
@@ -70,7 +71,22 @@ document.addEventListener("DOMContentLoaded", () => {
 									'</a>'
 					}
 
-					for (let i = 0; i<searchElements.products.length; i++){
+					for (let i = 0; i<searchElements.brand.length; i++){
+                        let product_img = (searchElements.brand[i].img == "")?"/img/noPhoto.jpg":searchElements.brand[i].img
+
+    					rez_str += '<a class="preSearchElemLnk" href="'+prefix_api_url+'/brand/'+searchElements.brand[i].slug+'">'+
+										'<div class="preSearchElem">'+
+					  						'<div class="img" style="background-image: url('+product_img+')"></div>'+
+
+										'<div class="text">'+
+											'<span>'+searchElements.brand[i].title+'</span>'+
+										'</div>'+
+									'</div>'+
+									'</a>'
+
+					    }
+
+                    for (let i = 0; i<searchElements.products.length; i++){
                         let product_img = (searchElements.products[i].img == "")?"/img/noPhoto.jpg":searchElements.products[i].img
 
     					rez_str += '<a class="preSearchElemLnk" href="'+prefix_api_url+'/tovar/'+searchElements.products[i].slug+'">'+

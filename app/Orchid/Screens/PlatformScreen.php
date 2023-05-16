@@ -44,6 +44,10 @@ class PlatformScreen extends Screen
 
             // 'options' => Option::all()
             'options' => [
+                'tov_zdr' => Option::where('name','tov_zdr')->first(),
+                'uh_lik' => Option::where('name','uh_lik')->first(),
+                'uh_vl' => Option::where('name','uh_vl')->first(),
+
                 'phone' => Option::where('name','phone')->first(),
                 'email' => Option::where('name','email')->first(),
                 'tg' => Option::where('name','telegram_lnk')->first(),
@@ -142,6 +146,24 @@ class PlatformScreen extends Screen
                     ->help('Введите e-mail для отправки уведомлений')
                     ->horizontal(),
 
+                    Input::make('opt.tov_zdr')
+                    ->title('Ссылка на товары для здоровья')
+                    ->value(Arr::get($this->query(),'options.tov_zdr.value'))
+                    ->help('Ссылка на товары для здоровья')
+                    ->horizontal(),
+
+                    Input::make('opt.uh_lik')
+                    ->title('Ссылка на уход за лицом')
+                    ->value(Arr::get($this->query(),'options.uh_lik.value'))
+                    ->help('Ссылка на уход за лицом')
+                    ->horizontal(),
+
+                    Input::make('opt.uh_vl')
+                    ->title('Ссылка на уход за волосами')
+                    ->value(Arr::get($this->query(),'options.uh_vl.value'))
+                    ->help('Ссылка на уход за волосами')
+                    ->horizontal(),
+
                     Button::make('Сохранить')
                         ->method('save_options')
 
@@ -151,6 +173,10 @@ class PlatformScreen extends Screen
     }
 
     public function save_options(Request $request) {
+        Option::where('name', 'tov_zdr')->update(['value' => $request->input('opt.tov_zdr')]);
+        Option::where('name', 'uh_lik')->update(['value' => $request->input('opt.uh_lik')]);
+        Option::where('name', 'uh_vl')->update(['value' => $request->input('opt.uh_vl')]);
+
         Option::where('name', 'telegram_lnk')->update(['value' => $request->input('opt.tg')]);
         Option::where('name', 'whatsapp_lnk')->update(['value' => $request->input('opt.ws')]);
 

@@ -104,10 +104,10 @@ class CategorySeeder extends Seeder
             $this->add_to_base($key, "");
             echo "Добавлена категория: ".$key." \n\r";
 
-            // foreach ($value as $item) {
-            //     $this->add_to_base($item, $key);
-            //     echo "Добавлена категория: ".$item." Родительская: ".$key."\n\r";
-            // }
+            foreach ($value as $item) {
+                $this->add_to_base($item, $key);
+                echo "Добавлена категория: ".$item." Родительская: ".$key."\n\r";
+            }
         }
 
 

@@ -166,6 +166,25 @@ class OptionSeeder extends Seeder
                     'title' => 'Преимущество 3 - Текст',
                     "value" => "Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.",
                 ],
+
+                [
+                    "name" => "tov_zdr",
+                    'title' => 'Ссылка на товары для здоровья',
+                    "value" => "/category/zdorove",
+                ],
+
+                [
+                    "name" => "uh_lik",
+                    'title' => 'Ссылка на уход за лицом',
+                    "value" => "/category/krasota?order=Сначала+дешевые&brand=%25&subcat%5B%5D=Уход+за+лицом&minprice=5&maxprice=10000&filter=",
+                ],
+
+
+                [
+                    "name" => "uh_vl",
+                    'title' => 'Ссылка на уход за волосами',
+                    "value" => "/category/krasota?order=Сначала+дешевые&brand=%25&subcat%5B%5D=Уход+за+волосами&minprice=5&maxprice=10000&filter=",
+                ],
             ]);
     }
 }

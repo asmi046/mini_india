@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Brand;
 use Illuminate\Support\Facades\Storage;
 
 class SearchController extends Controller
@@ -23,7 +24,7 @@ class SearchController extends Controller
     }
 
     public function search_pds(Request $request) {
-        $result_array = ["products" => [], "categories" => [], "img_prefix" => Storage::url('')];
+        $result_array = ["products" => [], "brand" => [], "categories" => [], "img_prefix" => Storage::url('')];
 
         $search_str = $request->get('search_str');
 
@@ -31,7 +32,6 @@ class SearchController extends Controller
 
         $products = Product::where('title', 'LIKE', "%".$search_str."%")
         ->orWhere('description', 'LIKE', "%".$search_str."%")
-        ->orWhere('sku', 'LIKE', "%".$search_str."%")
         ->take(30)
         ->get();
 
@@ -39,6 +39,13 @@ class SearchController extends Controller
         ->orWhere('description', 'LIKE', "%".$search_str."%")
         ->take(5)
         ->get();
+
+        $brand = Brand::where('title', 'LIKE', "%".$search_str."%")
+        ->orWhere('description', 'LIKE', "%".$search_str."%")
+        ->take(5)
+        ->get();
+
+        $result_array["brand"] = $brand;
 
         $result_array["categories"] = $cat;
 
