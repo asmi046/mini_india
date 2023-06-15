@@ -30,6 +30,7 @@
         <meta name="_token" content="{{ csrf_token() }}">
 
         <script src="{{asset('js/lib/swiper/swiper-bundle.min.js')}}"></script>
+        <script src="//code.jivo.ru/widget/MA82UYhefF" async></script>
 
         @vite([
                 'resources/css/app.css',
@@ -60,7 +61,7 @@
     </head>
     <body class="site_body" id="global_app">
 
-        <script src="//code.jivo.ru/widget/MA82UYhefF" async></script>
+
 
         <x-catalog-menu></x-catalog-menu>
 
