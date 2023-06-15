@@ -60,6 +60,8 @@
     </head>
     <body class="site_body" id="global_app">
 
+        <script src="//code.jivo.ru/widget/MA82UYhefF" async></script>
+
         <x-catalog-menu></x-catalog-menu>
 
         <header class="header">
