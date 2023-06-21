@@ -3,6 +3,7 @@ import './bootstrap';
 import {createApp} from 'vue/dist/vue.esm-bundler'
 import CitySelect from "./components/CitySelect.vue"
 import Bascet from "./components/bascet/Bascet.vue"
+import YandexMap from './components/YandexMap.vue'
 
 import axios from 'axios'
 
@@ -13,7 +14,8 @@ import { VMaskDirective } from 'v-slim-mask'
 const global_app = createApp({
     components:{
        CitySelect,
-       Bascet
+       Bascet,
+       YandexMap
     }
 })
 

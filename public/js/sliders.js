@@ -11,6 +11,7 @@ var swiper = new Swiper(".main_brand_slider", {
 
     },
 
+
     breakpoints: {
         1920:{
             slidesPerView: 6,
@@ -30,7 +31,11 @@ var brandSlider = new Swiper(".main_banner_slider", {
     pagination: {
         el: ".banner_controll",
         clickable: true,
-    }
+    },
+
+    autoplay: {
+        delay: 6000,
+    },
 });
 
 var tovarSlider = new Swiper(".tovar_slider", {

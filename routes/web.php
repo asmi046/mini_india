@@ -14,6 +14,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PaymentController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ use App\Http\Controllers\Auth\PaymentController;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/category/{slug}', [CategoriesController::class, 'index'])->name('category');
 Route::get('/brand/{slug}', [BrandController::class, 'index'])->name('brand');
 Route::get('/tovar/{slug}', [TovarController::class, 'index'])->name('tovar');

@@ -26,7 +26,7 @@
             <p><strong>ИНН:</strong> {{shpw_option('inn', $options)}}</p>
             <p><strong>ОГРНИП:</strong> {{shpw_option('ogrn', $options)}}</p>
             <p><strong>ОКПО:</strong> {{shpw_option('okpo', $options)}}</p>
-            <p><strong>Юридический адрес:</strong> {{shpw_option('ur_adr', $options)}}</p>
+            <p><strong>Адрес офиса:</strong> {{shpw_option('office_adress', $options)}}</p>
 
             <h2>Банковские реквизиты</h2>
             <p><strong>Банк:</strong> {{shpw_option('bank', $options)}}</p>
@@ -34,6 +34,9 @@
             <p><strong>к/с:</strong> {{shpw_option('ks', $options)}}</p>
             <p><strong>БИК:</strong> {{shpw_option('bik', $options)}}</p>
         </div>
+
+        <yandex-map coordinate="{{shpw_option('office_coordinate', $options)}}" adress="<b>MiniIndia.ru</b><br>{{shpw_option('office_adress', $options)}}"></yandex-map>
+
     </div>
 </section>
 
