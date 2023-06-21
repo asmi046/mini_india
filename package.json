@@ -14,7 +14,7 @@
         "migrate_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php artisan migrate\"",
         "rollback_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php artisan migrate:rollback\"",
         "seed_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php artisan DB:seed\"",
-        "seed_rep_one": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php artisan DB:seed BrandSeeder\"",
+        "seed_rep_one": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php artisan DB:seed OfficeAddSeeder\"",
         "db_update": "npm run rollback_rep && npm run migrate_rep && npm run seed_rep",
         "db_update_total": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php artisan migrate:refresh --seed\"",
         "optimized_rep": "ssh u1831841@server136.hosting.reg.ru \"cd www/miniindia.ru && /opt/php/8.1/bin/php composer.phar update --optimize-autoloader --no-dev\"",
