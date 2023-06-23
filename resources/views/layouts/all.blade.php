@@ -39,6 +39,7 @@
 
                 'public/css/main.css',
 
+                'public/css/top-brand-line.css',
                 'public/css/mobile_bottom_menu.css',
                 'public/css/tovar_page_content.css',
                 'public/css/tovar_card.css',
@@ -66,7 +67,11 @@
 
         <x-catalog-menu></x-catalog-menu>
 
+        <x-top-brand-line :brands="$brands"></x-top-brand-line>
+
         <header class="header">
+
+
             <div class="_container">
                 <div class="city_selector">
                     <city-select page-mode="head"></city-select>

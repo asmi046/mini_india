@@ -13,6 +13,7 @@ export default defineConfig({
 
                 'public/css/main.css',
 
+                'public/css/top-brand-line.css',
                 'public/css/mobile_bottom_menu.css',
                 'public/css/tovar_page_content.css',
                 'public/css/tovar_card.css',
