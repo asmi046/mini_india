@@ -197,11 +197,89 @@ table td {
     color: #2A7D5A;
 }
 
+/*--------------- Шапка сайта ---------------*/
+
+
 header {
-  width:100%;
-  height: 90px;
-  border-bottom: 1px solid #2A6B2C;
+    width:100%;
+    max-height: 90px;
+    padding: 10px 0;
+    border-bottom: 1px solid #2A6B2C;
 }
+
+header .shop_registration a,
+header .shop_registration {
+    font-weight: bold;
+    color:#2A7D5A;
+}
+
+header a:hover {
+    color:#F18614;
+    transition: all .4s ease;
+}
+
+
+header ._container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+header ._container > .head_menu{
+    flex: 1;
+}
+
+header ._container > *{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+header .logo img{
+    object-fit: contain;
+    height: auto;
+}
+
+.head_menu ul{
+    display:  flex;
+    width:100%;
+    justify-content:  center;
+}
+
+.head_menu ul li {
+    margin: 0 10px;
+}
+
+@media (max-width: 1024px){
+
+    header .logo img {
+        max-width: 140px;
+    }
+
+    .head_menu ul li {
+        margin: 0 7px;
+    }
+
+}
+
+@media (max-width: 920px){
+
+    header .logo img {
+        max-width: 140px;
+    }
+
+    .head_menu ul li {
+        margin: 0 7px;
+    }
+
+
+    .head_menu {
+        display: none;
+    }
+
+}
+
+/*--------------- Шапка сайта end---------------*/
+
 
 section {
     padding: 20px 0;
@@ -223,9 +301,6 @@ section {
     margin: 0 auto;
 }
 
-header ._container {
-    display: flex;
-}
 
 .city_selector {
     margin-left: 0;
@@ -233,7 +308,7 @@ header ._container {
     max-height: 90px;
 }
 
-.logo {
+/* .logo {
     width:150px;
     height: 90px;
     margin: 5px auto 0 auto;
@@ -245,7 +320,7 @@ header ._container {
 .logo .mini_logo
 {
     display: none;
-}
+} */
 
 .shop_button {
     margin-right: 0;
@@ -414,7 +489,9 @@ header ._container {
     border-radius: 9px;
     position:relative;
     display: flex;
-    max-width:30%;
+    max-width:50%;
+    padding: 0 20px;
+    flex:1;
 }
 
 .search_input {
@@ -1164,7 +1241,7 @@ textarea {
         padding: 5px 0;
     }
 
-    .logo {
+    /* .logo {
         margin: 0 auto 0 auto;
         height: auto;
     }
@@ -1179,7 +1256,7 @@ textarea {
     .logo .big_logo,
     .logo .mini_logo {
         display: none;
-    }
+    } */
 
     .shop_buttons_ {
         background-size: contain;

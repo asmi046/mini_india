@@ -31,6 +31,7 @@ Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/category/{slug}', [CategoriesController::class, 'index'])->name('category');
 Route::get('/brand/{slug}', [BrandController::class, 'index'])->name('brand');
+Route::get('/all_brand', [BrandController::class, 'all_brand'])->name('all_brand');
 Route::get('/tovar/{slug}', [TovarController::class, 'index'])->name('tovar');
 
 Route::get('/contacts', [TextPagesController::class, 'contacts'])->name('contacts');

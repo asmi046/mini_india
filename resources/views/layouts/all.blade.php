@@ -39,7 +39,7 @@
 
                 'public/css/main.css',
 
-                'public/css/top-brand-line.css',
+                'public/css/brand-styles.css',
                 'public/css/mobile_bottom_menu.css',
                 'public/css/tovar_page_content.css',
                 'public/css/tovar_card.css',
@@ -67,13 +67,31 @@
 
         <x-catalog-menu></x-catalog-menu>
 
-        <x-top-brand-line :brands="$brands"></x-top-brand-line>
+        {{-- <x-top-brand-line :brands="$brands"></x-top-brand-line> --}}
 
         <header class="header">
-
-
             <div class="_container">
-                <div class="city_selector">
+                <a href="{{route('home')}}" class="logo">
+                    <img class="hor_logo" src="{{asset('img/logo_horizont.svg')}}" alt="">
+                </a>
+
+                <nav class="head_menu">
+                    <ul>
+                        <li><a href="{{route('home')}}">Главная</a></li>
+                        <li><a href="{{route('all_brand')}}">Бренды</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="{{route('delivery')}}">Доставка и оплата</a></li>
+                        <li><a href="{{route('contacts')}}">Контакты</a></li>
+                        <li><a href="#">Акции</a></li>
+                        <li><a href="{{route('shop')}}">Магазин</a></li>
+                    </ul>
+                </nav>
+
+                <div class="shop_registration">
+                    <a href="#">Вход</a> | <a href="#">Регистрация</a>
+                </div>
+
+                {{-- <div class="city_selector">
                     <city-select page-mode="head"></city-select>
                 </div>
                 <a href="{{route('home')}}" class="logo">
@@ -97,7 +115,7 @@
                     <a href="{{route('bascet')}}" title="Корзина" class="shop_buttons_ shop_button_cart bascet_blk">
                         <span class="bascet_counter">1</span>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </header>
 
@@ -118,7 +136,7 @@
 
                 <x-phone></x-phone>
 
-                <x-service-btn></x-service-btn>
+                {{-- <x-service-btn></x-service-btn> --}}
 
                 <x-messanger></x-messanger>
             </div>

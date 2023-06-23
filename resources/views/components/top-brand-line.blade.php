@@ -6,7 +6,7 @@
                     <x-brand-circle :elem="$brands[$i]"></x-brand-circle>
                 </a>
             @endfor
-            <a class="all_brend_lnk" href="#">Смотреть все бренды</a>
+            <a class="all_brend_lnk" href="{{route("all_brand")}}">Смотреть все бренды</a>
         </div>
     </div>
 </section>
