@@ -15,6 +15,8 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PaymentController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ActionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,11 +30,15 @@ use App\Http\Controllers\ShopController;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/actions', [ShopController::class, 'index'])->name('actions');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/category/{slug}', [CategoriesController::class, 'index'])->name('category');
 Route::get('/brand/{slug}', [BrandController::class, 'index'])->name('brand');
 Route::get('/all_brand', [BrandController::class, 'all_brand'])->name('all_brand');
 Route::get('/tovar/{slug}', [TovarController::class, 'index'])->name('tovar');
+
+Route::get('/blog', [BlogController::class, "show"])->name('blog');
+Route::get('/blog/{slug}', [BlogController::class, "show_page"])->name('blog_page');
 
 Route::get('/contacts', [TextPagesController::class, 'contacts'])->name('contacts');
 Route::get('/obmen-vozvrat', [TextPagesController::class, 'obmen'])->name('obmen-vozvrat');
