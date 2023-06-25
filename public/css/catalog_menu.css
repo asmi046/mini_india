@@ -56,7 +56,9 @@
     padding-top: 10px;
 }
 
-.catalog_menu nav a{
+footer nav a,
+.catalog_menu nav a
+{
     width:90%;
     margin-right: 10%;
     min-height: 40px;
@@ -67,12 +69,28 @@
     border-radius: 0 11px 11px 0;
 }
 
+footer ul {
+    margin-top: 20px;
+}
+
+footer .head_menu ul li {
+    margin: 0;
+
+}
+
+footer nav a {
+    padding-left: 0;
+    min-height: 30px;
+    line-height: 30px;
+}
+
 .catalog_menu nav a.active,
 .catalog_menu nav a:hover{
     color: #2A7D5A;
     text-decoration: underline;
 }
 
+footer .head_menu ul,
 .catalog_menu .head_menu ul{
     flex-direction: column;
 }

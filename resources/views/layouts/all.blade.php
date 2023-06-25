@@ -135,7 +135,7 @@
         @yield('content')
 
         <x-mobile-bottom-menu></x-mobile-bottom-menu>
-        <x-footer></x-footer>
+        <x-footer-new :all_cat="$all_cat"></x-footer-new>
 
     </body>
 </html>

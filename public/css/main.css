@@ -182,6 +182,7 @@ table td {
     justify-content: center;
 }
 
+
 .btn:hover {
     background-color: #2A7D5A;
     color: white;
@@ -944,7 +945,95 @@ section {
 
 footer {
     width:100%;
+    background-color: #ebebeb;
+    min-height: 100px;
+    padding: 20px 0;
 }
+
+footer ._container{
+    display: flex;
+}
+
+footer ._container > div{
+    flex: 1;
+}
+
+footer .messendger_head_blk {
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+footer .messendger_head_blk .whatsapp::before {
+    position: absolute;
+    left:0;
+}
+
+footer .messendger_head_blk a {
+    margin: auto 0;
+    padding: 0 15px;
+}
+
+.pay_system_img {
+    width:200px;
+    height: auto;
+    margin: 0 0 20px 0;
+}
+
+footer h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer form {
+    display: flex;
+}
+
+footer form input{
+    border-right: none;
+    border-radius: 9px 0 0 9px;
+}
+
+footer form .btn{
+    border-radius: 0 9px 9px 0;
+}
+
+footer .podp p {
+    margin: 1em 0;
+}
+
+footer .phone_head_blk {
+    text-align: left;
+}
+
+
+@media (max-width: 1024px){
+    footer .inform,
+    footer .help {
+        margin: 0 40px;
+    }
+
+    footer form input {
+        max-width:200px;
+    }
+
+    footer form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 920px){
+    footer ._container {
+        flex-wrap: wrap;
+    }
+
+    footer ._container > div {
+        margin: 0 0 40px 0;
+        width: 48%;
+        flex: none;
+    }
+}
+
+/*
 
 footer .footer_top{
     width:100%;
@@ -977,7 +1066,7 @@ footer .logo {
     display: flex;
     height: 100px;
     justify-content: space-between;
-}
+} */
 
 /*-----Подвал end-----*/
 
