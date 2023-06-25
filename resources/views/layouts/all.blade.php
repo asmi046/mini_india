@@ -75,20 +75,10 @@
                     <img class="hor_logo" src="{{asset('img/logo_horizont.svg')}}" alt="">
                 </a>
 
-                <nav class="head_menu">
-                    <ul>
-                        <li><a href="{{route('home')}}">Главная</a></li>
-                        <li><a href="{{route('all_brand')}}">Бренды</a></li>
-                        <li><a href="{{route('blog')}}">Блог</a></li>
-                        <li><a href="{{route('delivery')}}">Доставка и оплата</a></li>
-                        <li><a href="{{route('contacts')}}">Контакты</a></li>
-                        <li><a href="#">Акции</a></li>
-                        <li><a href="{{route('shop')}}">Магазин</a></li>
-                    </ul>
-                </nav>
+                <x-main-menu></x-main-menu>
 
                 <div class="shop_registration">
-                    <a href="#">Вход</a> | <a href="#">Регистрация</a>
+                    <a href="{{route('login')}}">Вход</a> | <a href="{{route('register')}}">Регистрация</a>
                 </div>
 
                 {{-- <div class="city_selector">

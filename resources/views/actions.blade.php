@@ -16,7 +16,7 @@
 
 <section class="category_section">
     <div class="_container">
-        <h1 class="page_h2">Все товары нашего магазина</h1>
+        <h1 class="page_h2">Товары со скидкой</h1>
 
         <div class="category_body">
 

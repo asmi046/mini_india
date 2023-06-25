@@ -69,8 +69,12 @@
 
 .catalog_menu nav a.active,
 .catalog_menu nav a:hover{
-    background-color: #FFB400;
-    color:black
+    color: #2A7D5A;
+    text-decoration: underline;
+}
+
+.catalog_menu .head_menu ul{
+    flex-direction: column;
 }
 
 .sub_cat_menu_wrapper {

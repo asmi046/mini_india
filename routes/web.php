@@ -30,7 +30,7 @@ use App\Http\Controllers\ActionController;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
-Route::get('/actions', [ShopController::class, 'index'])->name('actions');
+Route::get('/actions', [ActionController::class, 'index'])->name('actions');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/category/{slug}', [CategoriesController::class, 'index'])->name('category');
 Route::get('/brand/{slug}', [BrandController::class, 'index'])->name('brand');

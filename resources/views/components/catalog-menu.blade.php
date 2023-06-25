@@ -18,19 +18,7 @@
                 <span class="text">{{$cat_elem['title']}}</span>
             </a>
         @endforeach
-
-        <h2>Бренды</h2>
-
-        @foreach ($brands as $cat_elem)
-        <a href="{{route('brand', $cat_elem['slug'])}}" class="top_category">
-
-            <x-brand-circle :elem="$cat_elem"></x-brand-circle>
-
-
-            <span class="text">{{$cat_elem['title']}}</span>
-        </a>
-    @endforeach
-
-        <x-service-btn></x-service-btn>
+        <h2>Главное меню</h2>
+        <x-main-menu></x-main-menu>
 	</div>
 </div>
