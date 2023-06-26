@@ -52,6 +52,7 @@
   box-sizing: border-box;
 }
 
+
 aside,
 nav,
 footer,
@@ -272,8 +273,7 @@ header .logo img{
         margin: 0 7px;
     }
 
-
-    .head_menu {
+    header .head_menu {
         display: none;
     }
 
@@ -954,6 +954,11 @@ footer ._container{
     display: flex;
 }
 
+footer .podp {
+    display: flex;
+    flex-direction: column;
+}
+
 footer ._container > div{
     flex: 1;
 }
@@ -1030,6 +1035,18 @@ footer .phone_head_blk {
         margin: 0 0 40px 0;
         width: 48%;
         flex: none;
+    }
+}
+
+@media (max-width: 768px){
+    footer {
+        padding-bottom: 70px;
+    }
+}
+
+@media (max-width: 512px){
+    footer ._container > div {
+        width: 100%;
     }
 }
 

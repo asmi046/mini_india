@@ -26,10 +26,15 @@
         </div>
 
         <div class="podp">
-            <form method="POST" action="">
+            <form method="POST" action="{{route('send_subscribe')}}">
+                @csrf
                 <input name="emailsub" type="email" placeholder="e-mail">
                 <button type="submit" class="btn btn_fill">Отправить</button>
+
             </form>
+            @error('emailsub')
+                    <p class="form_error">{{$message}}</p>
+                @enderror
             <p>Подписывайтесь на новости и акции</p>
             <x-phone></x-phone>
         </div>

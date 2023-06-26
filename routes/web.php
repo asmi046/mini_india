@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\PaymentController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ActionController;
+use App\Http\Controllers\SenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,8 @@ Route::get('/category/{slug}', [CategoriesController::class, 'index'])->name('ca
 Route::get('/brand/{slug}', [BrandController::class, 'index'])->name('brand');
 Route::get('/all_brand', [BrandController::class, 'all_brand'])->name('all_brand');
 Route::get('/tovar/{slug}', [TovarController::class, 'index'])->name('tovar');
+
+Route::post('/send_subscribe', [SenderController::class, "send_subscribe"])->name('send_subscribe');
 
 Route::get('/blog', [BlogController::class, "show"])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, "show_page"])->name('blog_page');
