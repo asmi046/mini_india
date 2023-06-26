@@ -1,4 +1,9 @@
-<div class="tovar_wrap main-prod-card" data-prodid="{{$tovar['sku']}}">
+@props([
+    'addclass' => '',
+    'tovar'
+])
+
+<div @class(['tovar_wrap', 'main-prod-card', $addclass]) data-prodid="{{$tovar['sku']}}">
     <div class="bascet_count"> В корзине <span>1</span> шт </div>
     <div class="like to_favorites" data-prodid="{{$tovar['sku']}}"></div>
     <a href="{{route('tovar', $tovar['slug'])}}" class="tovat_photo_wrap">

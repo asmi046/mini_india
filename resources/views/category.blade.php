@@ -41,7 +41,7 @@
     </div>
 </section>
 
-<x-brand-slider></x-brand-slider>
 <x-big-cat></x-big-cat>
+<x-brand-slider></x-brand-slider>
 
 @endsection

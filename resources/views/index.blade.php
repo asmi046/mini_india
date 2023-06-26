@@ -18,11 +18,22 @@
             <div class="_container">
                 <h2 class="main">Новинки</h2>
 
-                <div class="tovars_wrap">
-                    @foreach ($news as $tovar_element)
-                        <x-tovar-card :tovar="$tovar_element"></x-tovar-card>
-                    @endforeach
+                <div class="swiper_obj">
+                    <div class="swiper new_tovar_slider">
+                        <div class="swiper-wrapper">
+                            @foreach ($news as $tovar_element)
+                                <x-tovar-card :tovar="$tovar_element" addclass="swiper-slide"></x-tovar-card>
+                            @endforeach
+                        </div>
+
+                    </div>
+                        <div id="nts_right" class="btn_all btn_right"></div>
+                        <div id="nts_left" class="btn_all btn_left"></div>
                 </div>
+
+                {{-- <div class="tovars_wrap">
+
+                </div> --}}
             </div>
         </section>
 
@@ -40,7 +51,7 @@
             </div>
         </section>
 
-        <x-brand-slider></x-brand-slider>
         <x-big-cat></x-big-cat>
+        <x-brand-slider></x-brand-slider>
 
 @endsection

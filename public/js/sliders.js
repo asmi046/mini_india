@@ -46,3 +46,30 @@ var tovarSlider = new Swiper(".tovar_slider", {
         prevEl: ".tovar_slider .btn_left",
     },
 });
+
+var new_tovar_slider = new Swiper(".new_tovar_slider", {
+    slidesPerView: 1,
+    loop: true,
+    spaceBetween: 30,
+    autoHeight:true,
+    navigation: {
+        nextEl: "#nts_right",
+        prevEl: "#nts_left",
+    },
+
+    breakpoints: {
+
+		480: {
+			slidesPerView: 1,
+		},
+
+		768: {
+			slidesPerView: 2,
+		},
+
+
+		1024: {
+			slidesPerView: 4,
+		},
+	},
+});

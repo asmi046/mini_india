@@ -16,7 +16,8 @@
 
 <x-tovar-page-content :images="$images" :product="$product"></x-tovar-page-content>
 
-<x-brand-slider></x-brand-slider>
 <x-big-cat></x-big-cat>
+<x-brand-slider></x-brand-slider>
+
 
 @endsection
