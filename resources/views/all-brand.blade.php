@@ -21,7 +21,12 @@
         <div class="brands_in_page">
             @foreach ($brands as $item)
                 <a href="{{route('brand', $item['slug'])}}" class="barnd_wrap">
-                    <img src="{{asset($item['img'])}}" alt="{{$item['title']}}" title="{{$item['title']}}">
+
+                    @if(!empty($item['img']))
+                        <img src="{{asset($item['img'])}}" alt="{{$item['title']}}" title="{{$item['title']}}">
+                    @else
+                        <img src="{{asset("img/noPhoto.jpg")}}"  alt="{{$item['title']}}" title="{{$item['title']}}">
+                    @endif
                 </a>
             @endforeach
         </div>

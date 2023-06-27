@@ -48,8 +48,9 @@ var tovarSlider = new Swiper(".tovar_slider", {
 });
 
 var new_tovar_slider = new Swiper(".new_tovar_slider", {
-    slidesPerView: 1,
+    slidesPerView: 2,
     loop: true,
+    loopFillGroupWithBlank: true,
     spaceBetween: 30,
     autoHeight:true,
     navigation: {
@@ -59,17 +60,18 @@ var new_tovar_slider = new Swiper(".new_tovar_slider", {
 
     breakpoints: {
 
-		480: {
-			slidesPerView: 1,
-		},
-
-		768: {
-			slidesPerView: 2,
-		},
-
 
 		1024: {
 			slidesPerView: 4,
+        },
+
+        768: {
+			slidesPerView: 3,
 		},
+
+		480: {
+			slidesPerView: 2,
+		},
+
 	},
 });
