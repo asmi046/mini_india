@@ -5,7 +5,9 @@
 
 <div @class(['tovar_wrap', 'main-prod-card', $addclass]) data-prodid="{{$tovar['sku']}}">
     <div class="bascet_count"> В корзине <span>1</span> шт </div>
-    <div class="like to_favorites" data-prodid="{{$tovar['sku']}}"></div>
+
+    <to-favorites-btn sku="{{$tovar['sku']}}"></to-favorites-btn>
+
     <a href="{{route('tovar', $tovar['slug'])}}" class="tovat_photo_wrap">
         @if (!empty($tovar['img']))
             <img src="{{asset($tovar['img'])}}" alt="{{$tovar['title']}}">
@@ -35,11 +37,12 @@
         {{$tovar['price']}} <span class="rub_symbol">₽</span>
     </div>
     <div class="tovar_button_wrap tovar_wrap_padding">
-        <a href="#" data-prodid="{{$tovar['sku']}}" class="btn cart_btn card_to_bascet_btn to_bascet">
+        <to-bascet-btn bascet="{{route('bascet')}}" sku="{{$tovar['sku']}}"></to-bascet-btn>
+        {{-- <a href="#" data-prodid="{{$tovar['sku']}}" class="btn cart_btn card_to_bascet_btn to_bascet">
             <span class="nadp">Купить</span>
             <span class="btnLoader"></span>
         </a>
 
-        <a href="{{route('bascet')}}" class="btn card_bascet_btn ">Оформить</a>
+        <a href="{{route('bascet')}}" class="btn card_bascet_btn ">Оформить</a> --}}
     </div>
 </div>

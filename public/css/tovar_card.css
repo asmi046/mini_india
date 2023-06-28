@@ -53,10 +53,10 @@
     cursor: pointer;
 }
 
-
+.favorite_fill,
 .tovar_wrap.in-favorites .like,
 .tovar_wrap .like:hover{
-    background-image: url(../img/icons/like_orange_fill.svg);
+    background-image: url(../img/icons/like_orange_fill.svg)!important;
 }
 
 .tovat_photo_wrap {

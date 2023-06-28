@@ -34,10 +34,7 @@
 </div>
 
 <div class="btn_in_page_wrap">
-    <a href="#" class="btn btn_fill card_to_bascet_btn to_bascet" data-prodid="{{$product['sku']}}">
-        <span class="nadp">Купить</span>
-        <span class="btnLoader"></span>
-    </a>
+    <to-bascet-btn bascet="{{route('bascet')}}" sku="{{$product['sku']}}"></to-bascet-btn>
 </div>
 
 <div class="tovar_properties_wrap">

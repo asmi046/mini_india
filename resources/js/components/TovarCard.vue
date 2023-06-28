@@ -1,7 +1,7 @@
 <template>
     <div class="tovar_wrap main-prod-card"  :data-prodid="tovar.sku">
         <div class="bascet_count"> В корзине <span>1</span> шт </div>
-        <div class="like to_favorites" :data-prodid="tovar.sku"></div>
+        <to-favorites-btn :sku="tovar.sku"></to-favorites-btn>
         <a href="#" class="tovat_photo_wrap">
             <img v-if="tovar.img != ''" :src="tovar.img" :alt="tovar.title">
             <img v-else src="/img/noPhoto.jpg" :alt="tovar.title">
@@ -22,19 +22,19 @@
             {{tovar.price}} <span class="rub_symbol">₽</span>
         </div>
         <div class="tovar_button_wrap tovar_wrap_padding">
-            <a href="#" :data-prodid="tovar.sku" class="btn cart_btn card_to_bascet_btn to_bascet">
-                <span class="nadp">Купить</span>
-                <span class="btnLoader"></span>
-            </a>
+            <to-bascet-btn route="/bascet"  :sku="tovar.sku"></to-bascet-btn>
         </div>
     </div>
 
 </template>
 
 <script>
+import ToBascetBtn from './ToBascetBtn.vue'
+import ToFavoritesBtn from './ToFavoritesBtn.vue'
 
 
 export default {
+    components: { ToBascetBtn, ToFavoritesBtn },
 
     props:{
         tovar:Object

@@ -432,6 +432,83 @@
     background-image: url(../img/icons/pay/sber.svg);
 }
 
+/* --------- Компонент кнопка в корзину --------- */
+
+.tbComponent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b_counter_btn {
+    display: flex;
+    background-color: #2A7D5A;
+    color: white;
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.b_counter_btn span {
+    margin-right: 15px;
+
+}
+
+.b_counter_btn span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.b_counter_btn > *{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.b_counter_btn a{
+    color: white;
+}
+
+.b_counter_btn input {
+    background-color: transparent;
+    width:20px;
+    height: 20px;
+    min-height: 20px;
+    padding: 0;
+    margin: 0;
+    color: white;
+    text-align:  center;
+    font-size: 14px;
+}
+
+.b_counter_btn .btn_number_wrapper{
+    display: flex;
+}
+
+.btn_in_card span{
+    margin: auto 0;
+}
+
+.btn_in_card {
+    display: flex;
+    border: 1px solid #2A7D5A;
+    border-radius: 12px;
+    padding: 0 10px;
+}
+
+.oform_wrapper {
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.b_counter_btn_oform span{
+    margin-right: 0;
+    min-height: 20px;
+    line-height: 20px;
+}
+
+/* --------- Компонент кнопка в корзину --------- */
+
 @media (max-width: 768px) {
     .bascet {
         flex-direction: column;

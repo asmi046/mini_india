@@ -23,18 +23,18 @@ class Cart extends Model
         return $this->hasOne(Product::class, 'sku', 'product_sku');
     }
 
-    public static function add($product_id) {
+    public static function add($product_id, $addcount) {
         $product = Product::where('sku', $product_id)->firstOrFail();
 
         if ($cart = self::where(["session_id" => session()->getId(), "product_sku" => $product_id])->first()) {
-            $cart->quentity++;
+            $cart->quentity += $addcount;
             $cart->save();
         } else {
             $cart = self::create([
                 "session_id" => session()->getId(),
                 "user_id" => 0,
                 "product_sku" => $product_id,
-                "quentity" => 1,
+                "quentity" => $addcount,
                 "price" => $product->price
             ]);
         }

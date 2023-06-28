@@ -13,6 +13,8 @@
 <script>
 import { ref } from 'vue'
 import TovarCard from './TovarCard.vue';
+
+
 export default {
   components: { TovarCard },
     props: {

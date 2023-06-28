@@ -78,7 +78,14 @@
                 <x-main-menu></x-main-menu>
 
                 <div class="shop_registration">
-                    <a href="{{route('login')}}">Вход</a> | <a href="{{route('register')}}">Регистрация</a>
+                    <a href="{{route('favorites')}}" title="Понравившиеся товары" class="shop_buttons_ shop_button_favorites"></a>
+
+                    <a href="{{route('bascet')}}" title="Корзина" class="shop_buttons_ shop_button_cart bascet_blk">
+                        <span class="bascet_counter">1</span>
+                    </a>
+
+                    <a href="{{route('login')}}">Вход</a> <span>|</span> <a href="{{route('register')}}">Регистрация</a>
+
                 </div>
 
                 {{-- <div class="city_selector">

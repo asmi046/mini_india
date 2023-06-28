@@ -23,8 +23,9 @@ class CartController extends Controller
     public function add(Request $request) {
         $product_id = $request->input('product_id');
         $_token = $request->input('_token');
+        $addcount = $request->input('addcount');
 
-        Cart::add($product_id);
+        Cart::add($product_id, $addcount);
 
         return array($product_id, $_token);
     }

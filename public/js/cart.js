@@ -21,7 +21,18 @@ function bascet_to_page() {
 
             })
             .then((response) => {
+                console.log(response.data)
                 if (response.data.length == 0) return;
+
+                    localStorage.setItem("cartCount", response.data.count);
+                    let cart_tovar = {}
+                    for (let element of response.data.position)
+                        cart_tovar[element.product_sku] = element.quentity
+
+                    localStorage.setItem("cartTovars", JSON.stringify(cart_tovar));
+                    console.log(cart_tovar)
+                    console.log(JSON.parse(localStorage.getItem("cartTovars")))
+
 
                     update_counter(response.data.count)
 

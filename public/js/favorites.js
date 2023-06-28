@@ -18,6 +18,7 @@ function favorites_to_page() {
 
             })
             .then((response) => {
+                console.log(response.data.position)
                 if (response.data.length == 0) return;
 
                     update_fav_counter(response.data.count)
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     favorites_to_page();
 
 
-    let add_buttons = document.querySelectorAll(".to_favorites")
+    let add_buttons = document.querySelectorAll(".to_favorites_")
 
     for (let elem of add_buttons)
         elem.addEventListener("click", function (e) {

@@ -209,6 +209,14 @@ header {
     border-bottom: 1px solid #2A6B2C;
 }
 
+header .shop_registration > * {
+    margin: auto 3px;
+}
+
+header .shop_registration {
+    display: flex;
+}
+
 header .shop_registration a,
 header .shop_registration {
     font-weight: bold;
@@ -432,18 +440,24 @@ section {
 
 .shop_buttons_.shop_button_favorites {
     background-image: url("../img/icons/like.svg");
-    width: 32px;
-    height: 26px;
+    width: 28px;
+    height: 20px;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
+    display: inline-block;
+    margin-right: 13px;
 }
 
 .shop_buttons_.shop_button_cart {
     background-image: url("../img/icons/cart.svg");
-    width: 27px;
-    height: 30px;
+    width: 20px;
+    height: 27px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    display: inline-block;
+    margin-right: 13px;
 }
 
 /*-----Блок с кнопкой каталога-----*/
