@@ -34,6 +34,7 @@
                     @endforeach
                 </div>
 
+                <show-more route="/show_more_tovar" catid="{{$category_info['id']}}" inpage="16"></show-more>
                 <x-pagination :tovars="$tovars"></x-pagination>
 
             </div>

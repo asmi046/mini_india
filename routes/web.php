@@ -18,6 +18,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ActionController;
 use App\Http\Controllers\SenderController;
+use App\Http\Controllers\ShowMoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::get('/category/{slug}', [CategoriesController::class, 'index'])->name('ca
 Route::get('/brand/{slug}', [BrandController::class, 'index'])->name('brand');
 Route::get('/all_brand', [BrandController::class, 'all_brand'])->name('all_brand');
 Route::get('/tovar/{slug}', [TovarController::class, 'index'])->name('tovar');
+
+Route::get('/show_more_tovar', [ShowMoreController::class, 'index'])->name('show_more_tovar');
 
 Route::post('/send_subscribe', [SenderController::class, "send_subscribe"])->name('send_subscribe');
 
