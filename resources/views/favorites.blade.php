@@ -19,14 +19,15 @@
         <div class="text_blk">
             <h1>Понравившиеся товары</h1>
 
-            <div class="main-prod-card d-flex favorites-page tovars_wrap ">
+            <favorites></favorites>
+            {{-- <div class="main-prod-card d-flex favorites-page tovars_wrap ">
 
                 @foreach ($products as $tovar)
                     <x-tovar-card :tovar="$tovar->tovar_data"></x-tovar-card>
                 @endforeach
 
                 <div class="empty_favorites">Жмите на ♡ на странице товара и добавляйте товар в избранное</div>
-            </div>
+            </div> --}}
 
         </div>
     </div>

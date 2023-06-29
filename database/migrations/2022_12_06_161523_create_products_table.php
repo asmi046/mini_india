@@ -26,6 +26,7 @@ return new class extends Migration
 
             $table->boolean("hit")->nullable();
             $table->boolean("new")->nullable();
+            $table->boolean("recommend")->nullable();
 
             $table->string('category')->nullable();
             $table->string('sub_category')->nullable();

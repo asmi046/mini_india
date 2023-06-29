@@ -12,6 +12,15 @@ use DB;
 class CategorySeeder extends Seeder
 {
 
+
+    public function title_replace($val) {
+        $rez = $val;
+
+        if ($val === "Здоровье") return "Аюрведа";
+
+        return $rez;
+    }
+
     protected function add_to_base($item, $parent) {
 
         $img = Storage::url("zdorovie.jpg");
@@ -50,10 +59,10 @@ class CategorySeeder extends Seeder
         if (empty($category))
         DB::table("categories")->insert(
             [
-                "parent" => $parent,
+                "parent" => $this->title_replace($parent),
                 "img" => $img,
-                "slug" => Str::slug($item),
-                "title" => $item,
+                "slug" => Str::slug($this->title_replace($item)),
+                "title" => $this->title_replace($item),
                 "description" => 'Описание категории - ' . $item
             ]
         );

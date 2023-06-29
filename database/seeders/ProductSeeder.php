@@ -25,6 +25,14 @@ class ProductSeeder extends Seeder
      */
 
 
+    public function title_replace($val) {
+        $rez = $val;
+
+        if ($val === "Здоровье") return "Аюрведа";
+
+        return $rez;
+    }
+
     public function grt_brand_img_name($val) {
 
         if ($val === "Aimil") return Storage::url("aimil.jpg");
@@ -72,6 +80,7 @@ class ProductSeeder extends Seeder
 
         return "";
     }
+
 
     public function run()
     {
@@ -173,7 +182,7 @@ class ProductSeeder extends Seeder
 
                     $one_row = [
                         'sku' => 'tov_'.$row,
-                        'title' => $data[0],
+                        'title' => $this->title_replace($data[0]),
                         'slug' => '',
                         'description' => text_formater($data[1]),
                         'price' => str_replace(",",".",doubleval ($data[2])),
@@ -181,11 +190,12 @@ class ProductSeeder extends Seeder
                         'img' => $ins_url,
                         'hit' => rand(0,1)?true:false,
                         'new' => rand(0,1)?true:false,
-                        'category' => $data[7],
+                        'recommend' => rand(0,1)?true:false,
+                        'category' => $this->title_replace($data[7]),
                         'sub_category' => $data[8],
                         'brand' => $data[9],
-                        'seo_title' => $data[0]." купить",
-                        'seo_description' => $data[0]." купить с доставкой по России. Выгодные цены."
+                        'seo_title' => $this->title_replace($data[0])." купить",
+                        'seo_description' => $this->title_replace($data[0])." купить с доставкой по России. Выгодные цены."
                     ];
 
 

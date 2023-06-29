@@ -33,6 +33,7 @@ class Product extends Model
         'old_price',
         'hit',
         'new',
+        'recommend',
         'category',
         'sub_category',
         'brand',

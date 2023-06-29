@@ -9,6 +9,7 @@ import YandexMap from './components/YandexMap.vue'
 import ShowMore from './components/ShowMore.vue'
 import ToBascetBtn from './components/ToBascetBtn.vue'
 import ToFavoritesBtn from './components/ToFavoritesBtn.vue'
+import Favorites from './components/Favorites.vue'
 
 import axios from 'axios'
 
@@ -23,10 +24,12 @@ const global_app = createApp({
        YandexMap,
        ShowMore,
        ToBascetBtn,
-       ToFavoritesBtn
+       ToFavoritesBtn,
+       Favorites
     },
     beforeCreate() {
         this.$store.dispatch('initialBascet');
+        this.$store.dispatch('initialFavorites');
     }
 
 

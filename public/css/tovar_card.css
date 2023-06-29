@@ -34,9 +34,6 @@
   box-shadow: none;
 }
 
-.favorites-page .tovar_wrap:not(.in-favorites) {
-    display: none;
-}
 
 .tovar_wrap .like{
     position: absolute;
