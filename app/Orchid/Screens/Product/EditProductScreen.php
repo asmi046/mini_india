@@ -144,6 +144,13 @@ class EditProductScreen extends Screen
                     ->placeholder('Пометка new')
                     ->help('Пометка new 2'),
 
+                Switcher::make('recommend')
+                    ->value($this->tovar->recommend)
+                    ->sendTrueOrFalse()
+                    ->title('Рекомендуемый товар')
+                    ->placeholder('Рекомендуемый товар')
+                    ->help('Вывод в разделе рекомендуемые'),
+
                 Relation::make('category.')
                     ->fromModel(Category::class, 'title', 'id')
                     ->title('Категория товара')
@@ -214,6 +221,7 @@ class EditProductScreen extends Screen
             'old_price' => [ 'digits_between:1,12'],
             'hit' => [],
             'new' => [],
+            'recommend' => [],
             'category' => ['required'],
             'sub_category' => [],
             'brand' => ['required'],

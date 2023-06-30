@@ -1,4 +1,11 @@
 <?php
+
+if (!function_exists("clear_html")) {
+    function clear_html($value) {
+        return preg_replace('~>\K\s+~', PHP_EOL, $value);;
+    }
+}
+
 if (!function_exists("shpw_option")) {
     function shpw_option($value, $options) {
         return (array_key_exists($value, $options))?$options[$value]:"";

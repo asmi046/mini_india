@@ -24,9 +24,24 @@
 
         <div class="blog_cards_in_page">
             @foreach ($posts as $item)
-
+                <a href="{{route('blog_page', $item->slug)}}" class="blog_post_card">
+                    <div class="img_wrapp">
+                        <img src="{{$item->img}}" alt="{{$item->title}}">
+                    </div>
+                    <h2>{{$item->title}}</h2>
+                    <div class="quote">
+                        При создании аюрведических средств всегда соблюдаются два принципа. Это природное происхождение компонентов и составление из них продуктов, следуя тысячелетним знаниям и методам.
+                    </div>
+                    <div class="btn_wrap">
+                        <span class="btn btn_fill">Подробнее</span>
+                    </div>
+                </a>
             @endforeach
+
+
         </div>
+
+        <x-pagination :tovars="$posts"></x-pagination>
     </div>
 </section>
 

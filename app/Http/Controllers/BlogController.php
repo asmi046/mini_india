@@ -12,7 +12,7 @@ class BlogController extends Controller
         $post = Blog::where('slug', $slug)->first();
         if($post == null) abort('404');
 
-        return view('blog_page', ['post' => $post]);
+        return view('blog-page', ['post' => $post]);
     }
 
     public function show() {

@@ -19,6 +19,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ActionController;
 use App\Http\Controllers\SenderController;
 use App\Http\Controllers\ShowMoreController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ use App\Http\Controllers\ShowMoreController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/test_api', [TestController::class, 'index'])->name('test_api');
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/actions', [ActionController::class, 'index'])->name('actions');
@@ -43,7 +46,7 @@ Route::get('/show_more_tovar', [ShowMoreController::class, 'index'])->name('show
 
 Route::post('/send_subscribe', [SenderController::class, "send_subscribe"])->name('send_subscribe');
 
-Route::get('/blog', [BlogController::class, "show"])->name('blog');
+Route::get('/blog_all', [BlogController::class, "show"])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, "show_page"])->name('blog_page');
 
 Route::get('/contacts', [TextPagesController::class, 'contacts'])->name('contacts');

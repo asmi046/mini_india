@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             BannerSeeder::class,
             OptionSeeder::class,
             CategorySeeder::class,
-            ProductSeeder::class
+            ProductSeeder::class,
+            BlogSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

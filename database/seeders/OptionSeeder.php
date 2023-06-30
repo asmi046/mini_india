@@ -134,7 +134,7 @@ class OptionSeeder extends Seeder
                 [
                     "name" => "preim1_title",
                     'title' => 'Преимущество 1 - Заголовок',
-                    "value" => "Преимущество нашего магазина #1",
+                    "value" => "Товары для гигиены",
                 ],
 
                 [
@@ -144,9 +144,15 @@ class OptionSeeder extends Seeder
                 ],
 
                 [
+                    "name" => "preim1_lnk",
+                    'title' => 'Преимущество 1 - ссылка',
+                    "value" => "/category/gigiena",
+                ],
+
+                [
                     "name" => "preim2_title",
                     'title' => 'Преимущество 2 - Заголовок',
-                    "value" => "Преимущество нашего магазина #2",
+                    "value" => "Аромотерапия",
                 ],
 
                 [
@@ -155,16 +161,29 @@ class OptionSeeder extends Seeder
                     "value" => "Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.",
                 ],
 
+
+                [
+                    "name" => "preim2_lnk",
+                    'title' => 'Преимущество 2 - ссылка',
+                    "value" => "/category/aromaterapiia",
+                ],
+
                 [
                     "name" => "preim3_title",
                     'title' => 'Преимущество 3 - Заголовок',
-                    "value" => "Преимущество нашего магазина #3",
+                    "value" => "Продукты питания",
                 ],
 
                 [
                     "name" => "preim3_text",
                     'title' => 'Преимущество 3 - Текст',
                     "value" => "Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.",
+                ],
+
+                [
+                    "name" => "preim3_lnk",
+                    'title' => 'Преимущество 3 - ссылка',
+                    "value" => "/category/produkty-pitaniia",
                 ],
 
                 [

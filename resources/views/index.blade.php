@@ -30,10 +30,25 @@
                         <div id="nts_right" class="btn_all btn_right"></div>
                         <div id="nts_left" class="btn_all btn_left"></div>
                 </div>
+            </div>
+        </section>
 
-                {{-- <div class="tovars_wrap">
+        <section class="main_sales">
+            <div class="_container">
+                <h2 class="main">Рекомендуем</h2>
 
-                </div> --}}
+                <div class="swiper_obj">
+                    <div class="swiper new_tovar_slider">
+                        <div class="swiper-wrapper">
+                            @foreach ($recommend as $tovar_element)
+                                <x-tovar-card :tovar="$tovar_element" addclass="swiper-slide"></x-tovar-card>
+                            @endforeach
+                        </div>
+
+                    </div>
+                        <div id="nts_right" class="btn_all btn_right"></div>
+                        <div id="nts_left" class="btn_all btn_left"></div>
+                </div>
             </div>
         </section>
 

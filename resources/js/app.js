@@ -10,6 +10,7 @@ import ShowMore from './components/ShowMore.vue'
 import ToBascetBtn from './components/ToBascetBtn.vue'
 import ToFavoritesBtn from './components/ToFavoritesBtn.vue'
 import Favorites from './components/Favorites.vue'
+import CatalogMenu from './components/CatalogMenu.vue'
 
 import axios from 'axios'
 
@@ -25,6 +26,7 @@ const global_app = createApp({
        ShowMore,
        ToBascetBtn,
        ToFavoritesBtn,
+       CatalogMenu,
        Favorites
     },
     beforeCreate() {

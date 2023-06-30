@@ -118,8 +118,14 @@
 
         <section class="hed_menu_section @yield('border')">
             <div class="_container">
-                <div>
-                    <a href="#" class="catalog_button open_cat_menu"><span>Каталог</span></a>
+                <div class="cm_wrapper">
+                    <a href="#" class="catalog_button catalog_button_1024 open_cat_menu"><span>Каталог</span></a>
+                    <a href="#" class="catalog_button"><span>Каталог</span></a>
+                    <div class="main_cat_dd_wrp">
+                        <div class="main_cat_dd">
+                            <x-top-cat-menu :allcat="$all_cat"></x-top-cat-menu>
+                        </div>
+                    </div>
                 </div>
 
                 <form class="serch_form" action="{{route('show_search_page')}}" method="GET">
