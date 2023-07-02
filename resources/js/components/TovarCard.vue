@@ -4,7 +4,7 @@
         <to-favorites-btn :sku="tovar.sku"></to-favorites-btn>
         <a href="#" class="tovat_photo_wrap">
             <img v-if="tovar.img != ''" :src="tovar.img" :alt="tovar.title">
-            <img v-else src="/img/noPhoto.jpg" :alt="tovar.title">
+            <img v-else :src="'/img/noPhoto.jpg'" :alt="tovar.title">
 
             <div class="labels">
                 <div v-if="tovar.hit" class="label_all label_hit">hit</div>
