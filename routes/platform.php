@@ -29,6 +29,10 @@ use App\Orchid\Screens\SiteVisual\MainBannersScreen;
 use App\Orchid\Screens\TextEditScreen;
 use App\Orchid\Screens\AdvantagesScreen;
 
+use App\Orchid\Screens\Blog\BlogCreateScreen;
+use App\Orchid\Screens\Blog\BlogEditScreen;
+use App\Orchid\Screens\Blog\BlogListScreen;
+
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -63,6 +67,24 @@ Route::screen('/orders/{id}/edit', OrderEditScreen::class)->name('platform.order
         ->push(__('Просмотр заказа'), route('platform.orders.edit', $id)));
 
 // Заказы end
+
+//Блог
+
+Route::screen('/blog', BlogListScreen::class)
+    ->name('platform.blog')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Блог'), route('platform.blog')));
+
+Route::screen('/blog/{id}/edit', BlogEditScreen::class)
+    ->name('platform.blog_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.blog')
+    ->push(__('Редактирование статьи'), route('platform.blog_edit', $id)));
+
+Route::screen('/blog/create', BlogCreateScreen::class)
+    ->name('platform.blog_create')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.blog')
+    ->push(__('Добавление статьи'), route('platform.blog_create')));
+
 
 Route::screen('/products', ProductsScreen::class)->name('platform.products')
     ->breadcrumbs(fn (Trail $trail) => $trail

@@ -92,7 +92,7 @@ class OptionSeeder extends Seeder
                 [
                     "name" => "delivery",
                     'title' => 'Доставка',
-                    "value" => (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')?file_get_contents(public_path('texts\delivery.txt')):file_get_contents(public_path('texts/delivery.txt')),
+                    "value" => clear_html(file_get_contents(public_path('texts//delivery.txt'))),
                 ],
 
                 [

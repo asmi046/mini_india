@@ -2,7 +2,8 @@
 
 if (!function_exists("clear_html")) {
     function clear_html($value) {
-        return preg_replace('~>\K\s+~', PHP_EOL, $value);;
+        // return preg_replace('~>\K\s+~', PHP_EOL, $value);
+        return str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $value);
     }
 }
 

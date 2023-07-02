@@ -50,6 +50,10 @@ class PlatformProvider extends OrchidServiceProvider
             ->route("platform.mainbanner")
             ->title('Оформление сайта'),
 
+            Menu::make('Блог')
+                ->icon('pencil')
+                ->route('platform.blog'),
+
             Menu::make('Политика конфиденциальности')
             ->icon("info")
             ->route("platform.textedit", "policy"),
