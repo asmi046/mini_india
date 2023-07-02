@@ -30,18 +30,20 @@ class YandexDeliveryServices {
 
     public function calc_price() {
         $payload = [
-            "client_price" =>300000,
+            "client_price" =>100000,
             "destination"=> [
-                "address" => "305046 г. Курск ул. Олимпийская д. 29"
+                "address" => "153000, г. Иваново, ул. Жарова, 11"
             ],
             "payment_method" => "already_paid",
             "source"=> [
-                "address" => "305046 г. Курск ул. Олимпийская д. 29"
+                // "platform_station_id" => "4eb18cc4-329d-424d-a8a8-abfd8926463d"
+                // "address" => "105064, г. Москва, ул. Земляной вал, д. 14-16, стр. 1"
+                "address" => "305046, г. Курск, ул. Олимпийская, д. 29"
             ],
 
             "tariff" => "time_interval",
-            "total_assessed_price" => 300000,
-            "total_weight" => 2
+            "total_assessed_price" => 700000,
+            "total_weight" => 1
         ];
 
         $result = $this->do_query('pricing-calculator?is_oversized=false', 'POST', $payload, true);
