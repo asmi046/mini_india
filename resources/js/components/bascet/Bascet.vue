@@ -51,13 +51,19 @@
                     <div class="itogo_row">
                         <span class="text">Товары (<span>{{count}}</span>)</span>
                         <span class="razd"></span>
-                        <span class="p_price rub price_formator">{{Number(subtotal).toLocaleString('ru-RU')}}</span>
+                        <span class="p_price rub price_formator">{{Number(subtotal).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
+                    </div>
+
+                    <div v-if="deliveryPrice != 0" class="itogo_row">
+                        <span class="text">Доставка</span>
+                        <span class="razd"></span>
+                        <span class="p_price rub price_formator">{{Number(deliveryPrice).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
                     </div>
 
                     <div class="itogo_row itogo_row_final">
                         <span class="text">Итого</span>
                         <span class="razd"></span>
-                        <span class="p_price rub price_formator">{{Number(subtotal).toLocaleString('ru-RU')}}</span>
+                        <span class="p_price rub price_formator">{{Number(subtotal + deliveryPrice).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
                     </div>
                 </div>
             </div>
@@ -70,15 +76,25 @@
                 <input v-model="bascetInfo.fio" name="fio" type="text" placeholder="Фамилия, Имя*">
                 <input v-model="bascetInfo.email" name="email" type="email" placeholder="e-mail">
                 <input v-model="bascetInfo.phone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
-                <textarea v-model="bascetInfo.adress" name="adress" placeholder="Адрес"></textarea>
-                <select v-model="deliveryMethod" name="delivery_method" >
+                <textarea v-model="bascetInfo.comment" name="comment" placeholder="Комментарий"></textarea>
+
+                <h2>Адрес доставки</h2>
+                <input @change="calcDeliveryPrice" v-model="bascetInfo.city" name="city" type="text" placeholder="Город*">
+                <input @change="calcDeliveryPrice" v-model="bascetInfo.street" name="street" type="text" placeholder="Улица*">
+                <input @change="calcDeliveryPrice" v-model="bascetInfo.home" name="home" type="text" placeholder="Дом*">
+                <input @change="calcDeliveryPrice" v-model="bascetInfo.postindex" name="postindex" type="text" placeholder="Почтовый индекс*">
+
+                <!-- <textarea v-model="bascetInfo.adress" name="adress" placeholder="Адрес"></textarea> -->
+
+                <!-- <select v-model="deliveryMethod" name="delivery_method" >
                     <option value="" selected disabled>Выберите спопоб доставки</option>
                     <option value="Почта России">Почта России</option>
                     <option value="Курьером до двери">Курьером до двери</option>
                     <option value="Транспортной компантей до пункта выдачи">Транспортной компантей до пункта выдачи</option>
-                </select>
-                <textarea v-model="bascetInfo.comment" name="comment" placeholder="Комментарий"></textarea>
+                </select> -->
 
+
+                <h2>Способ оплаты</h2>
                 <pay-selector v-model="payType"></pay-selector>
 
                 <ul v-show="errorList.length != 0" class ="errors_list">
@@ -88,7 +104,7 @@
 
 
                 <button @click.prevent="sendBascet()" class="btn" type="submit">Оформить</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
-                <p @click.prevent="test()" class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+                <p class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
             </form>
         </div>
     </div>
@@ -114,12 +130,17 @@ export default {
             show_bascet:false,
             payType:1,
             deliveryMethod:"",
+            deliveryPrice:0,
             errorList:[],
             bascetInfo:{
                 fio:"",
                 email:"",
                 phone:"",
                 adress:"",
+                city:"",
+                street:"",
+                home:"",
+                postindex:"",
                 comment:"",
             }
         }
@@ -135,9 +156,30 @@ export default {
             })
             .catch(error => console.log(error));
     },
+
     methods: {
-        test() {
-            console.log(this.payType)
+        calcDeliveryPrice() {
+            if((this.bascetInfo.city != "")&&(this.bascetInfo.street != "")&&(this.bascetInfo.home != "")&&(this.bascetInfo.postindex != "")) {
+                if (this.subtotal > 3000) {
+                    this.deliveryPrice = 0;
+                    return;
+                }
+
+
+                axios.get('/delivery_calc', {params:{
+                    city:this.bascetInfo.city,
+                    street:this.bascetInfo.street,
+                    home:this.bascetInfo.home,
+                    postindex:this.bascetInfo.postindex,
+                    price: this.subtotal
+                }})
+                .then((response) => {
+                    this.deliveryPrice = parseFloat(response.data.pricing_total)
+                    console.log(this.deliveryPrice)
+                    console.log(response.data.pricing_total)
+                })
+                .catch(error => console.log(error));
+            }
         },
         sendBascet() {
 
@@ -151,6 +193,18 @@ export default {
             if (this.bascetInfo.phone == "")
                 this.errorList.push("Поле 'Телефон' не заполнено");
 
+            if (this.bascetInfo.city == "")
+                this.errorList.push("Поле 'Город' не заполнено");
+
+            if (this.bascetInfo.street == "")
+                this.errorList.push("Поле 'Улица' не заполнено");
+
+            if (this.bascetInfo.home == "")
+                this.errorList.push("Поле 'Дом' не заполнено");
+
+            if (this.bascetInfo.postindex == "")
+                this.errorList.push("Поле 'Почтовый индекс' не заполнено");
+
             if (this.errorList.length != 0 ) return;
 
             this.loadet = true;
@@ -162,7 +216,7 @@ export default {
                 adress: this.bascetInfo.adress,
                 comment: this.bascetInfo.comment,
                 count: this.count,
-                amount: this.subtotal,
+                amount: this.subtotal + this.deliveryPrice,
                 delivery: this.deliveryMethod,
                 pay: (this.payType == 1)?"Ю-касса":"Перевод на карту",
                 tovars: this.bascetList,

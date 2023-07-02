@@ -20,6 +20,7 @@ use App\Http\Controllers\ActionController;
 use App\Http\Controllers\SenderController;
 use App\Http\Controllers\ShowMoreController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\DeliveryCalcController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,8 @@ use App\Http\Controllers\TestController;
 */
 
 Route::get('/test_api', [TestController::class, 'index'])->name('test_api');
+
+Route::get('/delivery_calc', [DeliveryCalcController::class, 'index'])->name('delivery_calc');
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/actions', [ActionController::class, 'index'])->name('actions');

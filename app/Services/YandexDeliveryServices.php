@@ -14,7 +14,7 @@ class YandexDeliveryServices {
 
         if ($autorized) $header_line[] = "Authorization: Bearer ".config('yandex.yandex_delivery_token');
 
-        $ch = curl_init("https://b2b.taxi.tst.yandex.net/api/b2b/platform/".$url);
+        $ch = curl_init(config('yandex.yandex_delivery_lnk').$url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -28,22 +28,21 @@ class YandexDeliveryServices {
 
     }
 
-    public function calc_price() {
+    public function calc_price($city, $street, $home, $postindex, $price) {
+        $fullAdress = $postindex.", г. ".$city.", ".$street.", ".$home;
+
         $payload = [
-            "client_price" =>100000,
             "destination"=> [
-                "address" => "153000, г. Иваново, ул. Жарова, 11"
+                "address" => $fullAdress
             ],
             "payment_method" => "already_paid",
             "source"=> [
-                // "platform_station_id" => "4eb18cc4-329d-424d-a8a8-abfd8926463d"
-                // "address" => "105064, г. Москва, ул. Земляной вал, д. 14-16, стр. 1"
                 "address" => "305046, г. Курск, ул. Олимпийская, д. 29"
             ],
 
             "tariff" => "time_interval",
-            "total_assessed_price" => 700000,
-            "total_weight" => 1
+            "total_assessed_price" => $price * 100,
+            "total_weight" => 2
         ];
 
         $result = $this->do_query('pricing-calculator?is_oversized=false', 'POST', $payload, true);
