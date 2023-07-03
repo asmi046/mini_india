@@ -32,11 +32,11 @@ export default {
         const getMoreTovar = () => {
 
             let sep = (window.location.search == "")?"?=":""
-            let searchStr = window.location.search+sep+"&catid="+props.catid+"&inpage="+inpageCalc+"&addcount="+props.inpage
+            let searchStr = window.location.search+sep+"&catid="+props.catid+"&inpage="+inpageCalc+"&addcount=16"
 
             axios.get(props.route+searchStr)
             .then((response) => {
-                inpageCalc = Number(inpageCalc) + Number(props.inpage)
+                inpageCalc = Number(inpageCalc) + 16
                 addTovars.value = addTovars.value.concat(response.data.product)
             })
             .catch( (error) => {

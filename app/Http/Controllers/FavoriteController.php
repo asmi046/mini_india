@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Favorite;
 
+use Illuminate\Support\Facades\Storage;
+
 class FavoriteController extends Controller
 {
     public function add(Request $request) {
@@ -24,6 +26,14 @@ class FavoriteController extends Controller
 
     public function get_all() {
         $fav_product = Favorite::with('tovar_data')->where("favorites.session_id", session()->getId())->get();
+
+        foreach ($fav_product as $item) {
+            if(Storage::disk('public')->exists($item->tovar_data->img))
+                $item->tovar_data['trueImgSrc'] = Storage::url($item->tovar_data->img);
+            else $item->tovar_data['trueImgSrc'] = "";
+            $item->tovar_data['trueLnk'] = route('product', $item->tovar_data->slug);
+        }
+
         return ["count" => count($fav_product), "position" => $fav_product] ;
     }
 

@@ -2,7 +2,7 @@
     <div class="tovar_wrap main-prod-card"  :data-prodid="tovar.sku">
         <div class="bascet_count"> В корзине <span>1</span> шт </div>
         <to-favorites-btn :sku="tovar.sku"></to-favorites-btn>
-        <a href="#" class="tovat_photo_wrap">
+        <a :href="tovar.trueLnk" class="tovat_photo_wrap">
             <img v-if="tovar.img != ''" :src="tovar.img" :alt="tovar.title">
             <img v-else :src="'/img/noPhoto.jpg'" :alt="tovar.title">
 

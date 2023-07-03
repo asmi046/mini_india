@@ -34,7 +34,10 @@
                     @endforeach
                 </div>
 
-                <show-more route="/show_more_tovar" catid="{{$category_info['id']}}" inpage="16"></show-more>
+                @php
+                    $inPage = isset($_REQUEST['page'])?(int)$_REQUEST['page'] * 16:16;
+                @endphp
+                <show-more route="/show_more_tovar" catid="{{$category_info['id']}}" inpage="{{$inPage}}"></show-more>
                 <x-pagination :tovars="$tovars"></x-pagination>
 
             </div>
