@@ -26,7 +26,7 @@ class ShowMoreController extends Controller
             if(Storage::disk('public')->exists($item->img))
                 $item['trueImgSrc'] = Storage::url($item->img);
             else $item['trueImgSrc'] = "";
-            $item['trueLnk'] = route('product', $item->slug);
+            $item['trueLnk'] = route('tovar', $item->slug);
         }
 
         return ["product" => $cat_product];

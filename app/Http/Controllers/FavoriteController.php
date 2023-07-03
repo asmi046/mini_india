@@ -31,7 +31,7 @@ class FavoriteController extends Controller
             if(Storage::disk('public')->exists($item->tovar_data->img))
                 $item->tovar_data['trueImgSrc'] = Storage::url($item->tovar_data->img);
             else $item->tovar_data['trueImgSrc'] = "";
-            $item->tovar_data['trueLnk'] = route('product', $item->tovar_data->slug);
+            $item->tovar_data['trueLnk'] = route('tovar', $item->tovar_data->slug);
         }
 
         return ["count" => count($fav_product), "position" => $fav_product] ;
