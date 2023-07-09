@@ -37,7 +37,7 @@ class YandexDeliveryServices {
             ],
             "payment_method" => "already_paid",
             "source"=> [
-                "address" => "305046, г. Курск, ул. Олимпийская, д. 29"
+                "address" => "117303, Москва, Малая Юшуньская улица, 1к1"
             ],
 
             "tariff" => "time_interval",

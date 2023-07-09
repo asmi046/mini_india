@@ -176,7 +176,7 @@ export default {
                 .then((response) => {
                     this.deliveryPrice = parseFloat(response.data.pricing_total)
                     console.log(this.deliveryPrice)
-                    console.log(response.data.pricing_total)
+                    console.log(response.data)
                 })
                 .catch(error => console.log(error));
             }
