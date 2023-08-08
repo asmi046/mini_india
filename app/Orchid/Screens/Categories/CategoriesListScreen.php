@@ -68,7 +68,8 @@ class CategoriesListScreen extends Screen
             Layout::modal('addCategoryModal',
                 Layout::rows([
                     Input::make("title")->required()->title('Название категории'),
-                    Input::make("slug")->required()->title('Псевданим'),
+                    Input::make("slug")->title('Псевданим'),
+                    Input::make("parent")->title('Родительская категория'),
                     TextArea::make("description")->required()->title('Описание категории'),
                     Input::make("seo_title")->title('seo заголовок'),
                     Input::make("seo_description")->title('seo описание'),
@@ -80,7 +81,8 @@ class CategoriesListScreen extends Screen
                 Layout::rows([
                     Input::make("category.id")->type('hidden'),
                     Input::make("category.title")->required()->title('Название категории'),
-                    Input::make("category.slug")->required()->title('Псевданим'),
+                    Input::make("category.slug")->title('Псевданим'),
+                    Input::make("category.parent")->title('Родительская категория'),
                     TextArea::make("category.description")->required()->title('Описание категории'),
                     Input::make("category.seo_title")->title('seo заголовок'),
                     Input::make("category.seo_description")->title('seo описание'),
@@ -101,7 +103,8 @@ class CategoriesListScreen extends Screen
     public function newCategory(Request $request) {
         $request->validate([
             'title' => ['required'],
-            'slug' => ['required'],
+            'slug' => [],
+            'parent' => [],
             'description' => ['required', 'min:5'],
             'seo_title' => [],
             'seo_description' => [],
@@ -121,7 +124,8 @@ class CategoriesListScreen extends Screen
 
         $request->validate([
             'category.title' => ['required'],
-            'category.slug' => ['required'],
+            'category.slug' => [],
+            'category.parent' => [],
             'category.description' => ['required', 'min:5'],
             'category.seo_title' => [],
             'category.seo_description' => [],

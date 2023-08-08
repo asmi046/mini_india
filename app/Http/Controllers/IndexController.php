@@ -20,7 +20,7 @@ class IndexController extends Controller
 
         $sales = Product::where('old_price', "!=", 0)->take(8)->get();
         return view('index', [
-            'categories' => Category::where("parent","")->get(),
+            'categories' => Category::where("parent","")->orWhere("parent",NULL)->get(),
             'news' => $news,
             'recommend' => $recommend,
             'sales' => $sales,
