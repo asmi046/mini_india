@@ -1653,3 +1653,11 @@ textarea {
         display: none;
     } */
 }
+
+@media (max-width: 480px){
+
+    jdiv.wrap_f4f7  {
+        bottom: 65px;
+    }
+
+}
