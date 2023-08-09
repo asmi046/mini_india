@@ -4,7 +4,7 @@ namespace App\Orchid\Screens\Blog;
 
 use Orchid\Screen\Screen;
 
-use App\Models\BlogPost;
+use App\Models\Blog;
 
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
@@ -33,7 +33,7 @@ class BlogEditScreen extends Screen
 
     public function query($id): iterable
     {
-        $post = BlogPost::where('id',$id)->first();
+        $post = Blog::where('id',$id)->first();
         return [
             "post" => $post
         ];
@@ -74,8 +74,16 @@ class BlogEditScreen extends Screen
                 Input::make('title')
                     ->title('Заголовок')
                     ->value($this->post->title)
+
                     ->help('Заголовок категории')
                     ->required()
+                    ->horizontal(),
+
+
+                 TextArea::make('quote')
+                    ->title('Цитата')
+                    ->value($this->post->quote)
+                    ->help('Цитата для выврда в карточку')
                     ->horizontal(),
 
                 Input::make('slug')
@@ -114,7 +122,7 @@ class BlogEditScreen extends Screen
         ];
     }
 
-    public function save_info(BlogPost $post, Request $request) {
+    public function save_info(Blog $post, Request $request) {
 
         $new_data = $request->validate([
             'title' => ['required', 'string'],
@@ -126,7 +134,7 @@ class BlogEditScreen extends Screen
         ]);
 
 
-        BlogPost::where('id', $post->id)->update($new_data);
+        Blog::where('id', $post->id)->update($new_data);
         Toast::info("Статья сохранена");
     }
 }

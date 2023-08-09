@@ -17,6 +17,7 @@ class Blog extends Model
     public $fillable = [
         'created_at',
         'title',
+        'quote',
         'slug',
         'img',
         'description',

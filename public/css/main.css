@@ -339,6 +339,11 @@ section {
 
 /*-----Оформление текстового блока-----*/
 
+.text_blk img{
+    max-width: 800px;
+    border-radius: 20px;
+}
+
 .text_blk p{
     padding: 0.5em 0;
 }

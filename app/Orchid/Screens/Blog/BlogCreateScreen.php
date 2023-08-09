@@ -4,7 +4,7 @@ namespace App\Orchid\Screens\Blog;
 
 use Orchid\Screen\Screen;
 
-use App\Models\BlogPost;
+use App\Models\Blog;
 
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
@@ -72,6 +72,11 @@ class BlogCreateScreen extends Screen
 
                     ->horizontal(),
 
+                TextArea::make('quote')
+                    ->title('Цитата')
+                    ->help('Цитата для выврда в карточку')
+                    ->horizontal(),
+
                 Quill::make('description')->required()->title('Описание'),
 
                 Button::make('Добавить статьи')->method('save_info')->type(Color::SUCCESS())
@@ -111,7 +116,7 @@ class BlogCreateScreen extends Screen
         ]);
 
 
-        BlogPost::create($new_data);
+        Blog::create($new_data);
 
         Toast::info("Статья добавлена");
 
