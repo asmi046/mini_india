@@ -71,7 +71,7 @@ class BrandScreen extends Screen
             Layout::modal('addBrandModal',
                 Layout::rows([
                     Input::make("title")->required()->title('Название бренда'),
-                    Input::make("slug")->required()->title('Псевданим'),
+                    Input::make("slug")->title('Псевданим'),
                     TextArea::make("description")->required()->title('Описание бренда'),
                     Input::make("seo_title")->title('seo заголовок'),
                     Input::make("seo_description")->title('seo описание'),
@@ -83,7 +83,7 @@ class BrandScreen extends Screen
                 Layout::rows([
                     Input::make("brand.id")->type('hidden'),
                     Input::make("brand.title")->required()->title('Название бренда'),
-                    Input::make("brand.slug")->required()->title('Псевданим'),
+                    Input::make("brand.slug")->title('Псевданим'),
                     TextArea::make("brand.description")->required()->title('Описание бренда'),
                     Input::make("brand.seo_title")->title('seo заголовок'),
                     Input::make("brand.seo_description")->title('seo описание'),
@@ -105,7 +105,7 @@ class BrandScreen extends Screen
     public function newBrend(Request $request) {
         $request->validate([
             'title' => ['required'],
-            'slug' => ['required'],
+            'slug' => [],
             'seo_description' => [],
             'seo_title' => [],
             'description' => ['required', 'min:5'],
