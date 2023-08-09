@@ -16,7 +16,7 @@ class BlogController extends Controller
     }
 
     public function show() {
-        $posts = Blog::paginate(12);
+        $posts = Blog::orderBy('created_at', 'desc')->paginate(12);
         return view('blog', ['posts' => $posts]);
     }
 }
