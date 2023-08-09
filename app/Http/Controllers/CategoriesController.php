@@ -22,7 +22,9 @@ class CategoriesController extends Controller
         $category_brend = Product::select('brand')->where('category', $categoryInfo->title)->groupBy('brand')->get();
 
 
-        $cat_product = Product::where('category', $categoryInfo->title)->filter($request)->paginate(16)->withQueryString();
+        $cat_product = $categoryInfo->category_tovars()->filter($request)->paginate(16)->withQueryString();
+        // $cat_product = Product::where('category', $categoryInfo->title)->filter($request)->paginate(16)->withQueryString();
+
 
         return view('category', ['category_info' => $categoryInfo, 'sub_cat'=> $sub_categorys, 'tovars' => $cat_product, "brand_list" => $category_brend]);
     }
