@@ -127,6 +127,7 @@ class BlogEditScreen extends Screen
         $new_data = $request->validate([
             'title' => ['required', 'string'],
             'slug' => [],
+            'quote' => [],
             'description' => ['required', 'string'],
             'img' => ['required', 'string'],
             'seo_title' => [],
