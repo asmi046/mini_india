@@ -62,7 +62,7 @@ class BlogListScreen extends Screen
 
 
     public function delete_field($id) {
-        $dell_elem = BlogPost::where('id', $id)->first();
+        $dell_elem = Blog::where('id', $id)->first();
         if ($dell_elem ) {
             $dell_elem->delete();
             Toast::info("Статья удалена");
