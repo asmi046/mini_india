@@ -203,7 +203,7 @@ class ProductSeeder extends Seeder
                     echo $product_id->id ." -> ". $one_row['title']."\n\r";
 
 
-                    $category = DB::table('categories')->select('id')->where("title", $data[7])->first();
+                    $category = DB::table('categories')->select('id')->where("title", $this->title_replace($data[7]))->first();
                     $sub_category = DB::table('categories')->select('id')->where("title", $data[8])->first();
 
                     if (!empty($category->id))
